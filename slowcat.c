@@ -23,9 +23,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <time.h>
 
 int debug = 0;
-char version[] = "2020 Aug 20: first rewrite by Eli the Bearded";
+char version[] = "2020 Aug 22: second Eli the Bearded edition";
 
 void show_version(char *name) {
 	printf("%s version %s\n", name, version);
@@ -47,8 +48,13 @@ void usage(FILE *where, char *name) {
 	fprintf(where,"bytes output of 1 to 20000 useconds. Recall that\n");
 	fprintf(where,"baud is a rate of bits per second, so 1200 baud\n");
 	fprintf(where,"is one bit ever 833.3 useconds, one byte every\n");
-	fprintf(where,"6666.4 useconds, and 150 bytes per second.\n");
+	fprintf(where,"6666.4 useconds, and 150 bytes per second.\n\n");
+	fprintf(where,"Out of range values will be replaced by reasonable\n");
+	fprintf(where,"values silently. The verbose option shows the\n");
+	fprintf(where,"usecond value actually used at the end of the run.\n");
 }
+
+void delay(useconds_t);
 
 int main(int argc, char **argv) {
 	int c, option;
@@ -57,6 +63,8 @@ int main(int argc, char **argv) {
 	FILE *fp;
 	char *fnam;
 
+	opterr = 0;
+
 	while ( (option = getopt(argc, argv, "b:d:vVh")) != -1 ) {
 		switch (option) {
 			case 'v':
@@ -64,7 +72,7 @@ int main(int argc, char **argv) {
 				break;
 
 			case 'b':
-				baud = strtoul( optarg, NULL, 10);
+				baud = strtoul( optarg, NULL, 10 );
 				/* 75 is the lowest generally accepted baud
 				 * rate, but even the Bell 101 modem did 110.
 				 * At the other end, 128k baud is ISDN.
@@ -78,7 +86,7 @@ int main(int argc, char **argv) {
 				break;
 
 			case 'd':
-				usecs = strtoul(argv[2],NULL,10);
+				usecs = strtoul( optarg, NULL, 10 );
 				if(usecs <= 0 || usecs > 20000) {
 					usecs = 100;
 				}
@@ -120,7 +128,7 @@ int main(int argc, char **argv) {
 
 		while ( (c = fgetc( fp )) != EOF ) {
 			putchar(c);
-			usleep(usecs);
+			delay(usecs);
 		}
 
 		fclose(fp);
@@ -139,4 +147,20 @@ int main(int argc, char **argv) {
 		printf("\nDelay used: %lu useconds.\n", (unsigned long) usecs);
 	}
 	return (0);
+}
+
+/* So it turns out my old standby of usleep() is deprecated, and
+ * nanosleep() is preferred. This lets either be used, and both are
+ * better than the empty loop as the non-nanosleep alternative in
+ * the original slowcat.c.
+ * Precision isn't that important, so we dispense with frivolities
+ * like checking for how long either sleep actually slept.
+ */
+void delay(useconds_t usecs) {
+#if _POSIX_C_SOURCE >= 199309L
+	struct timespec ts = {0, (long)usecs * 1000};
+	nanosleep(&ts, NULL);
+#else
+	usleep(usecs);
+#endif
 }
