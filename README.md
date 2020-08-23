@@ -52,3 +52,7 @@ You can compile and run signature.c, and modify it as needed to get it
 to compile, but do not distribute the binary and do not distribute the
 source without my email address in it.
 
+
+Blog post about this code:
+
+https://qaz.wtf/qz/blosxom/2020/08/22/slowcat
