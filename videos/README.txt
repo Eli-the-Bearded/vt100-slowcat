@@ -2,7 +2,9 @@ Videos from two sources, with some repeats.
 
 grox.net videos in grox/
 
-textfiles.com videoes in textfiles/
+textfiles.com videos in textfiles/
+
+other videos (well, just one right now) in other/
 
 source URLs in .fetch files; downloaded 2020 Aug 22
 
