@@ -1,0 +1,14 @@
+The Star Wars video long viewable by telnet connection to
+towel.blinkenlights.nl. Collected via `script` July 2021
+after hearing that the telnet server on the IPv4 address
+had stopped responding. That version was essentially the
+same, but had an intro promise that the IPv6 version was
+in color.
+
+Hosted via telnet server there are other options for
+controlling speed than in a traditional video for `cat`.
+The server can do such things as actually pausing output,
+and this video seems to have been formatted for that. 
+
+Still, one can get an okay rendition with the script output.
+Try a baud rate of 14400.
