@@ -24,6 +24,38 @@ videos
 The videos come from various sources, with unknown licensing. There's
 a readme in that directory, and description files for all of the videos.
 
+BAUD reference
+--------------
+
+In days of yore, conversion of a binary signal to an audio stream
+and then back via a modem was a common way to connect to a remote
+computer over an ordinary telephone line. The first modem (of note)
+was the Bell 101 which had a BAUD of 110, that is 110 bits per second.
+Speeds went up from there. Traditional dialup used these rates:
+
+| BAUD rate | common in era of VT100 videos |
+| --------- | ----------------------------- |
+|      110  | no |
+|      300  | no |
+|      600  | maybe |
+|     1200  | maybe |
+|     2400  | maybe |
+|     4800  | yes |
+|     9600  | yes |
+|    14400  | maybe |
+|    19200  | maybe |
+|    28800  | no |
+|    38400  | no |
+|    57600  | no (basically max for one phone line) |
+|   115200  | no (achieved by using two lines) |
+
+Fun fact: dial up credit card auth systems, where they still exist,
+typically still use 1200 or 2400 baud because the handshake time for
+higher speeds takes too long. The handshake is the "modem sound"
+people who used them will remember. At 1200 baud the call can complete
+faster than it can at 9600 since there's so little data actually
+exchanged.
+
 signature
 ---------
 
@@ -37,16 +69,17 @@ I've refreshed it, fixing the sphere to be more circular as signature.c.
 This is old-school International Obfuscated C Code Contest code style,
 and it eschews things like useful variable names, header includes, and
 whitespace. (So was signature.c-OLD, too.) As such compiling it requires
-some finess and produces a lot of warnings. Assuming it does compile
-for you, and it's not a default target for the `make`, you can view it
-with:
+some finesse and a tolerance for a lot of warnings. Assuming it does
+compile for you, and it's not a default target for the `make`, you can
+view it with:
 
 ```
 ./signature | ./slowcat -b 9600
 ```
 
 Getting signature.c to play was a major reason for fixing slowcat.c to
-use zero or more files instead of exactly one.
+read from standard input, fixing it to use zero or more files now,
+instead of exactly one.
 
 You can compile and run signature.c, and modify it as needed to get it
 to compile, but do not distribute the binary and do not distribute the
