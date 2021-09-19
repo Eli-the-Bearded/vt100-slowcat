@@ -1,23 +1,18 @@
 From: boba@wwa.com (Bob Allison)
-Newsgroups: rec.arts.ascii,alt.ascii-art,alt.binaries.pictures.ascii,alt.ascii-art.animation,comp.graphics,alt.answers,comp.answers,rec.answers,news.answers
-Subject: FAQ - ASCII Art Questions & Answers (4.1 - 50 K)
-Followup-To: rec.arts.ascii
-Date: 26 Sep 1994 12:09:07 -0500
-Organization: WorldWide Access (SM) Chicagoland Internet Services 312-282-8605
-Message-ID: <366v7j$o5f@gagme.wwa.com>
-Summary: what ASCII art is - why and what it's used for - types of ASCII art
-         how to use FTP, Gopher, WWW - how to save, 'uudecode' and uncompress
-         copyright info - how to make big letters and gray scale pictures
-         how to put an animation in your .plan - info on posting ASCII art
-         how to make a sig - how to automatically add a sig to posts and email
-         how to make and view ASCII art - where to get art and tools - more
-Keywords: faq, ascii art
+Subject: FAQ - ASCII Art Questions & Answers (4.9 - 58 K)
+Date: 1995/10/10
+Message-ID: <45ekl0$l0e@miso.wwa.com>
+summary: what ASCII art is - why and what it's used for - types of ASCII art
+organization: WorldWide Access (SM) Chicagoland Internet Services 312-282-8605 708-367-1871
+keywords: faq, ascii art
+newsgroups: rec.arts.ascii,alt.ascii-art,alt.binaries.pictures.ascii,alt.ascii-art.animation,comp.graphics,alt.answers,comp.answers,rec.answers,news.answers
 
 
 Archive-name: ascii-art-faq
 Posting-Frequency: Weekly
-Last-modified: Mon, 26 Sep 1994
-Version: 4.1
+Last-modified: Mon, 25 Sep 1995
+Version: 4.9.1
+URL: <http://gagme.wwa.com/~boba/faq.html>
 
 
 
@@ -35,30 +30,31 @@ Version: 4.1
     *  /__________________/' /__________________/  /    _________     /  .   (
 (   ' .    :     `  .       +    ' .        *     /    /   .  ' /    /.
 .+   _______________   .   ___________________ ' /    /   `    /    /   '
-  . /              /     '/                  /. /    /  .   + /    / .    *  '
+  . /              /     '/                  /. /    /  .  +  /    / .    *  '
 '  /    __________/  ' . /    _________     /  /    /'.    /\/    /     (
 ' /    /     .          /    /  .     /    / '/    /______/      /  :   `.
  /    /     ( '      ' /    /  . +   /    /. /                  / .    '
 /____/   .     `      /____/.       /____/  /________________  /           `
-Version 4.1          September 26, 1994     boba@wwa.com     \/       .
-       .                       `       *                          .
+Version 4.9.1        September 25, 1995     boba@wwa.com     \/       .
+       .                  '            *                          .
           .                         `                                    .
 
   .
 
 
-                   ___  _   _ ___ ___ _____ ___ ___  _  _ ___
-                  / _ \| | | | __/ __!_   _!_ _/ _ \| \| / __!
-                 | (_) | |_| | _|\__ \ | |  | | (_) | .` \__ \
-                  \__\_\\___/!___!___/ !_! !___\___/!_|\_!___/
-                   O  _    ___ _  _    ______   ___      ____
-                  /|\/    |_ _| \| |  |  ____! / _ \    / __ \
-                 / |       | || .` |  | |     | | | |  | |  | |
-                  / \     !___!_!\_!  | |__   | !_! |  | |  | |
-                _/___\_   _ ___ ___   |  __!  |  _  |  | |  | |
-               !_   _| |_| |_ _/ __!  | |     | | | |  | |  | |
-                 | | |  _  || |\__ \  | |     | | | |  | !__! |
-                 !_! !_! !_!___!___/  !_!     !_! !_!   \___\_\
+    ___              ___  _   _ ___ ___ _____ ___ ___  _  _ ___
+   |   |            / _ \| | | | __/ __!_   _!_ _/ _ \| \| / __!
+   |   |           | (_) | |_| | _|\__ \ | |  | | (_) | .` \__ \
+   |   |            \__\_\\___/!___!___/ !_! !___\___/!_|\_!___/
+   |   |             O  _    ___ _  _    ______   ___      ____
+   |   |            /|\/    |_ _| \| |  |  ____! / _ \    / __ \
+ __!   !__,        / |       | || .` |  | |     | | | |  | |  | |
+ \       / \O       / \     !___!_!\_!  | |__   | !_! |  | |  | |
+  \     / \/|     _/___\_   _ ___ ___   |  __!  |  _  |  | |  | |
+   \   /    |    !_   _| |_| |_ _/ __!  | |     | | | |  | |  | |
+    \ /    / \     | | |  _  || |\__ \  | |     | | | |  | !__! |
+     Y   _/  _\    !_! !_! !_!___!___/  !_!     !_! !_!   \___\_\
+
 
 
    1  What is ASCII art?
@@ -70,7 +66,7 @@ Version 4.1          September 26, 1994     boba@wwa.com     \/       .
    7  Are there any ASCII tools?
    8  Where can I get ASCII tools?
    9  Where can I find ASCII art?
-  10  How do I use FTP, Gopher and the World Wide Web?
+  10  How do I use FTP, Gopher, World Wide Web, and FTP Mail Servers?
   11  Can I get The Scarecrow's files via email?
   12  Is it OK to copy ASCII art?
   13  How do I make those big letters?
@@ -110,15 +106,17 @@ ______________________________________________________________________________
   a b c d e f g h i j k l m n o p q r s t u v w x y z
   A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
   \ | - _ + % @ < ; ! = # . , : > ( ] / & $ ^ ' ` " ~ ) [ { } ?
-                                            ,
+                                           ,
   These characters are part of the ASCII (as - kee, America Standard Code for
 Information Interchange) set.  This part of the ASCII set, is called the
-'printable set' (characters 32 to 126).  There's also non-standard ASCII art,
-which contain 'contral codes'.
+'printable set' (7 bits, characters 32 to 126).  There's also non-standard
+ASCII art, which contain 'contral codes'.
 
-  ASCII art is popular, with a number of ASCII art groups on the various
+  ASCII art is popular, with several ASCII art groups on the various
 information services.  Before computers, ASCII art was made on typewriters,
-teletype machines, and was created typographically.
+teletype machines (5 bit), and was created typographically.  There are even
+tee-shirts with the :-) smiley.
+
 
 
   2  Why use ASCII art instead of a GIF?
@@ -130,10 +128,11 @@ o Standard ASCII art is the only type of graphics easily transmitted and
 
 o If you can view text, you can view ASCII art (as it is made up of standard
   text characters).  No conversion or special software required to view.
-  Non-standard ASCII art requires that the file be saved and "cat'd".  See
-  Questions 20 and 21.
+  Non-standard ASCII art (8 bit with control codes) requires that the file be
+  saved and "cat'd".  See Questions 20 and 21.
 
 o ASCII art is compact, a few K, not 20, 50, 100 or more K!
+
 
 
   3  What is ASCII art used for?
@@ -154,6 +153,7 @@ o VISUAL AID - Such as a wiring diagram, floor plan, illustrated
   a graphic.
 
 
+
   4  What are the different kinds of ASCII art?
 
   The first four use the standard printable set, and can be viewed anywhere,
@@ -168,14 +168,17 @@ o Gray Scale picture - These create the illusion of gray shades by using
   characters for their light emitting value (assuming you are viewing light
   characters on a dark background).  For example:
 
-  B%$@8&WM#*oahkbdpqwmZO0QLCJUYXrcvunxzjft/\|()1{}[]-_+?<>i!lI~^";:,`'.
-  Lighter  <-                                                 ->  Darker
+  $@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'.
+
+  Lighter   <- viewing light characters on a dark background ->   Darker
+  Darker    <- viewing dark characters on a light background ->   Lighter
 
 o 3-D images - They can be viewed by people with similar vision in both eyes.
   You try to focus as if you are looking at the back of the monitor.  The
   image should pop into focus and create a 3-D illusion.  Other 3-D images
   are viewed by putting your nose on the monitor glass.  See ASCII Art
   Resources for info on where to get 3-D programs.
+
 
   Other forms of ASCII art using the standard printable set include the
 following four:
@@ -196,6 +199,7 @@ immediately upon receiving.  They contain 'control codes' for color or
 animation.  They must be 'uuencoded' to be posted or emailed.  For further
 information, see Question 19.
 
+
   The three types of non-standard ASCII art are:
 
 o Animation - You see an animated image produced by a sequence of changing
@@ -214,6 +218,7 @@ o Color Animation - For an example of color and animation together, take a
   Examples are in ASCII Art Resources and ASCII Art Reference (the Web
 version of the FAQ).  Send any kind of ASCII art you may have to: boba@wwa.com
 
+
   But wait, there are other kinds of ASCII art:
 
 o Overstrike Art - It contains carriage returns without line feeds at times.
@@ -227,9 +232,10 @@ o Srcoll Animation - This is an animation that is made to be viewed by
   'page' of the image.
 
 
+
   5  What is the best way to view ASCII art?
 
-  For best results in viewing ASCII art, try the following:
+  For best results in viewing ASCII art, try:
 
 o A 'non-proportional' font, also called a 'mono-spaced' font.  This is a
   font that displays the same number of characters per inch, no matter what
@@ -240,51 +246,53 @@ o A 'non-proportional' font, also called a 'mono-spaced' font.  This is a
   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
   If they don't look the same length, try another font.  Names to look for on
-  various systems include: Courier, System, Monaco, Line Printer, etc.
+  various systems include: Monaco, Courier, Courier New, Video Terminal,
+  System, TTY, VT100, Screen, Terminal, FixedSys, Line Printer, etc.
+
 
 o A small, say, 9 point font, will help to increase the apparent resolution,
   and the illusion of gray scale images.
 
 o Viewing from a distance of a meter or more.
 
-o Use light characters on a dark background.  Many ASCII pictures are meant
+o Using light characters on a dark background.  Many ASCII pictures are meant
   to be viewed light on dark.  This allows the artist more control over the
-  light, and the viewer sees less glare than you would get from a light
-  background.
+  light.  Also, you see less glare than you would from a light background.
 
   And in some instances:
 
 o While most gray scale pics are made to be viewed light characters on a dark
-  background, some will be dark on light.  This is because it is meant to be
-  printed with dark ink on light paper.  Use dark characters on a light
-  background, or print out the picture.
+  background, some will be made to view dark on light.  This is because they
+  are meant to be printed with dark ink on light paper.  Use dark characters
+  on a light background, or print them out.
 
 o While most ASCII pics are made to be viewed on a monitor that displays 80
-  characters across, some ASCII art is wider, say, 81 to 132 characters
-  across.  It is meant to be printed.  Use a small, say, 4 point type, and
-  view dark on light, or print out the picture.
+  characters across, some ASCII pics are wider, say, 81 to 132 characters
+  across.  They are meant to be printed.  Use a small, say, 4 point type, and
+  view dark on light, or print them out.
 
 o While mast ASCII art is either ready to view, 'cat' or print, you may find
   art that has been saved as a picture in a bitmap, EPS, GIF, or other binary
-  format, which must be viewed or printed with the appropriate software.
+  format.  These must be viewed or printed with the appropriate software.
+
 
   There are a few important things to remember when making, viewing, or
 talking about an ASCII art image.  And they're obvious but almost always
 forgotten.
 
 o Even though different fonts may all be mono-spaced, they ARE different, and
-  can give a picture a different look.  Some artists may mention the font the
+  can make a picture LOOK different.  Some artists may mention the font the
   picture was made with.
 
 o A font may be serif or sans-serif (serifs are the little feet on the
-  characters.  The ascenders and descenders may be straight or curved.  And
-  characters may be wider or narrower.
+  characters).  The ascenders and descenders may be straight or curved.  And
+  characters may be wide or narrow.
 
 o The weight, or heaviness of characters can vary.  Serifs can make them look
   heavier.  Often effected by weight inconsistencies are symbols like:  # $ @
 
 o Shapes can vary too:
-  The more onsistent shapes are:  - / \
+  The more consistent shapes are:  - / \
   The more inconsistent shapes are:  ~ ^ * & | ' [ ] < > 0 l y
 
 o Fonts from different countries may have different characters in them.
@@ -292,12 +300,13 @@ o Fonts from different countries may have different characters in them.
 
 o Different systems display text differently.  If you look at a picture on a
   terminal at a Unix site, and then bring it home and view it on a Mac, it
-  will look different.  On the Mac, it will have a greater aspect ratio.  In
-  other words, it will be displayed shorter top to bottom. Even though it
-  contains the same number of lines.
+  will look different.  On the Mac, it will be displayed shorter top to
+  bottom.  In other words, it will have a greater aspect ratio.  Even though
+  it contains the same number of lines.
 
   See ASCII Art Resources and ASCII Art Reference (the Web version of the
 FAQ) for an aspect ratio chart.
+
 
 
   6  How can I learn to make ASCII art?
@@ -311,6 +320,7 @@ improved.  Make a copy.  Now work on it.  When you are good at that, try to
 improve a really good pic.  Diddle a GIF conversion.  Then see if you can fix
 a damaged file.  Now take some small pics and put them together into a big
 composite image.
+
 
   If you're working from scratch, the following may help you:
 
@@ -351,38 +361,42 @@ o Then there's smoothing, also called "anti-aliasing".  This is where special
 
   Popular fills are:  8 M H
 
-o Use areas of characters for patterns, tones, and contrast.  For example, on
-  the map sig below, notice how there are four nice tonalities.  There is a:
+o Use areas of characters for patterns, tones, and contrast.  For example, in
+  this flower, notice the density of the letters subtlely change to form the
+  petals.  I would like to see this colorized.
 
-  - Dark tone with spaces
-  - Dark quarter tone with the :
-  - Mid tone with the /
-  - Light tone with the #
+               .
+              .@.                                    .
+              @m@,.                                 .@
+             .@m%nm@,.                            .@m@
+            .@nvv%vnmm@,.                      .@mn%n@
+           .@mnvvv%vvnnmm@,.                .@mmnv%vn@,
+           @mmnnvvv%vvvvvnnmm@,.        .@mmnnvvv%vvnm@
+           @mmnnvvvvv%vvvvvvnnmm@, ;;;@mmnnvvvvv%vvvnm@,
+           `@mmnnvvvvvv%vvvvvnnmmm;;@mmnnvvvvvv%vvvvnmm@
+            `@mmmnnvvvvvv%vvvnnmmm;%mmnnvvvvvv%vvvvnnmm@
+              `@m%v%v%v%v%v;%;%;%;%;%;%;%%%vv%vvvvnnnmm@
+              .,mm@@@@@mm%;;@@m@m@@m@@m@mm;;%%vvvnnnmm@;@,.
+           .,@mmmmmmvv%%;;@@vmvvvvvvvvvmvm@@;;%%vvnnm@;%mmm@,
+        .,@mmnnvvvvv%%;;@@vvvvv%%%%%%%vvvvmm@@;;%%mm@;%%nnnnm@,
+     .,@mnnvv%v%v%v%%;;@mmvvvv%%;*;*;%%vvvvmmm@;;%m;%%v%v%v%vmm@,.
+ ,@mnnvv%v%v%v%v%v%v%;;@@vvvv%%;*;*;*;%%vvvvm@@;;m%%%v%v%v%v%v%vnnm@,
+ `    `@mnnvv%v%v%v%%;;@mvvvvv%%;;*;;%%vvvmmmm@;;%m;%%v%v%v%vmm@'   '
+         `@mmnnvvvvv%%;;@@mvvvv%%%%%%%vvvvmm@@;;%%mm@;%%nnnnm@'
+            `@mmmmmmvv%%;;@@mvvvvvvvvvvmmm@@;;%%mmnmm@;%mmm@'
+               `mm@@@@@mm%;;@m@@m@m@m@@m@@;;%%vvvvvnmm@;@'
+              ,@m%v%v%v%v%v;%;%;%;%;%;%;%;%vv%vvvvvnnmm@
+            .@mmnnvvvvvvv%vvvvnnmm%mmnnvvvvvvv%vvvvnnmm@
+           .@mmnnvvvvvv%vvvvvvnnmm'`@mmnnvvvvvv%vvvnnmm@
+           @mmnnvvvvv%vvvvvvnnmm@':%::`@mmnnvvvv%vvvnm@'
+           @mmnnvvv%vvvvvnnmm@'`:::%%:::'`@mmnnvv%vvmm@
+           `@mnvvv%vvnnmm@'     `:;%%;:'     `@mvv%vm@'
+            `@mnv%vnnm@'          `;%;'         `@n%n@
+             `@m%mm@'              ;%;.           `@m@
+              @m@'                 `;%;             `@
+              `@'                   ;%;.             '    Top portion of a
+               `                    `;%;          picture by Susie Oviatt.
 
-  There is no light quarter tone, that's to accentuate the light tone.
-
-  Also Notice the dimensional effect made by the spaces to the right of the
-  continents and letters.
-
-:::::::::::::::// ::// :://////// ::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::://///////// // ://// ::::// :::://////////////// :::::::::::::::::
-:::::::::::::://///// ::/ ::// ::::://////////////////// :/ ::::::::::::::::::
-::::::::::::://///////// :::::::/ ////////////////////// :::::::::::::::::::::
-::::::::::::://///////// ::::::::://////////////////////// / :::::::::::::::::
-:::::::::::::////////// :::::::::::// //////////////////// / :::::::::::::::::
-::::::##### ::#### //#### ::##### ::##### :#### :##### ///#### / ## :## :## ::
-::::## :::::## ////## :## :## :## :## ://## ///:## :## /## :## :## :## :## :::
-::::##### :## :://###### :##### ::#### /## ///:##### ::## :## :## :## :## ::::
-:::::::## ## ::::## :## :## ## ::## ///## ///:## ## ::## :## :## :## :## :::::
-::##### ::#### :## /## :## :## :##### /#### :## :## ::#### :::######## :::::::
-::::::::::::::::://////// ::::::::::://///// ::::::::::/ ::::// ::::::::::::::
-:::::::::::::::::://////// :::::::::::////// :::::::::::::::::// :::::::::::::
-::::::::::::::::::://///// :::::::::::////// / :::::::::::/// / ::::::::::::::
-::::::::::::::::::::///// ::::::::::::://// / :::::::::://///// ::::::::::::::
-:::::::::::::::::::://// :::::::::::::::// :::::::::::://////// ::::::::::::::
-:::::::::::::::::::::// :::::::::::::::::::::::::::::::// :/// :/ ::::::::::::
-:::::::::::::::::::::/ :::::::::::boba@wwa.com :::::::::::::::/ ::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   Here are a few tips, that taken together, can make an instant ASCII artist
 out of anybody:
@@ -408,8 +422,11 @@ o Use 'block editing' if you can.  Some software allows for a square or
 o It may be better to work on your own computer (if it has more appropriate
   hardware and-ar software), and then upload it to your host.
 
-  Also, see Jorn's "asciitech" file, available at Jorn's and Scarecrow's FTP
-Sites.  Send any ASCII art techniques you know to: boba@wwa.com
+  Also, see Jorn's "asciitech" file, available at Jorn's FTP site and
+Scarecrow's FTP, Gopher, WWW sites.
+
+  Send any ASCII art techniques you know to: boba@wwa.com
+
 
 
   7  Are there any ASCII tools?
@@ -419,13 +436,14 @@ There are a couple of bits of Emacs code in the Scarecrow's FTP site.
 EmacsMouseCode let's you draw with a mouse, and EmacsFigletCode let's you use
 Figlet within Emacs.
  
-  Q-Edit is an ASCII editor with block cut and paste.  And TheDraw can do
-some ANSI tricks but is limited by RAM size.
+  Q-Edit and "vedit" are ASCII editors with block cut and paste.  And TheDraw
+can do some ANSI tricks but is limited by RAM size.
 
   There are Unix and DOS scripts for flipping an ASCII pic (like "modasc" by
 Ric Hotchkiss).  BBSdraw is available for the Amiga.  So is CygnusEd, which
 allows column editing.  And also the TPU editor for VAX.  And then there's
 "mdraw.el" for GNU Emacs 19 under X, that lets you draw ASCII with a mouse.
+
 
 
   8  Where can I get ASCII tools?
@@ -444,6 +462,12 @@ allows column editing.  And also the TPU editor for VAX.  And then there's
     File: mdraw.el
      URL: ftp://ftp.cse.psu.edu/pub/flee/mdraw.el
 
+   You can get Q-Edit at:
+
+->  Host: oak.oakland.edu
+    Path: /pub/msdos/qedit
+     URL: ftp://oak.oakland.edu/pub/msdos/qedit
+
    You can get Emacs Code at:
  
 ->  Host: ftp.wwa.com
@@ -452,24 +476,23 @@ allows column editing.  And also the TPU editor for VAX.  And then there's
      URL: ftp://ftp.wwa.com/pub/Scarecrow/Info
 
 
+
   9  Where can I find ASCII art?
 
   You can FTP and Gopher ASCII art (single pics and archives of dozens or
 hundreds of images).  FTP'ing is easy.  Gophering is easier.  See Question 10
 for further info.  ASCII art is available from many sites, including:
 
+
 o FTP Sites:
 
-          Scarecrow's FTP Site
+          Scarecrow's ASCII Art FTP
 ->  Host: ftp.wwa.com
  Address: 198.49.174.1
     Path: pub/Scarecrow
      URL: ftp://ftp.wwa.com/pub/Scarecrow
-          Has all the Scarecrow's files, Steve Sullivan's Small ASCII Pics,
-          Gifscii for many systems, Figlet (and all the fonts I know of),
-          Color Graphics, Animations, and Chevalier's Picture Stories.
-          Plus a folder of 'How-To' and techniques files Row, Normand and
-          others, FAQs, Escape Sequences, Emacs Code, etc.
+          Has Scarecrow's files, SAPs, animations, color, FAQs, Figlet,
+          gray scale converters, 'how-to' files, and more.
 
           See Question 11 for a table of all the Scarecrow's files, showing
           file name, size (uncompressed), version, name it has at the
@@ -494,8 +517,8 @@ o FTP Sites:
           files, and Gifscii for many systems.
 
 ->  Host: ftp.netcom.com
-    Path: pub/vzvz/asciiart
-     URL: ftp://ftp.netcom.com/pub/vzvz/asciiart
+    Path: pub/vz/vzvz/asciiart
+     URL: ftp://ftp.netcom.com/pub/vz/vzvz/asciiart
 
 ->  Host: tuda.newcastle.ac.uk
     Path: pub/local/n1ka0/animation
@@ -512,6 +535,7 @@ o FTP Sites:
      URL: ftp://ftp.uwp.edu/pub/msdos/demos/ansi
           Color graphics
 
+
 o Gopher Servers:
 
           ASCII Art Bazaar
@@ -519,33 +543,43 @@ o Gopher Servers:
    Items: 11, 1
           Over 12 megabytes, thousands of pieces in many categories.
 
+          Scarecrow's ASCII Art Gopher
+->  Host: gopher.wwa.com
+   Items: 3
+     URL: gopher://gopher.wwa.com/11/ascii
+          Has Scarecrow's files, SAPs, animations, color, FAQs, Figlet,
+          gray scale converters, 'how-to' files, and more.  Everything the FTP
+          site has is available from the Gopher, with friendlier menus.
+
           TTU Gopher
 ->  Host: gopher.cs.ttu.edu
    Items: 7, 1
-URL: gopher://gopher.cs.ttu.edu:70/11/Art%20and%20Images/ClipArt%20%28ASCII%29
+     URL: gopher://gopher.cs.ttu.edu:70/11/Art%20and%20Images/ClipArt%20%28ASCII%29
 
           Stanford Gopher
 ->  Host: medmail.Stanford.EDU
    Items: 2, 1
      URL: gopher://medmail.Stanford.EDU/11/other.stuff/pictures/
 
+
 o World Wide Web:
 
          Scarecrow's WWW Link
-->  URL: http://gagme.wwa.com/~boba/scarecrow.html
-         Has links to Chris' site, the Bazaar, and the Figlet server.
-         Plus it has links to most ASCII art sites.
+->  URL: http://miso.wwa.com/~boba/scarecrow.html
+         Gateway to the wold of ASCII art, with links to everything.
 
          Chris' WWW Page
 ->  URL: http://www2.ncsu.edu/unity/users/c/chking/HTML/HTMLs/ascii.html
 
-->  URL: ftp://ftp.netcom.com/pub/vzvz/WWW/homepage.html
+->  URL: ftp://ftp.netcom.com/pub/vz/vzvz/WWW/homepage.html
+
 
 o Mailing list:
 
             ASCII Art listserv list
 -> Address: listserv@ukcc.uky.edu
    Message: subscribe asciiart
+
 
 o FTP Mail Servers:
 
@@ -574,30 +608,63 @@ o If you have some disk space to spare, you should get all of the SAAAs, and
   art expert and collector, instantly!
 
   Disk space is often limited, so store ASCII art compressed (it should
-compress 3:1).  View it when it's compressed by typing: "zcat FILENAME | more"
-for .Z and "gzcat FILENAME | more" for .gz files.
+compress 3:1).  View it when it's compressed by typing: "zcat filename | more"
+for .Z and "gzcat filename | more" for .gz files.
 
 
-  10  How do I use FTP, Gopher and the World Wide Web?
+
+  10  How do I use FTP, Gopher, World Wide Web, and FTP Mail Servers?
+
+  The following instructions are for most Unix based, live InterNet sites.
+If you are not on a live wire, you can still access FTP sites.  See the
+section below on 'How to use FTP Mail Servers'.
+
+  If you're on a commercial service, or other non-Unix based system, ask your
+sysadmin or service representative for information on obtaining files.  If you
+are using InterNet software on your own computer via a PPP or SLIP connection,
+I assume you don't need my instructions.
+
+
+  How to read a URL (Uniform Resource Locator):
+
+           ftp://ftp.ncsu.edu/pub/ncsu/chking/Archive/Funnies
+           |_|   |__________| |_____________________| |_____|
+            |          |                 |               |
+  Connect Method   Host Name        Folder Path      File Name
+
+  Note: The connect method (the protocol> could also be "gopher" or "http"
+(http indicates a WWW page).  Also, a URL my not have a file name at the end,
+but may just point to a folder.  It may not even have a folder path, pointing
+only to a site.
+
+  WWW URLs usually end with a file having a ".html" extension.  And Web pages
+can also be stored on, and accessed from, FTP and Gopher sites.
+
+
+  How to FTP:
 
   If you have FTP at your site, and you want to FTP over to say, Chris King's
-FTP site, on most Unix based sites, you would, at the prompt:
+FTP site, you would, at the prompt:
 
 o Type: ftp ftp.ncsu.edu
 
   Notice that "ftp" was typed twice.  The first is the command, the second
-  is a port of the address.  If you're already at an ftp prompt:
+  is a port of the address.  If you're already at an FTP prompt:
 
   Type: open ftp.ncsu.edu
 
-o When the connection opens, it'll ask for your name.  This is 'anonymous
-  FTP' so:
+o When the connection opens, it'll ask for your name.  This is 'anonymous FTP'
+  so:
 
   Type: anonymous
 
-o When it asks for a password, type your email address.  You should be in.
+o When you're asked for a password:
 
-o Now, 'Change Directory' to Chris' ASCII art folder:
+  Type: Your email address
+
+  You should be in.
+
+o Now, to 'Change Directory' to Chris' ASCII art folder:
 
   Type: cd pub/ncsu/chking/Archive
 
@@ -619,13 +686,16 @@ o When you're done:
   It will say goodbye and quit.
 
   You may have to decompress or uudecode the file first.  See Question 20 on
-how to do that.  Now you can view or download the file.  For how to view
-animations and color pics, see Question 21.
+how to do that.  Now you can view or download the file from your host.  For
+how to view animations and color pics, see Question 21.
 
   Two helpful things.  Type "cd .." to go back out of a folder.  Type "pwd"
 ('Print Working Directory') to see where you are.
 
-  Gopher is even easier.  Say you want to check out the Bazaar.  You:
+
+  How to Gopher:
+
+  Gopher is easy.  Say you want to check out the Bazaar.  You would:
 
 o Type: gopher twinbrook.cis.uab.edu
 
@@ -644,30 +714,90 @@ o After we enter The Continuum, we see the ASCII Art Bazaar, so we pick it
   Once in the Bazaar, you can browse the menus and view the art on screen
 without having to download anything just to see it.
 
+
+  How to use the World Wide Web:
+
   Using the World Wide Web is as easy as Gopher.  For example, let's say you
 want to check out the Scarecrow's WWW Link, you would do the following on a 
 live Net site using lynx:
 
-o Type: lynx http://gagme.wwa.com/~boba/scarecrow.html
+o Type: lynx http://miso.wwa.com/~boba/scarecrow.html
 
 o Use the up and down arrow keys to select what you want to see.
 
 o Use the right arrow (or return key) to enter a selection, and the left
   arrow to back out.
 
-  You can do as with Gopher, but you can also access links to other Web
-sites.  For example, there's a selection that will take you to Chris King's
-Web archive of ASCII art.  And one that will take you to the Figlet server.
+  You can do as with Gopher, but you can also access links to FTP, Gopher and
+WWW sites.  For example, there are links that will take you to Chris King's
+Web archive of ASCII art, the Figlet server, the Bazaar, Joshua Bell's Star
+Trek ASCII art site, and practically everything in the ASCII art world.
 
-   Important Note: You can use a Web browser to access FTP sites, to avoid
+  Important Note: You can use a Web browser to access FTP sites, to avoid
 logging in, and commands.  For example, say you're using lynx, and you want to
 go to the Scarecrow's FTP site, you would type, at the prompt:
 
    lynx ftp://ftp.wwa.com/pub/Scarecrow
 
-   As you can see, it's just "lynx" plus the URL for the site.  You can do
+  As you can see, it's just "lynx" plus the URL for the site.  You can do
 this with any FTP site, just type "lynx ftp://" plus the address/path, and you
 in like Flynn.
+
+
+  Note: When using FTP, Gopher, WWW, or other live Net services, try to find
+files at sites that are close to you before accessing more distant locations.
+Also, try to use these services at off-peak hours, to not slow down the
+official operations of a school or business.  And send a thank you note to the
+admins of sites you have used and benefitted from.
+
+
+  How to use FTP Mail Servers:
+
+  If you don't have FTP access, you can use an FTP Mail Server.  There are a
+few listed in the answer to Question 9.  To use them send a message to any of
+the listed addresses with "help" as the message.  Here is an example of how to
+use ftpmail@decwrl.dec.com:
+
+o Address a message to: ftpmail@decwrl.dec.com
+
+o Leave the subject blank.
+
+  In the message:
+
+o Type: connect ftp.wwa.com
+
+  The hostname could be any available host.
+
+o Type: chdir pub/Scarecrow
+
+  Changes directory (folder) to the Scarecrow's ASCII art folder.  The
+  folder name could be any existing folder.
+
+o Type: binary
+
+  For programs and compressed files.
+
+          OR
+
+  Type: ascii
+
+  For text files, uuencoded files, etc.
+
+o Type: get MORE
+
+  Transfers the flie called "MORE" to your computer.  The name could be
+  the name of any existing file in that folder.
+
+o Type: quit
+
+o Send the email message
+
+
+   Your message will be acknowledged.  It will be given a number which you
+should save in case of a problem.  Within a day or two you should recieve
+either a file or an error message.  If you get an error, make sure the
+following are correct: host name, pathname, filename, commands, cAsE.
+
 
 
   11   Can I get The Scarecrow's files via email?
@@ -680,8 +810,8 @@ To receive  _  send email to boba@wwa.com with the subject line  _
                              Current        Name of file on  Subject line
 File Name                    Version  Size  Scarecrow's FTP  for requests
 
-ASCII ART FAQ                    4.1  50 K  FAQ              REQUEST FAQ
-ASCII Art Resources              4.1 164 K  AAResources      REQUEST RESOURCES
+ASCII ART FAQ                    4.9  58 K  FAQ              REQUEST FAQ
+ASCII Art Resources              4.9 190 K  AAResources      REQUEST RESOURCES
 
   The following 4 archives contain everything in the Scarecrow's edited
 collection:
@@ -704,12 +834,14 @@ Best of Scarecrow's BBS Gallery  1.3  88 K  BBSGallery       REQUEST BBS
 Best of Scarecrow's GIF Gallery  1.1  62 K  GIFGallery       REQUEST GIFS
 Best of Scarecrow's 3-D Gallery  1.0  30 K  3-DGallery       REQUEST 3-D
 
+
   ASCII Art Resources and ASCII Art Reference (the Web version of the FAQ)
 contains descriptions of the above files.
 
   When requesting files, please be sure to use the subject lines above.  That
 way I won't accidentally delete a request thinking it's something from a list
-server I don't want to see.
+server I don't want to see.  It will also be important when the automation is
+installed.
 
   When writing to me about other things, please use a good strong subject
 line.  If you are responding to my reply, please try to include some of what
@@ -724,25 +856,36 @@ wrong button.  And it's easy to press the wrong button because I handle
 tons of mail each week.
 
 
+
   12  Is it OK to copy ASCII art?
 
   ASCII art that is posted is considered copyrighted by the poster.  But
 since the post goes around the world, and copyright laws vary, you'd have
-trouble enforcing it in some places.
+trouble enforcing it in some places.  The correct thing to do is ask
+permission before using a piece.
 
-  Even when ASCII art is copyrighted, there is a general agreement among
-most of us that it is OK to copy and clip, repost and pass it around.  It is
-generally used AS IF it were Public Domain.
+  For non-commercial uses:
+
+  Even when ASCII art is copyrighted, there is a general agreement among most
+ASCII art people that it is OK to copy and clip, repost and pass it around.
+It is generally used AS IF it were Public Domain.
 
   All that mast artists ask is that their credit be left on the art.  Until
-recently, it was common for the creator's credit to be lost.
+recently, it was common for the creator's credit to be lost.  Also, most
+artists appreciate receiving a copy of the thing their art appears in.
 
-  For example, you could make an instant sig with a piece of existing art, a
-FIgletized name, a quote, and your email address.  The one thing that is
-generally considered bad is to copy somebody's sig, only changing the name and
-address.
+  For an example of non-commercial use, you might make an instant sig with a
+piece of existing art, a Figletized name, a quote, and your email address.
+The one thing that is generally considered bad is to copy somebody's sig, only
+changing the name and address.
 
-  The above assumes the art is being used for non-commercial purposes.
+  For any commercial use:
+
+  When ASCII art is used commercially, such as in for-profit information
+services, the artist should be contacted, and agreements reached in regard to
+permissions, credits, and payment.  ASCII artists should be treated like any
+artists.
+
 
 
   13  How do I make those big letters?
@@ -750,48 +893,64 @@ address.
   You can make lettering like the above subtitle "ANSWERS" by hand, or use a
 program called Figlet.  With Figlet, the letters you type are automatically
 turned into big letters.  Figlet stands for Frank, Ian and Glenn's LETters.
-                                            "      "       "       """
+                                            ^      ^       ^       ^^^
   Figlet is available for use on some host systems.  If it is not, you can
 obtain Figlet and fonts from the sites listed in Question 14.  There are about
-70 fonts for use with Figlet.  Figlet fonts have an .flf suffix.  Figlet is
-currently in version 2.1, available for Unix, DOS, and Amiga.
+100 fonts for use with Figlet.  Figlet fonts have a .flf suffix.  Figlet is
+currently in version 2.1, available for Unix, DOS, Amiga, and Atari ST.
 
   There are a number of examples of Figlet fonts in the ASCII Art Resources
-and ASCII Art Reference (the Web version of the FAQ).
+and ASCII Art Reference (the Web version of the FAQ).  You'll also find info
+on Figlet utilities, methods of feeding Figlet output to files, modifying
+Figlet output, and a vi macro.
 
   Some other hosts have a program called "Banner" which performs a similar
 function.
+
 
 
   14  Where can I get Figlet?
 
   You can get Figlet, fonts, and utilities from:
 
+
 o FTP Sites:
 
-->  Host: ftp.isu.edu
+          Official Figlet Site
+->  Host: ftp.nicoh.com
     Path: pub/figlet
-     URL: ftp://ftp.isu.edu/pub/figlet
-          This is the official site.
+     URL: ftp://ftp.nicoh.com/pub/figlet
 
           Scarecrow's FTP Site
 ->  Host: ftp.wwa.com
     Path: pub/Scarecrow/Figlet
      URL: ftp://ftp.wwa.com/pub/Scarecrow/Figlet
           Has Figlet, utilities, and all the fonts I've found.
+          Also accessible through the Scarecrow's Gopher and WWW sites.
+          If you have any Figlet fonts that are not on my site, please put
+          them in my incoming FTP folder.  Thank you.
+
+->  Host: ftp.netcom.com
+    Path: pub/vz/vzvz/asciiart/fonts
+     URL: ftp://ftp.netcom.com/pub/vz/vzvz/asciiart/fonts
+          Fonts only.
+
 
 o Figlet WWW Server:
 
    ->  URL: http://www.inf.utfsm.cl/cgi-bin/figlet
+
 
 o Figlet Mail Server:
 
 -> Address: figlet@ottime.chi.il.us
    Message: HELP
 
+
 o Figlet WWW Home Page:
 
    ->  URL: http://math.uiuc.edu/~chappell/figlet
+
 
 o Figlet Mailing List:
 
@@ -800,11 +959,16 @@ o Figlet Mailing List:
             Receive fonts, update notes, and Figlet chat.  Run by Ian Chai.
 
 
+
   15   How can I make Gray Scale pictures?
 
   You can make them from scratch if you are a very good ASCII artist.  An
-easier way is to use a program called ASCGIF.  There is also Gifscii (with
-versions for many systems), ANSIrez, GIF2ANSI, and gif2txt for the PC.
+easier way is to use a converter program.  There's ASCGIF, Gifscii (with
+versions for many systems), ANSIrez, "ansicv22", GIF2ANSI, and "gif2txt" for
+the PC.
+
+  There's also the HyperCard stack called "asciipicter".  It allows you to
+draw a picture, and convert it to ASCII art.  This is for the Macintosh.
 
   These programs make an ASCII pic from any GIF (Graphics Interchange Format)
 image (or image you can convert to a GIF).  Most converters require the GIF to
@@ -814,9 +978,11 @@ be in 87a format.  GIFs in 89a format, must be converted to 87a format first.
 called Pixel Characterizer (version 0.5) by Shi Y Chen.
 
 
+
  16  Where can I get Gray Scale converters?
 
   You can get Gifscii for many systems, and the source code from:
+
 
 o FTP Sites:
 
@@ -829,10 +995,13 @@ o FTP Sites:
 ->  Host: ftp.wwa.com
     Path: pub/Scarecrow/Gifscii
      URL: ftp://ftp.wwa.com/pub/Scarecrow/Gifscii
+          Also accessible through the Scarecrow's Gopher and WWW sites.
 
           Both Chris' and Scarcecrow's sites have Gifscii 2.2 for MSDOS,
           Unix (Sun), Macintosh, Amiga, Digital Alpha, Digital VAX, as well
-          as the c-source code.
+          as the c-source code.  Scarecrow's site also has "ansicv22.zip",
+          "ansirez1.zip", and "asciipicter.sit.hqx" (HyperCard stack).
+
 
   You can get ASCGIF from:
 
@@ -846,12 +1015,14 @@ o FTP Sites:
 ->  Host: ftp.wwa.com
     Path: pub/Scarecrow/Misc
      URL: ftp://ftp.wwa.com/pub/Scarecrow/Misc
+          Also accessible through the Scarecrow's Gopher and WWW sites.
 
 ->  Host: wuarchive.wustl.edu
     Path: usenet/comp.sources.misc/volume30/ascgif
      URL: ftp://wuarchive.wustl.edu/usenet/comp.sources.misc/volume30/ascgif
 
-  You can get GIF2ANSI and gif2txt from:
+
+  You can get GIF2ANSI and "gif2txt" from:
 
 o BBS Sites:
 
@@ -860,6 +1031,22 @@ o BBS Sites:
 
 ->   BBS: Aquila BBS (708) 820-8344]
     File: gif2txt.zip
+
+
+   You can get the GDS GIF-JPEG to ANSI (for DOS) at:
+
+o FTP Sites:
+
+   ->  Host: ftp.netcom.com
+       Path: pub/ph/photodex
+       File: gds31d.zip
+        URL: ftp://ftp.netcom.com/pub/ph/photodex/gds31d.zip
+
+   ->  Host: oak.oakland.edu
+       Path: SimTel/msdos/graphics
+       File: gds31d.zip
+        URL: ftp://oak.oakland.edu/SimTel/msdos/graphics/gds31d.zip
+
 
    If you do NOT have FTP available, you can get Gifscii by email.
 To receive  _  send email to boba@wwa.com with the subject line  _
@@ -900,22 +1087,27 @@ o It helps to do touch-up work on the converted picture.  Concentrate on the
   Send any gray scale conversion techniques you know to: boba@wwa.com
 
 
+
   18  What do those filename extensions mean?
 
   A file may have some of the following elements in its name:
 
-  File name (resulting       Usually implies     "uu" or "uue" for uuencode,
-  decoded file may have ____   a color pic.   __ "xx" or "xxe" for xxencode.
-  a different name).        |      |         |
+
+  File name (a file may      Usually implies     "uu" or "uue" for uuencode,
+  have a different name ____   a color pic.   __ "xx" or "xxe" for xxencode.
+  after uudecoding).        |      |         |
+                            |      |         |
                       filename.vt.ansi.tar.Z.uu
                                |        |  |
   Usally implies animation. ___|        |  |__ For Unix Compress, may also
                                         |      be .gz, .zip, etc.  A .zip
-  Tape archive format may contain ______|      file may contain more than
-  more than one file.  Must be 'untarred'.     one file.  Must be 'unzipped'.
+  Tape ARchive format may contain ______|      file may contain more than
+  more than one file.  Must be 'untarred'.     one file, must be 'unzipped'.
+
 
   For further information, on how to save, uncompress, untar, unzip, and view
 files, see Questions 20 and 21.
+
 
 
   19  What is 'uuencoding'?
@@ -929,7 +1121,8 @@ any information service can handle).  This processing is called 'uuencoding'.
 Question 21 on how to view animations and color images.  A uuencoded file may
 look like:
 
-  permission mode _______       ______ filen ame to be given to decoded file
+
+  permission mode _______       ______ file name to be given to decoded file
                          |     |
   begin line ____ begin 644 filename
                   M;2XN+BXN+R\N+B\O+BXN+BXN+R\N+B\O+BXO+RXO+RXN+B\ON+B\O+BXN
@@ -938,33 +1131,73 @@ look like:
   end line ______ end
 
 
+
   20  How do I save, 'uudecode' and uncompress a file?
 
-  Type the name of the file where I have "FILENAME".  On a Unix system, the
+  Type the name of the file where I have "filename".  On a Unix system, the
 process is usually as easy as:
+
 
   To save a file:
 
-o In a newsreader, you can type "s FILENAME" and choose a filename. In Elm
-  you'll get a "save file to" prompt.  In Pine, you'll be asked for a folder
-  name.  Pine's 'folder' is actually a text file, so go ahead and name it.
-  Give your new file a unique name so the it isn't appended to, or doesn't
-  overwrite, any existing file.
+
+  In most newsreaders, you:
+
+o Type: s filename (or a full pathname)
+
+
+  In Elm:
+
+o Type: s
+
+  You'll get a "save file to" prompt.
+
+o Type: filename (or a full pathname)
+
+  In Pine:
+
+o Type: s
+
+  You'll be asked for a folder name.  Pine's 'folder' is a text file.
+
+o Type: filename (or a full pathname)
+
 
   To uudecode a file:
 
-o Type "uudecode FILENAME".  This may change the file's name.
+o Type: uudecode filename
+
+  This may change the resulting file's name.
+
 
   To uncompress a file:
 
-o You need to decompress a file if it has a suffix such as .Z or .gz
-  (among others).  For .Z, type "uncompress FILENAME" and for .gz, type
-  "gunzip FILENAME".
 
-o Sometimes a number of files will come packed together in a .zip or .tar
-  file.  You need to unzip or untar it by typing "unzip FILENAME" or "tar
-  -xvf FILENAME".  You will now have a number of files.  To just read the
-  contents of a .tar file, type "tar -tvf FILENAME".
+  For a .Z (Unix compress) file:
+
+o Type: uncompress filename
+
+  For a .gz (GZip) file:
+
+o Type: gunzip filename
+
+
+  Sometimes a number of files will come packed together in a .zip or .tar
+file.  You need to unzip or untar it.  You will end up with a number of files.
+
+  For a .zip file:
+
+o Type: unzip filename
+
+
+  For a .tar file:
+
+o Type: tar -xvf filename
+
+  To just read the contents of a .tar file:
+
+o Type: tar -tvf filename
+
 
 o On a DOS machine, to uncompress a .Z file, you'll need comp430d from:
 
@@ -974,24 +1207,68 @@ o On a DOS machine, to uncompress a .Z file, you'll need comp430d from:
      URL: ftp://oak.oakland.edu/pub/msdos/compress/comp430d.zip
 
 
+  To uuencode a file, use the following syntax at the prompt:
+
+
+     The uuencode    The file you        Writes resulting uuencoded
+         command.    want to uuencode.   file to the last filename.
+               |           |              |
+               uuencode filename filename > filename
+                                    |          |
+Name to be put on the 'begin' line of the    Name of the file that will be
+resulting uuencoded file.  This name will    written to disk so as to not
+be given to the file when it is uudecoded.   overwrite the original file.
+
+
+  To compress a file:
+
+  For Unix compress:
+
+o Type: compress filename
+
+  For Gzip:
+
+o Type: gzip filename
+
+
+  To zip compress a number of files into one .zip file, use the following
+syntax at the prompt:
+
+        zip filename.zip filename1 filename2 filename3
+         |        |             |______|______|
+    Command.   Name for file.   Files to be zipped, can be any number.
+
+
   For info on viewing animations and color images, see Question 21.
+
 
 
   21  How do I view animations and color images?
 
-  Type the name of the file where I have "FILENAME".  On a Unix system:
+  Type the name of the file where I have "filename".  On a Unix system, the
+process is usually as easy as:
 
-o Type "cat FILENAME" and press the return.
 
-o Alternatively, if you want to view an animation compressed as a .Z file,
-  you can view it without decompressing it by typing "zcat FILENAME", and for
-  .gz compressed files, by typing "gzcat FILENAME".
+  To view an animation or color pic:
 
-  To slow down an animation while viewing on your Unix host:
+o Type: cat filename
 
-o Type "cat -u FILENAME" and press the return.
+  You can view a compressed file without decompressing it.
 
-  Note: Host sytem speed, terminal speed, and modem speed all affect
+  To view a .Z compressed file:
+
+o Type: zcat filename
+
+  To view a .gz compressed file:
+
+o Type: gzcat filename
+
+
+  To slow down an animation:
+
+o Type: cat -u filename
+
+  Note: Host system speed, terminal speed, and modem speed all affect
 animation speed.  To view color, you need a color screen and ANSI color
 capable software.
 
@@ -1000,15 +1277,26 @@ FAQ) for info on programs to slow animations, and how to view animations that
 you have downloaded to your PC or Amiga.
 
 
+
   22  How do I put an animation in my plan?
 
-  On most Unix systems, name the file you want to be used as ".plan" and put
-it in the top level of your home folder.  It does not work with all finger
-commands.  Many systems will munch anything except CR and LF.
+  On most Unix systems:
 
-  To test your 'planimation', finger your account with your full address, not
-just your login.  Type "finger foo@bar.edu" and not "finger foo".  Putting an
-animation in your plan is not universally recommended.
+o Name the file you want to be used as: .plan
+
+o Put it in the top level of your home folder.  
+
+o Make your home folder 'world readable' by typing: chmod 711 .
+
+o Make your plan world readable by typing: chmod 644 .plan
+
+  It does not work with all finger commands.  Many systems will munch
+anything except CR and LF.  To test your 'planimation', finger your account
+with your full address, not just your login.  For example, type "finger
+foo@bar.edu" and not "finger foo".
+
+  Putting an animation in your plan is not universally recommended.
+
 
 
   23  How do I make a sig?
@@ -1019,24 +1307,26 @@ o Name, nickname.
 o Email and mail addresses.
 o ASCII art pics, borders.
 o Work and school names, disclaimer.
-o Phone, fax, and pager numbers.
+o Phone, fax, and pager numbers, PINs.
 o Quotes and jokes from the poster and other people.
-o Info about the poster's .plan, FTP site, WWW home page, pgp key.
+o Info about the poster's .plan, FTP site, WWW home page, PGP key.
 
   You might simply 'Figletize' your name, pop in your addy and a pic, and
 presto, instant sig:
 
+
        |     'Go Johnny Go'       ||      ___|    johnsmith@foo.bar.edu
        |         |                ||     /                  _)  |    |
-       |   _ \   __ \   __ \     \||/     __  \   __ `__ \   |  __|  __ \
+       |   _     __     __       \||/     __      __ `__     |  __|  __  
    \   |  (   |  |   |  |   |    /()\          |  |   |   |  |  |    |   |
    ___/   ___/  _|  _| _|  _|    \__/    _____/  _|  _|  _| _|  __| _|  _|
+
 
   If you're going to have your sig automatically included in your posts and
 email, remember that some systems only allow up to 4 lines in the sig.  For
 info on how to have your sig automatically included, see Question 24.
 
-   If you want to use a larger sig on systems that only allow 4 lines, you
+  If you want to use a larger sig on systems that only allow 4 lines, you
 will have to insert it manually.  On most Unix based systems, using pico
 editor, press control-r when you want to insert the sig, and then type the
 name (or full pathname) of the file to be inserted, using vi, ex, ed, the
@@ -1047,55 +1337,87 @@ to keep sigs around this length for posts, reserving the long ones for email,
 and post to the ASCII art groups.
 
 
+
   24  How do I have my sig automatically added to my posts and email?
 
-  On most Unix systems:
+  On a Unix system, the process is usually as easy as:
 
-   For posts:
+  For posts:
 
-o  If you are using most newsreaders:
+  If you are using most newsreaders:
 
-   Name the file you want to be used as ".signature" and put it in the top
-level of your home folder.  Your news software should pick it up.  Note: some
-systems are set up to allow only four lines in a posted sig.
+o Name the file you want to be used as ".signature"
 
-o  If you are using tin:
+o Put it in the top level of your home folder.
 
-   Create a directory in the top level of your home directory called  ".Sig".
-The files in that directory will be use randomly by tin when selecting a sig
-for your post.  If you create a file in the top level of your home directory
-called ".sigfixed", that file will be included above your random sig.
+  Your news software should pick it up.  Note: some systems are set up to
+  allow only four lines in a posted sig.
+
+  If you are using tin:
+
+o Make a folder in the top level of your home folder called ".Sig".
+
+o Fill it with sigs.
+
+  The files in that folder will be used randomly by tin when selecting a sig
+  for your post.  You can call the folder something other than ".Sig", but you
+  must change the 'signature path' line in your tinrc in your .tin folder.
+
+  To have a file included above your random sig:
+
+o Make a file in the top level of your home folder called ".sigfixed".
+
 
   For email:
 
-  Name the file you want to be used as ".signature" and put it in the top
-level of your home folder.  If you have done this for the above use in news
-posts, you need to, in additon, do one of the following:
+o Name the file you want to be used as ".signature"
 
-o If you're using Elm for your email, and elm doesn't pick up your sig, you
-  need to put the following in ypur elmrc:
+o Put it in the top level of your home folder.
+
+  If you have done this for the above use in news posts, you need to, in
+additon, do one of the following:
+
+
+  If you're using Elm for your email, and elm doesn't pick up your sig:
+
+o You need to put the following in ypur elmrc:
 
   localsignature = ~/.signature
   remotesignature = ~/.signature
 
-  If you don't have an elmrc yet, go into Elm, press the 'o' key to get to
-  the options screen.  Press the '>' to save your configuration.  Press 'i'
-  to go back to the index, and quit.  This will create the elmrc file in the
-  .elm folder.
+  If you don't have an elmrc yet:
 
-o If you're using Pine (with Pico) for your email, place the following in
-  your .pinerc file:
+o Open Elm
+
+o Press the 'o' key to get to the options screen.
+
+o Press the '>' to save your configuration.
+
+o Press 'i' to go back to the index.
+
+o Quit.
+
+  This will create the elmrc file in the .elm folder.
+
+
+  If you're using Pine (with Pico) for your email:
+
+o Place the following in your .pinerc file:
 
   signature-file=~/.signature
 
-o If you're using vm (in emacs) for your email, place the following in your
-  .emacs file:
+
+  If you're using vm (in emacs) for your email:
+
+o Place the following in your .emacs file:
 
   (setq mail-signature t)
+
 
   Note about sig usage: Try to use short sigs for posts to newsgroups.  If
 you have any long sigs, try to only use them for email and posts to the ASCII
 art groups.
+
 
 
   25  What should I know about posting ASCII Art?
@@ -1104,21 +1426,27 @@ art groups.
 alt.ascii-art or alt.binaries.pictures.ascii groups:
 
 o All forms of ASCII art including:
-  -  Standard ASCII art (line pics, 3-D, oversize printer art, GIFs, etc).
-  -  Non-standard ASCII art (animations, color pics, color animations).
-
+  - Standard ASCII art (line pics, 3-D, oversize printer art, GIFs, etc).
+  - Non-standard ASCII art (animations, color pics, color animations).
 o Discussion about pieces of art.
-
 o Requests for specific pieces of art, and their fulfillment.
-
 o Questions and answers covering:
-  -  Creating and viewing ASCII art.
-  -  Locating FTP sites for ASCII art and related files.
-
-o Discussion about artists in the field.
+  - Creating and viewing ASCII art.
+  - Locating FTP sites for ASCII art and related files.
+o Dicussion about artists in the field.
 
   Animations can also be posted to alt.ascii-art.animation.  3-D art can also
 be posted to alt.3d.
+
+  If you are having trouble posting to newsgroups because of system problems
+or limitations, you can email your article to boba@wwa.com and it will be
+posted.  The subject line of the email message will be the subject line of the
+post.
+
+  If you want to make sure I know it's a post, put a short note at the top of
+the message.  I will delete the note and post the article.  While it's not
+necessary, it helps if you put an organization line at the top of the message
+(email software does not do that automatically like news software does).
 
   To make it easier for everybody, please put one of the following Subject
 IDs at the beginning of the subject line of your post:
@@ -1128,8 +1456,9 @@ IDs at the beginning of the subject line of your post:
 Animation - Animation.  Usually uuencoded.
     Color - ANSI Color image.  Usually uuencoded.
       3-D - Three dimensional art.
+     Font - Alphabets and Figlet fonts.
    Binary - Binaries (software like Figlet and Gifscii).  Usually uuencoded.
-      Big - Wider than 80 columns (and optionally, longer than 24 lines).
+      Big - Wider than 80 columns and-or longer than 24 lines).
 
    Repost - Repost of a previously posted pic, not new art.
   Request - Request for a picture, Figletized name, sig, etc.
@@ -1137,7 +1466,7 @@ Animation - Animation.  Usually uuencoded.
      Talk - General discussion, no pics included.
  Question - A question concerning any of the ASCII art topics.
    Answer - An answer to a question asked by a poster.
-     Info - Web URLs, email address, Gopher and FTP sites, font lists, etc.
+     Info - Web URLs, email addresses, Gopher and FTP sites, font lists, etc.
  Announce - Announcements of events, new sites, Web pagse, etc.
 
       FAQ - Used for the weekly posting of Frequently Asked Questions
@@ -1149,13 +1478,15 @@ contents of the post.  This way if you are fulfilling a request, change:
     TO
   GIF: Marilyn Monroe
 
-  This allows the readers the option of reading the group in a newsreader's
+  This allows readers the option of reading the group in a newsreader's
 selector, sorted by articles.  They can then read only what is of interest to
 them, trusting the IDs to accurately identify the contents.  Some people do
 not have the time (or money if they are paying by the hour or byte) to read
 everything in every group they like.
 
+
   Here are some guidelines:
+
 
   Posting to the ASCII groups:
 
@@ -1171,9 +1502,11 @@ o If you're posting a collection of pics, try to keep each pic on its own
 
 o Replace tabs with spaces.  Otherwise tab damage can occur.
 
+
   When following up an article:
 
-o Read all the articles in a thread before posting.
+o Read all the articles in a thread before posting.  Most newsreaders will let
+  you re-read news you've already seen.
 
 o Decide whether it's better to post or email your message.
 
@@ -1185,10 +1518,11 @@ o Summarize where possible.
 
 o Change the Subject ID.
 
+
   Most general guidelines for posting apply here too:
 
 o Try to stay on topic (ASCII art).  It's easy to get sidetracked into other
-   things, especially when a cross-posted thread gets going.
+  things, especially when a cross-posted thread gets going.
 
 o If you disagree with someone, disagree with their words, don't flame them.
 
@@ -1205,31 +1539,57 @@ o Cross-post an article instead of posting it separately to many newsgroups.
   kept on each machine.  And as a reader, you only see the cross-posted
   article once, no matter how many groups it was cross-posted to.
 
+
   If you're a new reader:
 
 o Read the ASCII groups for a week or two to familiarize yourself with them
   before posting.
 
+
   If you're a new user:
 
 o Familiarize yourself with newsgroups, their customs, terminology and
-  abbreviations.  Check out the guidelines, posted in the newsgroup
-  news.announce.newusers.
+  abbreviations.  Check out the guidelines, posted in the newsgroups
+  news.announce.newusers and news.newusers.questions.
 
   One exception to the usual rules is the use of sigs.  Because the groups
 rec.arts.ascii, alt.ascii-art and alt.binaries.pictures.ascii are about ASCII
 art, it is within the scope of these groups to post longer sigs.
 
 
+  Be an Art Detective.
+
+  Let's say you're reading another group, say, rec.nonsense, and while
+reading the posts, you see a pic or sig.  You would like an easy way to show
+it to us on rec.arts.ascii, without saving it, quiting from rec.nonsense,
+going to rec.arts.ascii, starting a post, inserting the pic or sig, quiting
+your newsreader, deleting it, etc.
+
+  It's easy to be an Art Detective.  While in the original newsgroup:
+
+o Follow-up the article, making sure it is quoted.
+
+o Replace any newsgroups named in the "Newsgroups:" with "rec.arts.ascii".
+
+o Delete all extraneous materials from the post, leaving the pic or sig.
+
+o Add any commentary you think appropriate.
+
+o Send it.
+
+
+
   26  Where is this FAQ available?
 
-  Tha FAQ is available from news groups, FTP, Gopher, WWW, email, finger:
+  Tha FAQ is available from newsgroups, FTP, Gopher, WWW, email, finger:
 
-o News Groups:
+
+o Newsgroups:
 
      rec.arts.ascii, 
      alt.ascii-art, alt.binaries.pictures.ascii, alt.ascii-art.animation
      comp.graphics, news.answers, alt.answers, rec.answers, comp.answers
+
 
 o FTP Sites:
 
@@ -1248,7 +1608,11 @@ o FTP Sites:
     File: FAQ_-_ASCII_Art_Questions_&_Answers_(*.*_-_*_K)
      URL: ftp://src.doc.ic.ac.uk/pub/usenet/news.answers/rec.arts.ascii
 
+
 o Gopher Servers:
+
+->  Hast: gopher.wwa.com
+   Items: 3, 3
 
 ->  Hast: jupiter.sun.csd.unb.ca
    Items: 10, 12, 1
@@ -1256,18 +1620,21 @@ o Gopher Servers:
 ->  Host: cc1.kuleuven.ac.be
    Items: 3, 3, 858
 
-o  World Wide Web:
 
- ->  URL: http://gagme.wwa.com/~boba/scarecrow.html
+o World Wide Web:
+
+ ->  URL: http://miso.wwa.com/~boba/scarecrow.html
   Select: ASCII ART FAQ (this file)
   Select: ASCII Art Resources (text version with samples of everything)
   Select: ASCII Art Reference (Web version with links to everything)
+
 
 o Email:
 
 -> Address: boba@wwa.com
    Subject: REQUEST FAQ
    Subject: REQUEST RESOURCES
+
 
 o Finger by typing the following at a prompt on mony sites:
 
@@ -1276,6 +1643,7 @@ o Finger by typing the following at a prompt on mony sites:
    finger asciifaq@wwa.com | more (you can read it a page at a time)
                                   OR
    finger asciifaq@wwa.com > faq (saves it to a file called 'faq')
+
 
 
   27  Who made this FAQ?
@@ -1293,7 +1661,7 @@ were gratefully received from the following nice people:
  MICHAEL A GODIN     |    for many examples.   |
  STEVEN M SULLIVAN    \__   __________________/
  LARS ARONSSON           | /
- CHRIS PIRILL            |/
+ CHRIS PIRILLO           |/
  CHEVALIER               /
  Q ALEX ZHAO
  DOV SHERMAN
@@ -1302,9 +1670,9 @@ were gratefully received from the following nice people:
   C GROOM
  MATT RYAN
  FELIX LEE
+ DAVE VRONA
  PAUL KLINE
  R L SAMUELL
- DAVE VARONA
  DANNI BAUER
  NICK RUSNOV
  DON BERTINO
@@ -1312,6 +1680,7 @@ were gratefully received from the following nice people:
  JOHN PAYSON
  PAUL FAWCETT
  MATT MESSINA
+ SUSIE OVIATT
  RICHARD KIRK
  SIMON BRADLEY
  PAUL FOERSTER
@@ -1333,19 +1702,17 @@ JONATHAN PETERSON
 RUDRIK GREYSHADOW
 
 
-
 ______________________________________________________________________________
 
 
-    Version: 4.1
-   Released: September 26, 1994
- Characters: 50505
-      Lines: 1326
+    Version: 4.9.1
+   Released: September 25, 1995
+ Characters: 58433
+      Lines: 1699
 Comments To: boba@wwa.com
 
 
 |||| | | | | |  |  |  |   |   |    |      |    |   |   |  |  |  | | | | | ||||
              END  O F   T  H   E     A   S  C  I  I   A  R T  FAQ
 |||| | | | | |  |  |  |   |   |    |      |    |   |   |  |  |  | | | | | ||||
-
 
