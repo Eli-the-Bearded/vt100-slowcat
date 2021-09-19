@@ -1,0 +1,9 @@
+The Not-So-Funny-Bunny in Straight Flush by Brainchild (Joey Millison). 
+Explicitly designed for 2400 baud, posted March 1995 to
+alt.ascii-art.animation by morbius@holly.ACNS.ColoState.EDU (Adrian Elhart)
+
+The Bunny reads MAD magazine on the toilet.
+
+sample command line:
+
+slowcat -b 2400 helper-bits/hide-cursor.vt other/not-so-funny-bunny.vt helper-bits/show-cursor.vt

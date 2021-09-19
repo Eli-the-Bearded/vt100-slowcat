@@ -1,0 +1,10 @@
+The Not-So-Funny-Bunny in Under the Sea (Unda da Sea) by Brainchild
+(Joey Millison).  Explicitly designed for 2400 baud, posted March 1995 to
+alt.ascii-art.animation by morbius@holly.ACNS.ColoState.EDU (Adrian Elhart)
+
+The Bunny snorkels and meets a fish and a shark.
+
+sample command line:
+
+slowcat -b 2400 helper-bits/hide-cursor.vt other/bunny-unda-da-sea.vt helper-bits/show-cursor.vt
+
