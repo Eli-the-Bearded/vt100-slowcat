@@ -1,9 +1,12 @@
 Vestale sous contraintes (Exercice ludique)
 Posted to alt.ascii-art.animation through an anonymous remailer in
-October 1994 as a Perl script (see smoking-nude.pl elsewhere in this
+October 1994 as a Perl script (see vestale.pl elsewhere in this
 repo), text video captured 2021. 
+
+(Originally I had named these files "smoking-nude" but apparently 
+the cannonical name is "vestale".)
 
 Try
 
-slowcat -b 36000 helper-bits/hide-cursor.vt other/smoking-nude.script helper-bits/show-cursor.vt
+slowcat -b 36000 helper-bits/hide-cursor.vt other/vestale.script helper-bits/show-cursor.vt
 
