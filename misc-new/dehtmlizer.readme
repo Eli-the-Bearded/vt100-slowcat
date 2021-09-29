@@ -1,0 +1,16 @@
+This does 90 to 95% of the work of turning an HTML ASCII art
+animation (of the likes Kangaroo used to post) into a vt100
+animation.
+
+I look for the line that lists dimensions and run it in vi with
+
+:%! dehtmlizer WIDTH
+
+Or just guess a width, since all that does is pad shorter
+lines to that width, to use spaces to erase previous art.
+
+The script discards all lines that don't start with " so it
+can filter out the HTML and post headers automatically while
+converting the javascript back to a slowcat'able animation.
+
+September 2021	Eli the Bearded
