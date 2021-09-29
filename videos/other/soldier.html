@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+    <TITLE>soldier</TITLE>
+</HEAD>
+
+<BODY text=black bgcolor=white onload="tick()">
+
+<b>soldier</b> --silivanov99
+
+<script language="JavaScript">
+ 
+    var max=0;
+    function tlist(){ max=tlist.arguments.length;
+        for(i=0;i<max;i++) this[i]=tlist.arguments[i];
+    }
+
+    tl = new tlist(
+
+" \r"+
+"             ,.,\r"+
+"           .'   ',\r"+
+"           i  - -|\r"+
+"          ( | o o)\r"+
+"           |/ _\")/\r"+
+"            \\|__/\r"+
+"            |__|\r"+
+"         __/_\<\> L__\r"+
+"       (^^^ \\|\\ / ^^]\r"+
+"       | \\   \\^/   ] \\\r"+
+"       |~ \\  .\\    ]  \\\r"+
+"       |  |  .|    |\\  \\\r"+
+"       \\  |==={}===| \\__|\r"+
+"        \\_]________\\   Y\\\r"+
+"         Y\\     _  \\\r"+
+"          l    / \\__)\r"+
+"          |__ |   |*\\\r"+
+"           |**|  /**/\r"+
+"           |**/ (**\\\r"+
+"         __\\**|  \\**\\\r"+
+"        /*****\\   \\*_|\r"+
+"S-v     ^^^^^^^     ^^  \r",
+
+" \r"+
+"             ,.,\r"+
+"           .'   ',\r"+
+"           i  ^ ^|\r"+
+"          ( | o o)\r"+
+"           |/  \")/\r"+
+"            \\_()/\r"+
+"            |__|\r"+
+"         __/_\<\> L__\r"+
+"       (^^^ \\|\\ / ^^]\r"+
+"       / |   \\^/   ] \\\r"+
+"      /~ |   .\\    ]  \\\r"+
+"     /  /|   .|    \>  /\r"+
+"    /  / |===={}==/__/\r"+
+"   |__/  ] _______ Y\\\r"+
+"   /Y    /    _    \\\r"+
+"         (___/ \\   |\r"+
+"          /*|   |__|\r"+
+"          \\**\\  |**|\r"+
+"          /**)  \\**|\r"+
+"         /**/   |**/__\r"+
+"        |_*/    /*****\\\r"+
+"S-v     ^^      ^^^^^^^\r"
+
+
+
+    );
+    var x=0;
+    function tick() {
+        document.f.t.value=tl[x];
+        x++; if(x==max) x=0;
+        //if(confirm('continue?'))
+            setTimeout("tick()",400);
+    }
+    //-->
+
+</script>
+
+<FORM NAME=f><TEXTAREA NAME="t" ROWS="23" COLS="30">
+</TEXTAREA> </FORM>
+
+</BODY>
+
+</HTML>
+

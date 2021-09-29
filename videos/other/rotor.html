@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<TITLE> Rotor </TITLE>
+<META NAME="GENERATOR" CONTENT="Animation to Hypertext Converter (Version 1.5)">
+</HEAD>
+
+<script language="JavaScript">
+<!-- Begin animation script -----
+document.bgColor="black";
+document.fgColor="white";
+var frame_count=0;
+var nl="\r\n";
+
+function Animate()
+{
+        document.animation.viewer.value = cartoon[frame_count];
+        if (cartoon[++frame_count]==null) frame_count=0;
+        // Remove "//" from next line to show it a frame at a time.
+        // if(confirm('continue?'))
+        setTimeout("Animate()", 100);  // Change number here to change speed
+}
+
+cartoon = new Array(
+"                   oooo"+nl+
+"                oooo"+nl+
+"              ooo"+nl+
+"             oo"+nl+
+"            oo"+nl+
+"          /    \\"+nl+
+"         |  ()  |"+nl+
+"          \\ __ /"+nl+
+"            oo"+nl+
+"           oo"+nl+
+"         ooo"+nl+
+"      oooo"+nl+
+"   oooo",
+
+"           ooo"+nl+
+"         ooo"+nl+
+"        ooo"+nl+
+"        oo"+nl+
+"        ooo __"+nl+
+"         o/    \\"+nl+
+"         |  ()  |"+nl+
+"          \\ __ /o"+nl+
+"               ooo"+nl+
+"                oo"+nl+
+"               ooo"+nl+
+"              ooo"+nl+
+"            ooo",
+
+""+nl+
+""+nl+
+"oooo"+nl+
+"oooo"+nl+
+" oooo       __"+nl+
+"   oooo   /    \\"+nl+
+"      ooo|  ()  |ooo"+nl+
+"          \\ __ /   oooo"+nl+
+"                     oooo"+nl+
+"                      oooo"+nl+
+"                      oooo"+nl+
+""+nl+
+"",
+
+""+nl+
+"                      oooo"+nl+
+"                   oooo"+nl+
+"                 ooo"+nl+
+"            __ ooo"+nl+
+"          /    \\o"+nl+
+"         |  ()  |"+nl+
+"         o\\ __ /"+nl+
+"        ooo"+nl+
+"      ooo"+nl+
+"   oooo"+nl+
+" oooo"
+);// ----  End of the animation script  ----->
+</script>
+
+<BODY text=white background=stars.gif bgcolor=black link=red vlink=pink onload="Animate();window.status=' Rotor ';return true">
+
+<FORM NAME=animation>
+        <center><TEXTAREA NAME=viewer ROWS=13 COLS=26></TEXTAREA></center>
+</FORM>
+<font size=2 color=lightblue face=typewritter>
+<center> Art and Animation by Unknown </center>
+</font>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,261 @@
+<HTML>
+<HEAD>
+    <TITLE>your title here</TITLE>
+</HEAD>
+<body bgcolor="#FFF6E9" text="#800000" link="#008000" Alink="#0000FF" 
+Vlink="#008080" onload="tick()">
+<script language="JavaScript">
+ 
+    var max=0;
+    function tlist(){ max=tlist.arguments.length;
+        for(i=0;i<max;i++) this[i]=tlist.arguments[i];
+    }
+
+    tl = new tlist(
+
+"              o                               \r\n"+            
+"                                              \r\n"+
+"        0 ____m                               \r\n"+            
+"        |/              __                    \r\n"+            
+"        |\\_m-[=]       /##|                  \r\n"+            
+"       /\\              |##|          oo      \r\n"+            
+"      /  \>             |##|         oooo    \r\n"+
+"      L \<              |##|        oooooo   \r",
+
+"                                              \r\n"+
+"              o                               \r\n"+
+"        0 ____m                               \r\n"+            
+"        |/              __                    \r\n"+            
+"        |\\_m-[=]       /##|                  \r\n"+            
+"       /\\              |##|          oo      \r\n"+            
+"      /  \>             |##|         oooo    \r\n"+
+"      L \<              |##|        oooooo   \r",
+
+"                                              \r\n"+
+"                                              \r\n"+
+"        0 ____@                               \r\n"+            
+"        |/              __                    \r\n"+            
+"        |\\_m-[=]       /##|                  \r\n"+            
+"       /\\              |##|          oo      \r\n"+            
+"      /  \>             |##|         oooo    \r\n"+
+"      L \<              |##|        oooooo   \r\n",
+
+"                                              \r\n"+
+"                                              \r\n"+
+"        0 ____@                               \r\n"+            
+"        |/              __                    \r\n"+            
+"        |\\_m-[=]       /##|                  \r\n"+            
+"       /\\              |##|          oo      \r\n"+            
+"      /  \>             |##|         oooo    \r\n"+
+"     \<  \<              |##|        oooooo \r",
+                                              
+"                                              \r\n"+
+"                                              \r\n"+
+"        0 ____                                \r\n"+            
+"        |/    @         __                    \r\n"+            
+"        |\\_m-[=]       /##|                  \r\n"+            
+"       /\\              |##|          oo      \r\n"+            
+"      /  \>             |##|         oooo    \r\n"+
+"     \<  \<              |##|        oooooo \r",
+
+"                                              \r\n"+
+"                                              \r\n"+
+"        0 ____                                \r\n"+            
+"        |/    @         __                    \r\n"+            
+"        |\\             /##|                  \r\n"+            
+"       /\\ \\            |##|          oo     \r\n"+            
+"      /  \>[=]          |##|         oooo    \r\n"+
+"     \<  \<              |##|        oooooo \r",
+
+"                                              \r\n"+
+"                                              \r\n"+
+"        0 ____                                \r\n"+            
+"        |/    w         __                    \r\n"+            
+"        |\\    o        /##|                  \r\n"+            
+"        \\\\\            |##|          oo     \r\n"+            
+"         \>\>[=]         |##|         oooo  \r\n"+
+"        \<\<             |##|        oooooo \r",
+
+"                                              \r\n"+
+"                                              \r\n"+
+"        0                                     \r\n"+         
+"        |\\              __                   \r\n"+            
+"        |\\\\_m[o]       /##|                 \r\n"+            
+"         \\\\            |##|          oo     \r\n"+            
+"          \>\\           |##|         oooo   \r\n"+
+"         \< \<           |##|        oooooo \r",
+
+"                                              \r\n"+
+"                                              \r\n"+
+"       0        o                             \r\n"+            
+"        \\\\      ,       __                  \r\n"+            
+"         \\\\_m[=]       /##|                 \r\n"+            
+"         /\\            |##|          oo      \r\n"+            
+"         \> \\           |##|         oooo   \r\n"+
+"        \<   L          |##|        oooooo   \r",
+ 
+"                                              \r\n"+
+"                   , o                        \r\n"+
+"          0      ,                            \r\n"+            
+"          |\\     .       __                  \r\n"+            
+"          | \\_m[=]     /##|                  \r\n"+            
+"         /^\\           |##|          oo      \r\n"+            
+"         \>  \\          |##|         oooo   \r\n"+
+"        \<    L         |##|        oooooo   \r",
+                                         
+"                      ,  , o                 \r\n"+
+"                   .                         \r\n"+
+"          0      .                           \r\n"+             
+"          |\\    .       __                  \r\n"+             
+"          | \\_m[=]     /##|                 \r\n"+             
+"         /^\\           |##|          oo     \r\n"+             
+"        /   \\          |##|         oooo    \r\n"+
+"       \<     L         |##|        oooooo  \r",
+
+"                      .  .  ,   ,  o         \r\n"+
+"                   .                         \r\n"+
+"          0                                  \r\n"+             
+"         /|\\            __                  \r\n"+             
+"        / | \\          /##|                 \r\n"+             
+"         /^\\ [=]       |##|          oo     \r\n"+             
+"        /   \\          |##|         oooo    \r\n"+
+"       \<     L         |##|        oooooo  \r",
+
+"                      .  .  .   .  ,         \r\n"+
+"                   .                 ,       \r\n"+
+"          0                                  \r\n"+             
+"         /|\\            __            o     \r\n"+             
+"        / | \\          /##|                 \r\n"+             
+"         /^\\ [=]       |##|          oo     \r\n"+             
+"        /   \\          |##|         oooo    \r\n"+
+"       \<     L         |##|        oooooo 
+\r",                                                                   
+"                                   .         \r\n"+
+"                                     .       \r\n"+
+"          0                           ,      \r\n"+             
+"         /|\\            __            ,     \r\n"+             
+"        / | \\          /##|           o     \r\n"+             
+"         /^\\ [=]       |##|          oo     \r\n"+             
+"        /   \\          |##|         oooo    \r\n"+
+"       \<     L         |##|        oooooo  \r",
+
+"                                             \r\n"+
+"                                             \r\n"+
+"          0                           .      \r\n"+             
+"         /|\\            __            ,     \r\n"+             
+"        / | \\          /##|           ,     \r\n"+             
+"         /^\\ [=]       |##|          o0     \r\n"+             
+"        /   \\          |##|         oooo    \r\n"+
+"       \<     L         |##|        oooooo  \r",
+
+"                                             \r\n"+
+"                                             \r\n"+
+"          0                                  \r\n"+             
+"         /|\\            __                  \r\n"+             
+"        / | \\          /##|       o   . o   \r\n"+             
+"         /^\\ [=]       |##|          oo     \r\n"+             
+"        /   \\          |##|         oo*o    \r\n"+
+"       \<     L         |##|        oooooo  \r",
+
+"                                             \r\n"+
+"                                             \r\n"+
+"          0                                  \r\n"+             
+"         /|\\            __       o        o \r\n"+             
+"        / | \\          /##|                 \r\n"+             
+"         /^\\ [=]       |##|          oo     \r\n"+             
+"        /   \\          |##|         oo@o    \r\n"+
+"       \<     L         |##|        oooooo  \r",
+
+"                                             \r\n"+
+"                                             \r\n"+
+"          0                     o           o\r\n"+             
+"         /|\\            __                  \r\n"+             
+"        / | \\          /##|                 \r\n"+             
+"         /^\\[=]        |##|          oo     \r\n"+             
+"        /   \\          |##|         oooo    \r\n"+
+"       \<     L         |##|        oooooo  \r",
+
+"                                                 \r\n"+
+"                                                 \r\n"+
+"          0                                      \r\n"+         
+"         /|\\            __                      \r\n"+         
+"        / | \\          /##|   o                o\r\n"+         
+"         /^\\[=]        |##|          oo         \r\n"+         
+"        /   \>          |##|         oooo       \r\n"+
+"        L  \<           |##|        oooooo      \r",
+
+"                                                       \r\n"+
+"                                                       \r\n"+
+"          0                                            \r\n"+   
+"         /|\\            __                            \r\n"+   
+"        / | \\          /##|                           \r\n"+   
+"         /^\\[=]        |##|          oo               \r\n"+   
+"        /   \>          |##| o       oooo           o \r",
+"        L  \<           |##|        oooooo 
+
+"                                                         \r\n"+
+"                                                         \r\n"+
+"          0                                              \r\n"+ 
+"          |\\            __                              \r\n"+ 
+"          | \\          /##|                             \r\n"+ 
+"         /^\\[=]        |##|          oo                 \r\n"+ 
+"        /   \>          |##|         oooo               \r\n"+
+"        L  \<           |##|o       oooooo            o \r", 
+
+"                                                          \r\n"+
+"                                                          \r\n"+
+"          0                                               \r\n"+ 
+"         /|\\            __                               \r\n"+
+"        / | \\          /##|                              \r\n"+ 
+"         /^\\[=]        |##|          oo                  \r\n"+ 
+"        /   \>          |##|         oooo               o\r\n"+
+"        L  \<           |##|        oooooo               \r",
+
+"                                                          \r\n"+
+"                                                          \r\n"+
+"          0                                               \r\n"+
+"         /|\\            __                               \r\n"+
+"        / | \\          /##|                              \r\n"+ 
+"         /^\\[=]        |##|          oo                  \r\n"+
+"        /   \>          |##|o        oooo                \r\n"+
+"        L  \<           |##|        oooooo               \r",  
+"                                                   \r\n"+       
+"                                                   \r\n"+
+"          0 ____m                                  \r\n"+     
+"          |/            __                         \r\n"+
+"          |\\__m-[=]    /##|                       \r\n"+  
+"         /^\\           |##|          oo           \r\n"+ 
+"        /   \>          |##|         oooo         \r\n"+
+"        L  \<           |##|  o     oooooo        \r",
+
+"                                                   \r\n"+
+"                                                   \r\n"+
+"          0 ____m                                  \r\n"+      
+"          |/            __                         \r\n"+
+"          |\\__m-[=]    /##|                       \r\n"+  
+"         /^\\           |##|          oo           \r\n"+ 
+"        /   \>          |##|         oooo         \r\n"+
+"        L  \<           |##|        oooooo        \r",
+
+    );
+    var x=0;
+    function tick() {
+        document.f.t.value=tl[x];
+        x++; if(x==max) x=0;
+        //if(confirm('continue?'))
+            setTimeout("tick()",100);
+    }
+    //-->
+
+</script>
+
+<FORM NAME=f><TEXTAREA NAME=t ROWS=6 COLS=60>
+</TEXTAREA> </FORM>
+
+<P><B>To <A
+HREF="http://www.geocities.com/SoHo/Studios/9334/animations.htm">
+llizard's Javascript ASCII-animations</A></B></P>
+</BODY>
+
+</HTML>
+
