@@ -1,0 +1,2814 @@
+[H[J
+[1;36H___ 
+[2;35H-   -_, 
+[3;34H(  %/|| 
+[4;34H(  / || 
+[5;35H\/==|| 
+[6;35H/_ _|| 
+[7;34H(  - \\, 
+[8;0H 
+[9;21H_-_- 
+[10;23H/,                         ' 
+[11;23H|| __    _-_  ,._-_  /'\\ \\  _-_ 
+[12;22H%||-  -  || \\  ||   || || || || 
+[13;23H||===|| ||/    ||   || || || || 
+[14;22H( \_, |  \\,/   \\,  \\,/  \\ \\,/ 
+[15;0H 
+[16;27H___ 
+[17;25H-   ---___-      ,, 
+[17;28H(' ||         || 
+[18;27H((  ||    < \, ||  _-_ 
+[19;26H((   ||    /-|| || || \\ <> 
+[20;27H(( //    (( || || ||/ 
+[21;29H-____-  \/\\ \\ \\,/  <> 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H  
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H  
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H  
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H[H 
+[H[J 
+[2;0H 
+[3;0H 
+[4;0H 
+[5;0H 
+[6;0H 
+[7;0H 
+[8;0H 
+[9;0H 
+[10;0H 
+[11;51H^ 
+[12;52H\ 
+[13;53H\        M 
+[14;54H\_     ( W 
+[15;54H<_>__~_|_W 
+[16;55H\\-(^)  V() 
+[17;56H\\//|   | 
+[18;57H`' ####U\ 
+[19;60H| Y |\\ 
+[20;60H/ | | \\ 
+[21;59H| /| |  \\ 
+[22;57Hq-|= |=|   \| 
+[23;58H^-' |n| 
+[2;24H/^\ 
+[2;24H )) 
+[3;24H/^\ 
+[2;24H\\ 
+[3;24H )) 
+[4;24H/^\ 
+[2;23H{( 
+[3;24H\\ 
+[4;24H )) 
+[5;24H/^\ 
+[2;21H`8||8' 
+[3;23H{( 
+[4;24H\\ 
+[5;24H )) 
+[6;24H/^\ 
+[2;22Hw,,w 
+[3;21H`8||8' 
+[4;23H{( 
+[5;24H\\ 
+[6;24H )) 
+[7;24H/^\ 
+[2;14H/^ \|   \  /   |/ ^\ 
+[3;22Hw,,w 
+[4;21H`8||8' 
+[5;23H{( 
+[6;24H\\ 
+[7;24H )) 
+[8;24H/^\ 
+[2;14H>/  |/^\V\/V/^\|  \< 
+[3;14H/^ \|   \  /   |/ ^\ 
+[4;22Hw,,w 
+[5;21H`8||8' 
+[6;23H{( 
+[7;24H\\ 
+[8;24H )) 
+[9;24H/^\ 
+[2;14H) / |  \ /\ /  | \ ( 
+[3;14H>/  |/^\V\/V/^\|  \< 
+[4;14H/^ \|   \  /   |/ ^\ 
+[5;22Hw,,w 
+[6;21H`8||8' 
+[7;23H{( 
+[8;24H\\ 
+[9;24H )) 
+[10;24H/^\ 
+[2;13H)   >* \  , , / *<   ( 
+[3;14H) / |  \ /\ /  | \ ( 
+[4;14H>/  |/^\V\/V/^\|  \< 
+[5;14H/^ \|   \  /   |/ ^\ 
+[6;22Hw,,w 
+[7;21H`8||8' 
+[8;23H{( 
+[9;24H\\ 
+[10;24H )) 
+[11;24H/^\
+[2;13H/____\o        o/____\ 
+[3;13H)   >* \  , , / *<   ( 
+[4;14H) / |  \ /\ /  | \ ( 
+[5;14H>/  |/^\V\/V/^\|  \< 
+[6;14H/^ \|   \  /   |/ ^\ 
+[7;22Hw,,w 
+[8;21H`8||8' 
+[9;23H(( 
+[10;24H\\ 
+[11;24H )) 
+[12;24H/^\ 
+[2;14H)  \            /  ( 
+[3;13H/____\o        o/____\ 
+[4;13H)   >* \  , , / *<   ( 
+[5;14H) / |  \ /\ /  | \ ( 
+[6;14H>/  |/^\V\/V/^\|  \< 
+[7;14H/^ \|   \  /   |/ ^\ 
+[8;22Hw,,w 
+[9;21H`8||8' 
+[10;23H{( 
+[11;24H\\ 
+[12;24H )) 
+[13;24H/^\ 
+[2;14H> \              / < 
+[3;14H)  \            /  ( 
+[4;13H/____\o        o/____\ 
+[5;13H)   >* \  , , / *<   ( 
+[6;14H) / |  \ /\ /  | \ ( 
+[7;14H>/  |/^\V\/V/^\|  \< 
+[8;14H/^ \|   \  /   |/ ^\ 
+[9;22Hw,,w 
+[10;21H`8||8' 
+[11;23H{( 
+[12;24H\\ 
+[13;24H )) 
+[14;24H/^\ 
+[2;14H)\                /( 
+[3;14H> \              / < 
+[4;14H)  \            /  ( 
+[5;13H/____\o        o/____\ 
+[6;13H)   >* \  , , / *<   ( 
+[7;14H) / |  \ /\ /  | \ ( 
+[8;14H>/  |/^\V\/V/^\|  \< 
+[9;14H/^ \|   \  /   |/ ^\ 
+[10;22Hw,,w 
+[11;21H`8||8' 
+[12;23H{( 
+[13;24H\\ 
+[14;24H )) 
+[15;24H/^\ 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{( 
+[14;24H\\ 
+[15;24H )) 
+[16;24H/^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;14H //^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /         
+[11;13H         w,,w          
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  /              _______________________ 
+[3;14H)\                /(             {                       } 
+[4;14H> \              / <             |                       | 
+[5;14H)  \            /  (             |                       | 
+[6;13H/____\o        o/____\            |                       | 
+[7;13H)   >* \  , , / *<   (            |                       | 
+[8;14H) / |  \ /\ /  | \ (             |                       | 
+[9;14H>/  |/^\V\/V/^\|  \<             |                       | 
+[10;14H/^ \|   \  /   |/ ^\             |                       | 
+[11;13H         w,,w                     {_________   ___________} 
+[12;21H`8||8'                        ^     \ | 
+[13;23H{(                           \     \| 
+[14;24H\\                           \     ` 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  /              _______________________ 
+[3;14H)\                /(             {                       } 
+[4;14H> \              / <             |      [1mDont worry[0m       | 
+[5;14H)  \            /  (             |     [1mfair maiden[0m       | 
+[6;13H/____\o        o/____\            |                       | 
+[7;13H)   >* \  , , / *<   (            |   [1mI'LL protect you[0m    | 
+[8;14H) / |  \ /\ /  | \ (             |       [1mfrom the[0m        | 
+[9;14H>/  |/^\V\/V/^\|  \<             |        [1m[7mBEAST!![0m        | 
+[10;14H/^ \|   \  /   |/ ^\             |                       | 
+[11;13H         w,,w                     {_________   ___________} 
+[12;21H`8||8'                        ^     \ | 
+[13;23H{(                           \     \| 
+[14;24H\\                           \     ` 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  /                                        
+[3;14H)\                /(                                        
+[4;14H> \              / <                                        
+[5;14H)  \            /  (                                        
+[6;13H/____\o        o/____\                                       
+[7;13H)   >* \  , , / *<   (                                       
+[8;14H) / |  \ /\ /  | \ (                                        
+[9;14H>/  |/^\V\/V/^\|  \<                                        
+[10;14H/^ \|   \  /   |/ ^\                                      
+[11;13H         w,,w                                                
+[12;21H`8||8'                                             
+[13;23H{(                                     _Mm 
+[14;24H\\                                   (# WE 
+[15;25H))                          n_____ ~_|_|EL. 
+[16;24H/^\                 <=======( )----(^)   ()V 
+[17;53H`'     |    | 
+[18;60H####U-_ 
+[19;60H|  ))`--_ 
+[20;60H/ | |   --_ 
+[21;59H| /| |     --_ 
+[22;57Hq-|= |=|       -> 
+[23;58H^-' |n| 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[13;23H{(                                    _Mm 
+[14;24H\\                                  (# WE 
+[15;25H))                         n_____ ~_|_|EL. 
+[16;24H/^\                <=======( )----(^)   ()V 
+[17;52H`'     |    | 
+[18;59H####U\        
+[19;59H|  ))\\       
+[20;59H/ / \ \\      
+[21;58H/ / \ \ \\     
+[22;55Hq-/=/ q-\=\ V      
+[23;56H^--   ^--'  
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[13;23H{(                                   _Mm 
+[14;24H\\                                 (# WE 
+[15;25H))                        n_____ ~_|_|EL. 
+[16;24H/^\               <=======( )----(^)   ()V 
+[17;51H`'     |    | 
+[19;58H####U\       
+[19;58H|  ))\\       
+[20;58H| | | \\       
+[21;58H| | |  \\      
+[22;56Hq-|=|=|   V      
+[23;57H^-'^-'   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[13;23H{(                                  _Mm 
+[14;24H\\                                (# WE 
+[15;25H))                       n_____ ~_|_|EL. 
+[16;24H/^\              <=======( )----(^)   ()V 
+[17;50H`'     |    | 
+[18;57H####U\  
+[19;57H\  ))\\ 
+[20;57H/\ \' \\ 
+[21;56H/ /\ \  \\ 
+[22;53Hq-/=/q-\=|  V 
+[23;54H^--  ^--'   
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[13;23H{(                                 _Mm 
+[14;24H\\                               (# WE 
+[15;25H))                      n_____ ~_|_|EL. 
+[16;24H/^\             <=======( )----(^)   ()V 
+[17;49H`'     |    | 
+[18;56H####U\ 
+[19;56H|  ))\\ 
+[20;56H| | | \\ 
+[21;56H| | |  \\ 
+[22;54Hq-|=|=|   V 
+[23;55H^-'^-'   
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[13;23H{(                                _Mm 
+[14;24H\\                              (# WE 
+[15;25H))                     n_____ ~_|_|EL. 
+[16;24H/^\            <=======( )----(^)   ()V 
+[17;48H`'     |    | 
+[18;55H####U\ 
+[19;55H|  ))\\ 
+[20;55H/ / \ \\ 
+[21;54H/ / \ \ \\ 
+[22;51Hq-/=/ q-\=\ V 
+[23;52H^--   ^--'    
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[13;23H{(                               _Mm 
+[14;24H\\                             (# WE 
+[15;25H))                    n_____ ~_|_|EL. 
+[16;24H/^\           <=======( )----(^)   ()V 
+[17;47H`'     |    | 
+[18;54H####U\ 
+[19;54H|  ))\\ 
+[20;54H| | | \\ 
+[21;54H| | |  \\ 
+[22;52Hq-|=|=|   V 
+[23;53H^-'^-'     
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[13;23H{(                              _Mm 
+[14;24H\\                            (# WE 
+[15;25H))                   n_____ ~_|_|EL. 
+[16;24H/^\          <=======( )----(^)   ()V 
+[17;46H`'     |    | 
+[18;53H####U\ 
+[19;53H\  ))\\ 
+[20;53H/\ \' \\ 
+[21;52H/ /\ \  \\ 
+[22;49Hq-/=/q-\=|  V 
+[23;50H^--  ^--'     
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[13;23H{(                             _Mm 
+[14;24H\\                           (# WE 
+[15;25H))                  n_____ ~_|_|EL. 
+[16;24H/^\         <=======( )----(^)   ()V 
+[17;45H`'     |    | 
+[18;52H####U\ 
+[19;52H|  ))\\ 
+[20;52H| | | \\ 
+[21;52H| | |  \\ 
+[22;50Hq-|=|=|   V 
+[23;51H^-'^-'     
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[13;23H{(                            _Mm 
+[14;24H\\                          (# WE 
+[15;25H))                 n_____ ~_|_|EL. 
+[16;24H/^\        <=======( )----(^)   ()V 
+[17;44H`'     |    | 
+[18;51H####U\ 
+[19;51H|  ))\\ 
+[20;51H/ / \ \\ 
+[21;50H/ / \ \ \\ 
+[22;47Hq-/=/ q-\=\ V 
+[23;48H^--   ^--'     
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[13;23H{(                           _Mm 
+[14;24H\\                         (# WE 
+[15;25H))                n_____ ~_|_|EL. 
+[16;24H/^\       <=======( )----(^)   ()V 
+[17;43H`'     |    | 
+[18;50H####U\ 
+[19;50H|  ))\\ 
+[20;50H| | | \\ 
+[21;50H| | |  \\ 
+[22;48Hq-|=|=|   V 
+[23;49H^-'^-'     
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[13;23H{(                          _Mm 
+[14;24H\\                        (# WE 
+[15;25H))               n_____ ~_|_|EL. 
+[16;24H/^\      <=======( )----(^)   ()V 
+[17;42H`'     |    | 
+[18;49H####U\ 
+[19;49H\  ))\\ 
+[20;49H/\ \' \\ 
+[21;48H/ /\ \  \\ 
+[22;45Hq-/=/q-\=|  V 
+[23;46H^--  ^--'     
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[13;23H{(                         _Mm 
+[14;24H\\                       (# WE 
+[15;25H))              n_____ ~_|_|EL. 
+[16;24H/^\     <=======( )----(^)   ()V 
+[17;41H`'     |    | 
+[18;48H####U\ 
+[19;48H|  ))\\ 
+[20;48H| | | \\ 
+[21;48H| | |  \\ 
+[22;46Hq-|=|=|   V 
+[23;47H^-'^-'     
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[13;23H{(                        _Mm 
+[14;24H\\                      (# WE 
+[15;25H))             n_____ ~_|_|EL. 
+[16;24H/^\    <=======( )----(^)   ()V 
+[17;40H`'     |    | 
+[18;47H####U\ 
+[19;47H|  ))\\ 
+[20;47H/ / \ \\ 
+[21;46H/ / \ \ \\ 
+[22;43Hq-/=/ q-\=\ V 
+[23;44H^--   ^--'     
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[13;23H{(                       _Mm 
+[14;24H\\                     (# WE 
+[15;25H))            n_____ ~_|_|EL. 
+[16;24H/^\   <=======( )----(^)   ()V 
+[17;39H`'     |    | 
+[18;46H####U\ 
+[19;46H|  ))\\ 
+[20;46H| | | \\ 
+[21;46H| | |  \\ 
+[22;44Hq-|=|=|   V 
+[23;45H^-'^-'     
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[13;23H{(                      _Mm 
+[14;24H\\                    (# WE 
+[15;25H))           n_____ ~_|_|EL. 
+[16;24H/^\  <=======( )----(^)   ()V 
+[17;38H`'     |    | 
+[18;45H####U\ 
+[19;45H\  ))\\ 
+[20;45H/\ \' \\ 
+[21;44H/ /\ \  \\ 
+[22;41Hq-/=/q-\=|  V 
+[23;42H^--  ^--'     
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \   __ / *<   ( 
+[8;14H) / |  \ /  \_ | \ ( 
+[9;14H>/  |/^\V ^(aa)|  \< 
+[10;14H/^ \|   \  /\_j|/ ^\ 
+[13;23H{(                     _Mm 
+[14;24H\\                   (# WE 
+[15;25H))          n_____ ~_|_|EL. 
+[16;24H/^\ <=======( )----(^)   ()V 
+[17;37H`'     |    | 
+[18;44H####U\ 
+[19;44H|  ))\\ 
+[20;44H| | | \\ 
+[21;44H| | |  \\ 
+[22;42Hq-|=|=|   V 
+[23;43H^-'^-'     
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \   __ / *^--- 
+[8;13H   )/|  \ /  \  |\(   
+[9;13H   /^| ^,V  \ \_|^\   
+[10;14H        \  /(aa)  
+[11;14H        w,,w \_j      
+[13;23H{(                    _Mm 
+[14;24H\\                  (# WE 
+[15;25H))         n_____ ~_|_|EL. 
+[16;24H/^\<=======( )----(^)   ()V 
+[17;36H`'     |    | 
+[18;43H####U\ 
+[19;43H|  ))\\ 
+[20;43H/ / \ \\ 
+[21;42H/ / \ \ \\ 
+[22;39Hq-/=/ q-\=\ V 
+[23;40H^--   ^--'     
+[6;13H      o        o       
+[7;18H/*\   __ /*\      
+[8;17H//| \ /  \ |\\     
+[9;16H// |(\V  \ \_ \\    
+[10;15H//^,|' \  /(aa)^\\  
+[11;14H/       w,,w \nn   \ 
+[12;21H`8||8' (\\\) 
+[13;23H{(                   _Mm 
+[14;24H\\                 (# WE 
+[15;25H))        n_____ ~_|_|EL. 
+[16;24H/^<=======( )----(^)   ()V 
+[17;35H`'     |    | 
+[18;42H####U\ 
+[19;42H|  ))\\ 
+[20;42H/ | | \\ 
+[21;41H| /|(   \\ 
+[22;39Hq-|=q|=|   V 
+[23;40H^-' ^-'     
+[6;13H------o        o------ 
+[7;13H ---^* \   __ / *^--- 
+[8;13H   )/|  \ /  \  |\( 
+[9;13H   /^| ^,V  \ \_|^\^  
+[10;14H        \  /(aa)   \ 
+[11;14H        w,,w \nn    \ 
+[12;21H`8||8' (\\\)) \ _
+[13;23H{(     (\S\))) >    _Mm 
+[14;24H\\           \\\  (# WE 
+[15;25H))           \\`--|_|EL. 
+[16;24H/^\            \(^)'  ()V 
+[17;40H`|    | 
+[18;41H####U\ 
+[19;41H|  ))\\ 
+[20;41H/ / \ \\ 
+[21;40H/ / \ \ \\ 
+[22;37Hq-/=/ q-\=\ V 
+[23;38H^--   ^--'     
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \   __ / *<   ( 
+[8;14H) / |  \ /  \  | \ ( 
+[9;14H>/  |/^\V  \ \_|  \< 
+[10;14H/^ \|   \  /(aa)/ ^\ 
+[11;22Hw,,w \nn 
+[12;21H`8||8' (\\\)) 
+[13;23H{(    (\S\S\\))    M   
+[14;24H\\    ((\\S\S\)))( W 
+[15;25H))       <_>__~_|_W 
+[16;24H/^\        \\-(^)  V() 
+[17;36H\\//|   | 
+[18;37H`' ####U\ 
+[19;40H| Y |\\ 
+[20;40H/ | | \\ 
+[21;39H| /| |  \\ 
+[22;37Hq-|= |=|   \| 
+[23;38H^-' ^-'     
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \   __ / *^--- 
+[8;13H   )/|  \ /  \  |\(   
+[9;13H   /^| ^,V  \ \_|^\ 
+[10;14H        \  /(aa) \    
+[11;14H        w,,w \nn  \    
+[12;21H`8||8' (\\\))3 \ 
+[13;23H{(     (\S\S\\))3 3M 
+[14;24H\\     ((\\S\SS\\))) 
+[15;25H))      ((\\S\SS\S\\))    
+[16;24H/^\          \(^)'  ()V 
+[17;38H`|    | 
+[18;39H####U\ 
+[19;39H|  ))\\ 
+[20;39H/ | | \\ 
+[21;38H| /|(   \\ 
+[22;36Hq-|=q|=|   V 
+[23;37H^-' ^-'     
+[6;13H      o        o       
+[7;13H     /*\   __ /*\      
+[8;13H    //| \ /  \ |\\     
+[9;13H   // |(\V  \ \_ \\    
+[10;15H//^,|' \  /(aa)^\\  
+[11;14H/       w,,w \nn   \ 
+[12;21H`8||8' (\\\))3 
+[13;23H{(     (\S\S\\)))33 
+[14;24H\\      ((\\S\S\\)))3 3 
+[15;25H))      ((\\S\SS\S\\))) 3 
+[16;24H/^\      ((\\SS\SS\\S\))) 
+[17;35H\\//|   | 
+[18;36H`' ####U\ 
+[19;39H| Y |\\ 
+[20;39H/ | | \\ 
+[21;38H| /| |  \\ 
+[22;36Hq-|= |=|   \| 
+[23;37H^-' ^-'     
+[6;13H------o        o------ 
+[7;13H ---^* \   __ / *^--- 
+[8;13H   )/|  \ /  \  |\( 
+[9;13H   /^| ^,V  \ \_|^\  
+[10;14H        \  /(aa) \    
+[11;14H        w,,w \nn  \    
+[12;21H`8||8' (\\\)))3  
+[13;23H{(     (\S\S\S\\))33 
+[14;24H\\      ((\\S\S\\)))3 3 
+[15;25H))      ((\\S\SS\S\\))) 3 
+[16;24H/^\      ((\\SS\SS\\S\)))3 3 
+[17;33H(\SSS\\SSS\\SS\\)) 
+[18;39H####U\ 
+[19;39H|  ))\\ 
+[20;39H/ | | \\ 
+[21;38H| /|(   \\ 
+[22;36Hq-|=q|=|   V 
+[23;37H^-' ^-'   
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \   __ / *<   ( 
+[8;14H) / |  \ /  \  | \ ( 
+[9;14H>/  |/^\V  \ \_|  \< 
+[10;14H/^ \|   \  /(aa)/ ^\ 
+[11;22Hw,,w \nn 
+[12;21H`8||8' (\\\)))3  
+[13;23H{(     (\S\SS\S\\))3 3 
+[14;24H\\     (((\\SS\S\\)))33 3 
+[15;25H))      ((\\S\SS\SS\\))) 3 
+[16;24H/^\       ((\\SS\SS\\S\)))3 3 
+[17;33H((\SS\\SSS\\SS\\)))3 3 
+[18;33H(((\\SSS\\SSS\\\)) 
+[19;39H| Y |\\ 
+[20;39H/ | | \\ 
+[21;38H| /| |  \\ 
+[22;36Hq-|= |=|   \| 
+[23;37H^-' ^-' 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \   __ / *^--- 
+[8;13H   )/|  \ /  \  |\(   
+[9;13H   /^| ^,V  \ \_|^\ 
+[10;14H        \  /(aa) \   
+[11;14H        w,,w \nn  \ 
+[12;21H`8||8' (\S\\))) 3  
+[13;23H{(     (\S\SS\S\\))3 3 
+[14;24H\\     (((\\SS\S\\)))33 3 
+[15;25H))      ((\\S\SS\SS\\))) 3 
+[16;24H/^\       ((\\SS\SS\\S\)))3 3 
+[17;33H((\SS\\SSS\\SS\\)))3 3 
+[18;33H(((\\SSS\\SSS\\\))3 
+[19;32H((\\SS\SSS\\SSS\\)) 
+[20;39H/ | | \\ 
+[21;38H| /|(   \\ 
+[22;36Hq-|=q|=|   V 
+[23;37H^-' ^-' 
+[6;13H      o        o       
+[7;13H     /*\   __ /*\      
+[8;13H    //| \ /  \ |\\     
+[9;13H   // |(\V  \ \_ \\    
+[10;15H//^,|' \  /(aa)^\\  
+[11;14H/       w,,w \nn   \ 
+[12;21H`8||8' (\S\\)))3 3  
+[13;23H{(     (\S\SS\S\\))3 3 
+[14;24H\\     (((\\SS\S\\)))33 3 
+[15;25H))      ((\\S\SS\SS\\)))3 3 
+[16;24H/^\       ((\\SS\SS\\S\)))3 3 
+[17;33H((\SS\\SSS\\SS\\)))3 3 
+[18;33H(((\\SSS\\SSS\\\)))33 
+[19;32H((\\SS\SSS\\SSS\\))3 
+[20;33H(((\\S\SS\\SS\S\) 
+[21;38H| /| |  \\ 
+[22;36Hq-|= |=|   \| 
+[23;37H^-' ^-' 
+[6;13H------o        o------ 
+[7;13H ---^* \   __ / *^--- 
+[8;13H   )/|  \ /  \  |\(
+[9;13H   /^| ^,V  \ \_|^\  
+[10;14H        \  /(aa) \    
+[11;14H        w,,w \nn  \   
+[12;21H`8||8' (\S\\)))3 3  
+[13;23H{(     (\S\SS\S\\))3 3 
+[14;24H\\     (((\\SS\S\\)))33 3 
+[15;25H))      ((\\S\SS\SS\\)))3 3 
+[16;24H/^\       ((\\SS\SS\\S\)))33 3 
+[17;33H((\SS\\SSS\\SS\\)))3 3 
+[18;33H(((\\SSS\\SSS\\\)))33 
+[19;32H((\\SS\SSS\\SSS\\))) 3 
+[20;32H(((\\S\SS\\SS\S\)))3
+[21;33H(\SS\\SSS\\SS\S))) 
+[22;36Hq-|=q|=|   V 
+[23;37H^-' ^-' 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \   __ / *<   ( 
+[8;14H) / |  \ /  \  | \ ( 
+[9;14H>/  |/^\V  \ \_|  \< 
+[10;14H/^ \|   \  /(aa)/ ^\ 
+[11;22Hw,,w \nn 
+[12;21H`8||8' (\S\\)))33 3  
+[13;23H{(    (\S\SS\S\\))33 3 
+[14;24H\\    (((S\\SS\S\\)))33 3 
+[15;25H))     (((\\S\SS\SS\\)))33 3 
+[16;24H/^\      ((\\SS\SSS\\S\)))33 3 
+[17;33H((\SS\\SSS\\SS\\)))33 3 
+[18;32H(((\\SSS\\SSS\SS\\))) 33 
+[19;31H((\\SSS\SS\\SSS\\S\))) 3 
+[20;31H(((\\S\SSS\\SSS\S\)))33
+[21;32H(\SS\\SSS\\SS\\S)))3 
+[22;33H((\\SSS\SSS\\))3
+[23;37H^-' ^-' 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \   __ / *^--- 
+[8;13H   )/|  \ /  \  |\(   
+[9;13H   /^| ^,V  \ \_|^\  
+[10;14H        \  /(aa) \    
+[11;14H        w,,w \nn  \   
+[12;21H`8||8' (\S\\)))33 3  
+[13;23H{(    (\S\SS\S\\))33 3 
+[14;24H\\   (((S\\SSS\S\\)))33 3 3 
+[15;25H))   (((\\S\SSS\SS\\)))33 3 
+[16;24H/^\    ((\\SSS\\SSS\\S\)))33 3 
+[17;32H((\SS\\SS\\S\\SS\\)))33 3 
+[18;32H(((\\SSS\\S\SS\SS\\)))3 33 
+[19;31H((\\SSS\\SS\\SSS\\S\))) 33 
+[20;31H(((\\S\SSS\\\SSS\S\)))33
+[21;32H(\SS\\SSS\\SS\\S)))3 
+[22;33H((\\SSS\SSS\\))3
+[23;35H((\SS\SS\\)) 
+[6;13H      o        o       
+[7;13H     /*\   __ /*\      
+[8;13H    //| \ /  \ |\\     
+[9;13H   // |(\V  \ \_ \\    
+[10;15H//^,|' \  /(aa)^\\  
+[11;14H/       w,,w \nn   \ 
+[12;21H`8||8' (\S\\)))33 3  
+[13;23H{(    (\S\SS\S\\))33 3 
+[14;24H\\   (((S\\SSS\S\\)))33 3 3 
+[15;25H))   (((\\S\SSS\SS\\))) 33 3 
+[16;24H/^\    ((\\SSS\\SSS\\S\))) 33 3 
+[17;32H((\SS\\SS\\S\\SS\\)))33 3 
+[18;32H(((\\SSS\\S\SS\SS\\)))3 3 3 
+[18;32H((\\SSS\\SS\\SSS\\S\)))3 33 
+[19;31H(((\\S\SSS\\\SSS\S\)))3 33
+[20;31H(((\\S\SSS\\\SSS\S\)))33
+[21;32H(\SS\\SSS\\SS\\S)))3 
+[22;33H((\\SSS\SSS\\)) 3
+[23;35H((\SS\SS\\))3
+[6;13H------o        o------ 
+[7;13H ---^* \   __ / *^--- 
+[8;13H   )/|  \ /  \  |\( 
+[9;13H   /^| ^,V  \ \_|^\    
+[10;14H        \  /(aa)      
+[11;14H        w,,w \nn     
+[12;21H`8||8' (\S\\)))33  3  
+[13;23H{(    (\S\SS\S\\))33 3 
+[14;24H\\   (((S\\SSS\S\\)))33 3 3 
+[15;25H))   (((\\S\SSS\SS\\))) 33 3 
+[16;24H/^\    ((\\SSS\\SSS\\S\))) 33 3 
+[17;32H((\SS\\SS\\S\\SS\\))) 33 3 
+[18;32H(((\\SSS\\S\SS\SS\\))) 3 33 
+[19;31H(((\\S\SSS\\\SSS\S\))) 3 33
+[20;31H(((\\S\SSS\\\SSS\S\)))3  3
+[21;32H(\SS\\SSS\\SS\\S)))3 3 
+[22;33H((\\SSS\SSS\\))3 3
+[23;35H((\SS\\S\\))3
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \   __ / *<   ( 
+[8;14H) / |  \ /  \  | \ ( 
+[9;14H>/  |/^\V  \ \_|  \< 
+[10;14H/^ \|   \  /(aa)/ ^\ 
+[11;22Hw,,w \nn 
+[12;21H`8||8' (\S\\)))3 3  3  
+[13;23H{(    (\S\SS\S\\))3 33 3 
+[14;24H\\   (((S\\SSS\S\\))) 33 3 3 
+[15;25H))   (((\\S\SSS\SS\\)))  33 3 
+[16;24H/^\    ((\\SSS\\SSS\\S\)))  33 3 
+[17;32H((\SS\\SS\\S\\SS\\))) 33 3 
+[18;32H(((\\SSS\\S\SS\SS\\))) 3 33 
+[19;31H(((\\S\SSS\\\SSS\S\))) 3 33
+[20;31H(((\\S\SSS\\\SSS\S\)))3  3
+[21;32H(\SS\\SSS\\SS\\S)))3 3 
+[22;33H((\\SSS\SSS\\))3 3
+[23;35H((((\S\)))) 3
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \   __ / *^--- 
+[8;13H   )/|  \ /  \  |\(   
+[9;13H   /^| ^,V  \ \_|^\   
+[10;14H        \  /(aa) 
+[11;14H        w,,w \_j       
+[12;21H`8||8' (\S\\)))3 3  3  
+[13;23H{(    (\S\ S\S\\))W33 3 
+[14;24H\\   (((S\\S  \S\\))) 33 3 3 
+[15;25H))   (((\_>\SSS\S \\)))  33 3 
+[16;24H/^\    ((\\SSS/0)SS\\S\)))  33 3 
+[17;32H((\So\\SS\\S\ SS\\))) 33 3 
+[18;32H(((\\SSS\o \SS\S  \))) 3 33 
+[19;31H(((\\S  SS\\\SS \S\))) 3 33
+[20;31H(((\ S\SSS\|  SS\S\)))3  3
+[21;32H(\SS\\o S\\SS\\ )))3 3 
+[22;33H((\\SSS\S| \\))3 3
+[23;35H(((' S\)))) 3
+[6;13H      o        o      
+[7;13H     /*\   __ /*\     
+[8;13H    //| \ /  \ |\\    
+[9;13H   // |(\V  \ \_ \\   
+[10;15H//^,|' \  /(aa)^\\ 
+[11;14H/       w,,w \_j   \ 
+[12;21H`8||8'         3 3  3  
+[13;23H{(      /\        W33 3 
+[14;24H\\    v  \_     ,+)   33 3 3 
+[15;25H))      <_>    "o        33 3 
+[16;24H/^\       \`--/0)o(0        33 3 
+[17;24H           \o/   o            33  3 
+[18;24H                 o             3 33 
+[19;24H                OY0           3 3 
+[20;24H               /  |          33 
+[21;24H              o   |          3 
+[22;24H              |   |       33 
+[23;24H             "'  "o    3 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /                      
+[11;13H         w,,w                              
+[12;21H`8||8'                    
+[13;23H{(      /\        W                    
+[14;24H\\    v  \_     ,+)                    
+[15;25H))      <_>    "o                    
+[16;24H/^\       \`--/0)o(0                    
+[17;35H\o/   o                    
+[18;41Ho                    
+[19;40HOY0                    
+[20;39H/  |                    
+[21;38Ho   |                    
+[22;38H|   |                    
+[23;37H"'  "o                    
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                   
+[14;24H\\                   
+[15;25H))              W 
+[16;24H/^\             ,+) 
+[17;40H"o 
+[18;40H)o(0 
+[19;38Ho/ o/ 
+[20;37H_//0Y| 
+[21;36H<_o   | 
+[22;34H^  ||   | 
+[23;35H\/"'  "o 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{( 
+[14;24H\\                         
+[15;25H))                              
+[16;24H/^\                            
+[17;0H                                               
+[18;0H                                             
+[19;0H                                               
+[20;34H   _ 0),+) 
+[21;34H  <_oo/"oM 
+[22;34H   ||\oo|/( 
+[23;34H<_/"'/0Yo\\0 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{( 
+[14;24H\\                         
+[15;25H))                              
+[16;24H/^\                            
+[17;0H                                               
+[18;0H                                             
+[19;0H                                               
+[20;0H                                            
+[21;34H      ,+)   
+[22;34H   _oo/"oM   
+[23;34H _/||/0Yo\\0  
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[12;21H`8||8' 
+[13;23H{( 
+[14;24H\\                         
+[15;25H))                              
+[16;24H/^\                            
+[17;0H                                               
+[18;0H                                             
+[19;0H                                               
+[20;0H                                            
+[21;0H                                            
+[22;34H      ,+) 
+[23;34H    _o/"o\M 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{( 
+[14;24H\\                         
+[15;25H))                              
+[16;24H/^\                            
+[17;0H                                               
+[18;0H                                             
+[19;0H                                               
+[20;0H                                            
+[21;0H                                            
+[22;0H                                             
+[23;34H      ,+)  
+[2;0H                                    
+[3;0H                                  
+[4;0H                                     
+[5;0H                                     
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                    
+[4;0H                                    
+[5;0H                                     
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                                     ,~~, 
+[14;24H\\                                   (    ) 
+[15;25H))                                  ((    ) 
+[16;24H/^\                                   ((    ) 
+[17;62H(((   ) 
+[18;63H\(   ) 
+[19;63H//` '\ 
+[20;63HM     \ 
+[21;63H|      \ 
+[22;63H\       ) 
+[23;64H`------' 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{(                                    ,~~, 
+[14;24H\\                                  (    ) 
+[15;25H))                                  ((   ) 
+[16;24H/^\                                  (((   ) 
+[17;61H( ((   )) 
+[18;62H\  ((   ) 
+[19;62H//   \ 
+[20;62HM     \ 
+[21;62H|      \ 
+[22;62H\       \ 
+[23;63H`,______) 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[12;21H`8||8' 
+[13;23H{(                                   ,~~, 
+[14;24H\\                                 (    ) 
+[15;25H))                                 ((   ) 
+[16;24H/^\                                 (((   ) 
+[17;60H( ((   )) 
+[18;61H\  ((   ) 
+[19;61H//   \ 
+[20;61HM     \ 
+[21;61H|      \ 
+[22;61H\       \ 
+[23;62H`,______) 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                                  ,~~, 
+[14;24H\\                                (    ) 
+[15;25H))                                ((   ) 
+[16;24H/^\                                (((   ) 
+[17;59H( ((   )) 
+[18;60H\  ((   ) 
+[19;60H//   \ 
+[20;60HM     \ 
+[21;60H|      \ 
+[22;60H\       \ 
+[23;61H`,______) 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /           
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                                 ,~~, 
+[14;24H\\                               (    ) 
+[15;25H))                               ((   ) 
+[16;24H/^\                               (((   ) 
+[17;58H( ((   )) 
+[18;59H\  ((   ) 
+[19;59H//   \ 
+[20;59HM     \ 
+[21;59H|      \ 
+[22;59H\       \ 
+[23;60H`,______) 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{(                                ,~~, 
+[14;24H\\                              (    ) 
+[15;25H))                              ((   ) 
+[16;24H/^\                              (((   ) 
+[17;57H( ((   )) 
+[18;58H\  ((   ) 
+[19;58H//   \ 
+[20;58HM     \ 
+[21;58H|      \ 
+[22;58H\       \ 
+[23;59H`,______) 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[12;21H`8||8'
+[13;23H{(                               ,~~, 
+[14;24H\\                             (    ) 
+[15;25H))                             ((   ) 
+[16;24H/^\                             (((   ) 
+[17;56H( ((   )) 
+[18;57H\  ((   ) 
+[19;57H//   \ 
+[20;57HM     \ 
+[21;57H|      \ 
+[22;57H\       \ 
+[23;58H`,______) 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                              ,~~, 
+[14;24H\\                            (    ) 
+[15;25H))                            ((   ) 
+[16;24H/^\                            (((   ) 
+[17;55H( ((   )) 
+[18;56H\  ((   ) 
+[19;56H//   \ 
+[20;56HM     \ 
+[21;56H|      \ 
+[22;56H\       \ 
+[23;57H`,______) 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                             ,~~, 
+[14;24H\\                           (    ) 
+[15;25H))                           ((   ) 
+[16;24H/^\                           (((   ) 
+[17;54H( ((   )) 
+[18;55H\  ((   ) 
+[19;55H//   \ 
+[20;55HM     \ 
+[21;55H|      \ 
+[22;55H\       \ 
+[23;56H`,______) 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{(                            ,~~, 
+[14;24H\\                          (    ) 
+[15;25H))                          ((   ) 
+[16;24H/^\                          (((   ) 
+[17;53H( ((   )) 
+[18;54H\  ((   ) 
+[19;54H//   \ 
+[20;54HM     \ 
+[21;54H|      \ 
+[22;54H\       \ 
+[23;55H`,______) 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[12;21H`8||8'
+[13;23H{(                           ,~~, 
+[14;24H\\                         (    ) 
+[15;25H))                         ((   ) 
+[16;24H/^\                         (((   ) 
+[17;52H( ((   )) 
+[18;53H\  ((   ) 
+[19;53H//   \ 
+[20;53HM     \ 
+[21;53H|      \ 
+[22;53H\       \ 
+[23;54H`,______) 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                          ,~~, 
+[14;24H\\                        (    ) 
+[15;25H))                        ((   ) 
+[16;24H/^\                        (((   ) 
+[17;51H( ((   )) 
+[18;52H\  ((   ) 
+[19;52H//   \ 
+[20;52HM     \ 
+[21;52H|      \ 
+[22;52H\       \ 
+[23;53H`,______) 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                         ,~~, 
+[14;24H\\                       (    ) 
+[15;25H))                       ((   ) 
+[16;24H/^\                       (((   ) 
+[17;50H( ((   )) 
+[18;51H\  ((   ) 
+[19;51H//   \ 
+[20;51HM     \ 
+[21;51H|      \ 
+[22;51H\       \ 
+[23;52H`,______) 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{(                        ,~~, 
+[14;24H\\                      (    ) 
+[15;25H))                      ((   ) 
+[16;24H/^\                      (((   ) 
+[17;49H( ((   )) 
+[18;50H\  ((   ) 
+[19;50H//   \ 
+[20;50HM     \ 
+[21;50H|      \ 
+[22;50H\       \ 
+[23;51H`,______) 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[12;21H`8||8' 
+[13;23H{(                       ,~~, 
+[14;24H\\                     (    ) 
+[15;25H))                     ((   ) 
+[16;24H/^\                     (((   ) 
+[17;48H( ((   )) 
+[18;49H\  ((   ) 
+[19;49H//   \ 
+[20;49HM     \ 
+[21;49H|      \ 
+[22;49H\       \ 
+[23;50H`,______) 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                      ,~~, 
+[14;24H\\                    (    ) 
+[15;25H))                    ((   ) 
+[16;24H/^\                    (((   ) 
+[17;47H( ((   )) 
+[18;48H\  ((   ) 
+[19;48H//   \ 
+[20;48HM     \ 
+[21;48H|      \ 
+[22;48H\       \ 
+[23;49H`,______) 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                     ,~~, 
+[14;24H\\                   (    ) 
+[15;25H))                   ((   ) 
+[16;24H/^\                   (((   ) 
+[17;46H( ((   )) 
+[18;47H\  ((   ) 
+[19;47H//   \ 
+[20;47HM     \ 
+[21;47H|      \ 
+[22;47H\       \ 
+[23;48H`,______) 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{(                    ,~~, 
+[14;24H\\                  (    ) 
+[15;25H))                  ((   ) 
+[16;24H/^\                  (((   ) 
+[17;45H( ((   )) 
+[18;46H\  ((   ) 
+[19;46H//   \ 
+[20;46HM     \ 
+[21;46H|      \ 
+[22;46H\       \ 
+[23;47H`,______) 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[12;21H`8||8' 
+[13;23H{(                   ,~~, 
+[14;24H\\                 (    ) 
+[15;25H))                 ((   ) 
+[16;24H/^\                 (((   ) 
+[17;44H( ((   )) 
+[18;45H\  ((   ) 
+[19;45H//   \ 
+[20;45HM     \ 
+[21;45H|      \ 
+[22;45H\       \ 
+[23;46H`,______) 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                  ,~~, 
+[14;24H\\                (    ) 
+[15;25H))                ((   ) 
+[16;24H/^\                (((   ) 
+[17;43H( ((   )) 
+[18;44H\  ((   ) 
+[19;44H//   \ 
+[20;44HM     \ 
+[21;44H|      \ 
+[22;44H\       \ 
+[23;45H`,______) 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(                 ,~~, 
+[14;24H\\               (    ) 
+[15;25H))               ((   ) 
+[16;24H/^\               (((   ) 
+[17;42H( ((   )) 
+[18;43H\  ((   ) 
+[19;43H//   \ 
+[20;43HM     \ 
+[21;43H|      \ 
+[22;43H\       \ 
+[23;44H`,______) 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{(                ,~~, 
+[14;24H\\              (    ) 
+[15;25H))              ((   ) 
+[16;24H/^\              (((   ) 
+[17;41H( ((   )) 
+[18;42H\  ((   ) 
+[19;42H//   \ 
+[20;42HM     \ 
+[21;42H|      \ 
+[22;42H\       \ 
+[23;43H`,______) 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[12;21H`8||8' 
+[13;23H{(               ,~~, 
+[14;24H\\             (    ) 
+[15;25H))             ((   ) 
+[16;24H/^\             (((   ) 
+[17;40H( ((   )) 
+[18;41H\  ((   ) 
+[19;41H//   \ 
+[20;41HM     \ 
+[21;41H|      \ 
+[22;41H\       \ 
+[23;42H`,______) 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(              ,~~, 
+[14;24H\\            (    ) 
+[15;25H))            ((   ) 
+[16;24H/^\            (((   ) 
+[17;39H( ((   )) 
+[18;40H\  ((   ) 
+[19;40H//   \ 
+[20;40HM     \ 
+[21;40H|      \ 
+[22;40H\       \ 
+[23;41H`,______) 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(             ,~~, 
+[14;24H\\           (    ) 
+[15;25H))           ((   ) 
+[16;24H/^\           (((   ) 
+[17;38H( ((   )) 
+[18;39H\  ((   ) 
+[19;39H//   \ 
+[20;39HM     \ 
+[21;39H|      \ 
+[22;39H\       \ 
+[23;40H`,______) 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{(            ,~~, 
+[14;24H\\          (    ) 
+[15;25H))          ((   ) 
+[16;24H/^\          (((   ) 
+[17;37H( ((   )) 
+[18;38H\  ((   ) 
+[19;38H//   \ 
+[20;38HM     \ 
+[21;38H|      \ 
+[22;38H\       \ 
+[23;39H`,______) 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[12;21H`8||8' 
+[13;23H{(           ,~~, 
+[14;24H\\         (    ) 
+[15;25H))         ((   ) 
+[16;24H/^\         (((   ) 
+[17;36H( ((   )) 
+[18;37H\  ((   ) 
+[19;37H//   \ 
+[20;37HM     \ 
+[21;37H|      \ 
+[22;37H\       \ 
+[23;38H`,______) 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(          ,~~, 
+[14;24H\\        (    ) 
+[15;25H))        ((   ) 
+[16;24H/^\        (((   ) 
+[17;35H( ((   )) 
+[18;36H\  ((   ) 
+[19;36H//   \ 
+[20;36HM     \ 
+[21;36H|      \ 
+[22;36H\       \ 
+[23;37H`,______) 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(         ,~~, 
+[14;24H\\       (    ) 
+[15;25H))       ((   ) 
+[16;24H/^\       (((   ) 
+[17;34H( ((   )) 
+[18;35H\  ((   ) 
+[19;35H//   \ 
+[20;35HM     \ 
+[21;35H|      \ 
+[22;35H\       \ 
+[23;36H`,______) 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{(        ,~~, 
+[14;24H\\      (    ) 
+[15;25H))      ((   ) 
+[16;24H/^\      (((   ) 
+[17;33H( ((   )) 
+[18;34H\  ((   ) 
+[19;34H//   \ 
+[20;34HM     \ 
+[21;34H|      \ 
+[22;34H\       \ 
+[23;35H`,______) 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[12;21H`8||8' 
+[13;23H{(       ,~~, 
+[14;24H\\     (    ) 
+[15;25H))     ((   ) 
+[16;24H/^\     (((   ) 
+[17;32H( ((   )) 
+[18;33H\  ((   ) 
+[19;33H//   \ 
+[20;33HM     \ 
+[21;33H|      \ 
+[22;33H\       \ 
+[23;34H`,______) 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(      ,~~, 
+[14;24H\\    (    ) 
+[15;25H))    ((   ) 
+[16;24H/^\    (((   ) 
+[17;31H( ((   )) 
+[18;32H\  ((   ) 
+[19;32H//   \ 
+[20;32HM     \ 
+[21;32H|      \ 
+[22;32H\       \ 
+[23;33H`,______) 
+[2;0H                                    
+[3;0H                                    
+[4;0H                                    
+[5;0H                                     
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;22Hw,,w 
+[12;21H`8||8' 
+[13;23H{(     ,~~, 
+[14;24H\\   (    ) 
+[15;25H))   ((   ) 
+[16;24H/^\   (((   ) 
+[17;30H( ((   )) 
+[18;31H\  ((   ) 
+[19;31H//   \ 
+[20;31HM     \ 
+[21;31H|      \ 
+[22;31H\       \ 
+[23;32H`,______) 
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[12;21H`8||8' 
+[13;23H{(     ,~~, 
+[14;24H\\   (    ) 
+[15;25H)) (      ) 
+[16;24H/^\ ((    ))    
+[17;28H|((  ))|    
+[18;28H|\(  )/|    
+[19;28H|( `' )|    
+[20;28Hm|    |m    
+[21;29H/    \    
+[22;28H/      \    
+[23;27H(________)    
+[6;13H------o        o------         ____________________ 
+[7;13H ---^* \  ,,  / *^---         {                    } 
+[8;13H   )/|  \ /\ /  |\(           |                    | 
+[9;13H   /^| ^,V\/V,^ |^\           |                    | 
+[10;13H         \  /                 |                    | 
+[11;13H         w,,w                 |                    | 
+[12;21H`8||8'               /                     | 
+[13;23H{(     ,~~,       /______________________} 
+[14;24H\\   (    )     ' 
+[15;25H)) (      ) 
+[16;24H/^\ ((    )) 
+[17;28H|((  ))| 
+[18;28H|\(  )/| 
+[19;28H|( `' )| 
+[20;28Hm|    |m 
+[21;29H/    \ 
+[22;28H/      \ 
+[23;27H(________) 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  ,,  / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[11;22Hw,,w 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /            
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------         ____________________ 
+[7;13H ---^* \  ,,  / *^---         {                    } 
+[8;13H   )/|  \ /\ /  |\(           |                    | 
+[9;13H   /^| ^,V\/V,^ |^\           |        [1mM Y [0m        | 
+[10;13H         \  /                 |                    | 
+[11;13H         w,,w                 |     [1mH E R O ! [0m     | 
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                   
+[4;0H                                    
+[5;0H                                    
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[2;14H\                  / 
+[3;14H)\                /( 
+[4;14H> \              / < 
+[5;14H)  \            /  ( 
+[6;13H/____\o        o/____\ 
+[7;13H)   >* \  , , / *<   ( 
+[8;14H) / |  \ /\ /  | \ ( 
+[9;14H>/  |/^\V\/V/^\|  \< 
+[10;14H/^ \|   \  /   |/ ^\ 
+[2;0H                                    
+[3;0H                                  
+[4;0H                                   
+[5;0H                                   
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[6;13H      o        o       
+[7;13H     /*\  , , /*\      
+[8;13H    //| \ /\ / |\\      
+[9;13H   // |(\V\/V/)| \\    
+[10;15H//^,|' \  / `|^,\\  
+[11;14H/       w,,w       \ 
+[6;13H------o        o------ 
+[7;13H ---^* \  , , / *^--- 
+[8;13H   )/|  \ /\ /  |\(   
+[9;13H   /^| ^,V\/V,^ |^\   
+[10;13H         \  /          
+[11;13H         w,,w           
+[H[J 
+[2;0H 
+[3;0H 
+[4;0H 
+[5;0H 
+[6;61H\          / 
+[7;3H[7m&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&[0m  )\  [7m&&&&[0m  /(  [7m&&&&&[0m 
+[8;3H[7m&&[0m                                                       ___\  ,,  /___    [7m&&[0m 
+[9;3H[7m&&[0m   ^       ^                                            ) /\ /\ /\ (     [7m&&[0m 
+[10;3H[7m&&[0m  /_\     /_\                   [1mWritten by[0m               /^,V\/V,^\      [7m&&[0m 
+[11;3H[7m&&[0m  | | _ _ | |                 [1mIrene Cummings[0m                \  /         [7m&&[0m 
+[12;3H[7m&&[0m  | /H H H\ |-,_       [1mphysinc@phys.canterbury.ac.nz[0m        w,,w         [7m&&[0m 
+[13;3H[7m&&[0m  | | ___ | |   \     [1mphysinc@cantua.canterbury.ac.nz[0m      `8||8'        [7m&&[0m 
+[14;3H[7m&&[0m  | ||   || |\   \      [1mphys277@csc.canterbury.ac.nz[0m         {(          [7m&&[0m 
+[15;3H[7m&&[0m  | ||___|| | )   |      [1mWith help from Ed Savage![0m            \\         [7m&&[0m 
+[16;3H[7m&&[0m  ____\   \ _,' __/      [1mTitle via Figlet: (c)1994[0m             ))        [7m&&[0m 
+[17;3H[7m&&[0m  ----- \___\---'                                             /^\        [7m&&[0m 
+[18;3H[7m&&[0m                                                                         [7m&&[0m 
+[19;3H[7m&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&[0m 
+[20;0H 
+[21;0H 
+[22;0H 
+[23;0H 
