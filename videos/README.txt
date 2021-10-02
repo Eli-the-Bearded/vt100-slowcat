@@ -11,7 +11,15 @@ The source URLs in the .fetch files; downloaded 2020 Aug 22
 
 * simple fragments to help view things are in helper-bits/
 
-I've tested them all in a black on white xterm, most work okay at 9600,
+* ANSI art, intended to scroll but not really animate, is in ansi/
+
+The -a and -z options were added to slowcat to better show ANSI art.
+With -a codepage 437 is converted to UTF-8, otherwise it won't display
+properly on a UTF-8 terminal. The -z is very similar, but treats a
+control-Z character in the file as EOF. ANSI files often use ^Z to
+hide final comments, normal viewing would not show those.
+
+I've tested them videos in a black on white xterm, most work okay at 9600,
 some need slower, some need white on black. A few break if the window
 size is not 80x24.
 

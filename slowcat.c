@@ -24,9 +24,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
+#include <iconv.h>
 
 int debug = 0;
-char version[] = "2020 Aug 22: second Eli the Bearded edition";
+char version[] = "2021 Oct 02: third Eli the Bearded edition";
 
 void show_version(char *name) {
 	printf("%s version %s\n", name, version);
@@ -38,6 +39,8 @@ void usage(FILE *where, char *name) {
 	fprintf(where,"\t  slowcat -d USECONDS [ filename ... ]\n");
 
 	fprintf(where,"\nAdditional options:\n");
+	fprintf(where,"\t          -a         ANSI to Unicode conversion\n");
+	fprintf(where,"\t          -z         like -a, but stop at ^Z\n");
 	fprintf(where,"\t          -v         be more verbose\n");
 	fprintf(where,"\t          -V         show version\n");
 	fprintf(where,"\t          -h         show this help\n");
@@ -47,7 +50,7 @@ void usage(FILE *where, char *name) {
 	fprintf(where,"75 to 128000) or with an explicit delay between\n");
 	fprintf(where,"bytes output of 1 to 20000 useconds. Recall that\n");
 	fprintf(where,"baud is a rate of bits per second, so 1200 baud\n");
-	fprintf(where,"is one bit ever 833.3 useconds, one byte every\n");
+	fprintf(where,"is one bit every 833.3 useconds, one byte every\n");
 	fprintf(where,"6666.4 useconds, and 150 bytes per second.\n\n");
 	fprintf(where,"Out of range values will be replaced by reasonable\n");
 	fprintf(where,"values silently. The verbose option shows the\n");
@@ -55,20 +58,36 @@ void usage(FILE *where, char *name) {
 }
 
 void delay(useconds_t);
+#define IN_BUF		2
+#define OUT_BUF		16
+#define IN_CHARSET	"437"
+#define OUT_CHARSET	"UTF-8"
 
 int main(int argc, char **argv) {
-	int c, option;
+	int c, option, ansi;
 	useconds_t usecs = 100;
 	long baud;
 	FILE *fp;
 	char *fnam;
+	char inbuf[IN_BUF], outbuf[OUT_BUF];
+	char *inpt, *outpt;
+	size_t in, out;
+	iconv_t cd;
 
-	opterr = 0;
+	ansi = opterr = 0;
 
-	while ( (option = getopt(argc, argv, "b:d:vVh")) != -1 ) {
+	while ( (option = getopt(argc, argv, "b:d:azvVh")) != -1 ) {
 		switch (option) {
 			case 'v':
 				debug = 1;
+				break;
+
+			case 'a':
+				ansi = 1;
+				break;
+
+			case 'z':
+				ansi = 'z';
 				break;
 
 			case 'b':
@@ -123,11 +142,31 @@ int main(int argc, char **argv) {
 		fp = stdin;
 	}
 
+	if(ansi) {
+		cd = iconv_open(OUT_CHARSET, IN_CHARSET);
+		if ((iconv_t)-1 == cd) {
+			fprintf(stderr,"ANSI iconv conversion unavailabl\n");
+			exit(2);
+		}
+	}
+
 	do {
 		setbuf(fp, NULL);
 
 		while ( (c = fgetc( fp )) != EOF ) {
-			putchar(c);
+			if(ansi) {
+				if ((032 == c) && ('z' == ansi)) { break; }
+				in = 1;
+				out = OUT_BUF;
+				inbuf[0] = c;
+				inbuf[1] = 0;
+				inpt = inbuf;
+				outpt = outbuf;
+				iconv(cd, &inpt, &in, &outpt, &out);
+				fwrite(outbuf, (OUT_BUF - out), 1, stdout);
+			} else {
+				putchar(c);
+			}
 			delay(usecs);
 		}
 
