@@ -56,6 +56,17 @@ people who used them will remember. At 1200 baud the call can complete
 faster than it can at 9600 since there's so little data actually
 exchanged.
 
+ANSI
+----
+
+The PC-compatible world did a lot of ANSI art. These are very similar to vt100,
+but use a lot of colors and the graphics characters of codepage 437
+extensively.  If you're using a UTF-8 terminal, like I do, that last bit is a
+problem. To fix that `slowcat` has a pair of very similar options. `-a` will
+convert codepage 437 to UTF-8. `-z` does that conversion _and_ will treat a
+control-z as end-of-file. Frequently there are comments past the "EOF" which
+were not intended to be seen unless editing the files.
+
 signature
 ---------
 
