@@ -67,6 +67,14 @@ convert codepage 437 to UTF-8. `-z` does that conversion _and_ will treat a
 control-z as end-of-file. Frequently there are comments past the "EOF" which
 were not intended to be seen unless editing the files.
 
+misc-old-code
+-------------
+
+This directory has old (> 10 years) programs in source form that generate
+ASCII art videos or displays. So far all of them have ASCII video captures
+in videos/other/, but some of them definitely work better as programs
+than captures.
+
 signature
 ---------
 

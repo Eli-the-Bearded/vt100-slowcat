@@ -1,0 +1,18 @@
+Perl ASCII animation generator from
+https://robobunny.com/projects/weatherspect/html
+WeatherSpect v1.11 by Kirk Baucom <kbaucom@schizoid.com>
+GPL licensed
+
+This tries to use the Weather Underground (wunderground) API
+to get weather for an area and display animated scene.
+Unfortunely that API is no longer available, it was discontinued
+in 2018 sometime after the Weather Channel bought Weather
+Underground. Any weather related graphics, like rain or snow,
+won't show up now. There are seasonal graphics and time of day
+graphics however.
+
+The art is from Kevin Ferree (kf), Hayley Wakenshaw (hjw), and
+Joan Stark (jgs).
+
+This has been captured to videos/other/weatherspect.vt
+in case you can't run the perl, but that catpure has glitches.

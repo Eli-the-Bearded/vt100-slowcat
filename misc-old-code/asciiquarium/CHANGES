@@ -1,0 +1,9 @@
+Changes for Asciiquarium
+
+Version 1.1 2013-03-09
+	- Automatically redraw when the terminal size changes
+	- Added fish hook, swan, ducks and dolphins
+	- Updated GPL license file
+	
+Version 1.0 2005-09-02
+	- Initial public release

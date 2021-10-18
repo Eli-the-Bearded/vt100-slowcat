@@ -1,0 +1,5690 @@
+#!/usr/bin/env perl
+#
+#############################################################################
+# WeatherSpect  -  A virtual weather environment in ASCII
+#
+# This script will produce an animation that simulates
+# the actual weather at your location. It requires the Term::Animation
+# module (available from www.cpan.org). The Term::Animation
+# module requires the Curses module. 
+#
+# The current version of this program is available at:
+#
+# http://robobunny.com/projects/weatherspect
+#
+#############################################################################
+# Author:
+#   Kirk Baucom <kbaucom@schizoid.com>
+#
+# Contributors:
+#   Kevin Ferree (http://chavo-one.com):
+#      ASCII art marked with 'kf'
+#   Hayley Wakenshaw (http://www.bornsquishy.com/flump/index.html):
+#      ASCII art marked with 'hjw'
+#   Joan Stark (http://www.geocities.com/SoHo/7373/):
+#      ASCII art marked with 'jgs'
+#
+# License:
+#
+# Copyright (C) 2013 Kirk Baucom (kbaucom@schizoid.com)
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+#############################################################################
+
+use Term::Animation 2.5;
+
+use Curses;
+use Data::Dumper;
+use strict;
+use warnings;
+
+my $version = "1.11";
+
+my %depth = (
+	gui			=> 0,
+	closest			=> 10,
+	in_front_of_sign	=> 20,
+	signpost		=> 30,
+	behind_sign		=> 40,
+	tree			=> 100,
+	behind_trees		=> 300,
+	on_horizon		=> 350,
+	cloud			=> 400,
+	plane			=> 410,
+	horizon			=> 500,
+	satellite		=> 600,
+	sun			=> 700,
+	moon			=> 800,
+	sky			=> 1000,
+);
+
+# $conf contains informtion from the config file
+# $weather is a Weather::Underground instance
+my ($conf, $weather) = initialize();
+
+# animation object
+my $s;
+
+# weather and other state data
+my $current;
+
+# list of random things we can put on the screen
+my $random_entities = init_random_entities();
+
+main();
+
+####################### MAIN #######################
+
+sub main {
+
+	$s = Term::Animation->new();
+	if($conf->{'color'}) { $s->color(1); }
+
+	# set the wait time for getch
+	my $sleep_time = $conf->{'frame_delay'};
+	nodelay(1);
+
+	while(1) {
+		$current = {
+			sigwinch_received => 0,
+		};
+
+		set_horizon($s);
+		my ($last_data_retr, $next_data_retr) = update_weather(0);
+		add_environment($s);
+		add_sign_data($last_data_retr, $next_data_retr);
+		update_weather_effects();
+
+		for(1..$conf->{'entities'}) {
+			random_entity(undef, $s);
+		}
+
+		$s->redraw_screen();
+
+		my $pause = 0;
+		my $time = 0;
+		my $last_time = 0;
+
+		while(1) {
+			select(undef, undef, undef, $sleep_time);
+
+			if($current->{'sigwinch_received'} > 0 && $current->{'sigwinch_received'} < $time - 1) {
+				$current->{'sigwinch_received'} = 0;
+				last;
+			}
+
+			my $in = getch();
+			$last_time = $time;
+			$time = time();
+			
+			if   ($in eq '-1') {}
+			elsif( $in eq 'q') { quit(); }   # Exit
+			elsif( $in eq 'r' || $in eq '9' ) { last; } # Redraw (will recreate all entities)
+			elsif( $in eq 'h' || $in eq '3' ) { toggle_help($s); }
+			elsif( $in eq 'w' || $in eq '0' ) { toggle_weather_report($s); }
+			elsif( $in eq 'p' || $in eq '1' ) { $pause = !$pause; }
+			elsif( $in eq 'd' || $in eq '2' ) { toggle_debug($s); }
+			elsif( $in eq 'u' || $in eq '7' ) { $next_data_retr = 0; } # force weather data update
+
+			next if($pause);
+
+			# update weather data
+			if($time >= $next_data_retr) {
+				($last_data_retr, $next_data_retr) = update_weather($last_data_retr);
+				update_sign($s);
+				update_weather_effects();
+			}
+
+			# random things that can happen any time, not just at weather update
+			# only run them once a second
+			if($time > $last_time) {
+				random_effects($s);
+			}
+
+			$s->animate();
+		}
+
+		$s->update_term_size();
+		$s->remove_all_entities();
+	}
+
+}
+
+#################### SUBROUTINES #####################
+
+sub center_on_screen {
+	my ($s, $image) = @_;
+
+	my $height = 0;
+	while($image =~ /\n/g) { $height++; }
+	my $y = int(($s->height / 2) - ($height / 2));
+
+	my $width = index($image, "\n");
+	my $x = int(($s->width / 2) - ($width / 2));
+
+	return ($x, $y);
+}
+
+sub box_header {
+	my ($text, $width) = @_;
+	my $text_width = length($text) + 4;
+	my $left_padding = int( ( $width - $text_width ) / 2 ) - 1;
+	my $right_padding = $width - ($text_width + $left_padding) - 2;
+
+	my $header = '?' . '?'x$left_padding . '?' . '_'x($text_width-2) . '?' . '?'x$right_padding . "?\n";
+	$header .= '?' . '_'x$left_padding . "/ $text \\" . '_'x$right_padding . "?\n";
+	return $header;
+}
+
+sub toggle_debug {
+	my ($s) = @_;
+	my $debugbox = $s->entity('debugbox');
+	if(defined($debugbox)) {
+		$debugbox->kill;
+		return;
+	} else {
+		add_debug();
+	}
+}
+
+sub add_debug {
+	my $entities = $s->entity_count();
+	my $framerate = sprintf("%.2f FPS, %.2f SPF", $s->framerate, (1 / $s->framerate));
+	my $req_framerate;
+	if($conf->{'frame_delay'} > 0) {
+		$req_framerate = sprintf("%.2f FPS, %.2f SPF", (1 / $conf->{'frame_delay'}), $conf->{'frame_delay'});
+	} else {
+		$req_framerate = "Inf FPS, 0 SPF";
+	}
+	my $debugbox_image = box_header("Debug info (d to close)", 45);
+	my $format = "| %20s %-20s |\n";
+	my $format2 = "| %-41s |\n";
+	$debugbox_image .= sprintf($format, '', '');
+	$debugbox_image .= sprintf($format, "Entity count", $s->entity_count());
+	$debugbox_image .= sprintf($format, "Frame rate", $framerate);
+	$debugbox_image .= sprintf($format, "Requested frame rate", $req_framerate);
+	$debugbox_image .= sprintf($format2, ' 'x13 . "-- Debug log --" . ' 'x13 );
+	foreach my $line (@{$current->{'debug_log'}}) {
+		$debugbox_image .= sprintf($format2, $line);
+	}
+	$debugbox_image .= "'" . '-'x43 . "'";
+
+	$s->new_entity(
+		name		=> 'debugbox',
+		shape		=> $debugbox_image,
+		position	=> [ center_on_screen($s, $debugbox_image), $depth{'gui'} ],
+		callback        => \&add_debug,
+	);
+}
+
+sub toggle_help {
+	my ($s) = @_;
+	my $helpbox = $s->entity('helpbox');
+	if(defined($helpbox)) {
+		$helpbox->kill;
+		return;
+	}
+
+	my $helpbox_image = box_header("Help (h to close)", 39);
+	$helpbox_image .= <<END;
+|                                     |
+| Key  Function                       |
+| ---  --------                       |
+| h    toggle help                    |
+| w    toggle detailed weather report |
+| d    toggle debug information       |
+| p    toggle pause                   |
+| r    restart animation              |
+| u    force weather update           |
+| q    quit                           |
+'-------------------------------------'
+END
+
+	$s->new_entity(
+		name		=> 'helpbox',
+		shape		=> $helpbox_image,
+		position	=> [ center_on_screen($s, $helpbox_image), $depth{'gui'} ],
+	);
+}
+
+sub toggle_weather_report {
+	my ($s) = @_;
+	my $weatherbox = $s->entity('weatherbox');
+	if(defined($weatherbox)) {
+		$weatherbox->kill;
+		return;
+	}
+
+	# find the widest piece of info
+	my $value_width = 35;
+	foreach my $value ($current->{'conditions'}, $current->{'place'}, $current->{'clouds'}) {
+		if(length($value) > $value_width) {
+			$value_width = length($value);
+		}
+	}
+
+	my $format = "| %11s: %-${value_width}s |\n";
+	my $box_width = 2 + 12 + 1 + $value_width + 2;
+
+	my $wbox_image = box_header("Weather Report (w to close)", $box_width);
+
+	$wbox_image .= '|' . ' 'x($box_width-2) . "|\n";
+	$wbox_image .= sprintf($format, 'Wind', "$current->{'wind_milesperhour'} MPH / $current->{'wind_kilometersperhour'} KPH $current->{'wind_direction'}");
+	$wbox_image .= sprintf($format, 'Temperature', "$current->{'temperature_fahrenheit'} F / $current->{'temperature_celsius'} C");
+	$wbox_image .= sprintf($format, 'Clouds', $current->{'clouds'});
+	$wbox_image .= sprintf($format, 'Conditions', $current->{'conditions'});
+	$wbox_image .= sprintf($format, 'Humidity', "$current->{'humidity'} %");
+	$wbox_image .= sprintf($format, 'Dewpoint', "$current->{'dewpoint_fahrenheit'} F / $current->{'dewpoint_celsius'} C");
+	$wbox_image .= sprintf($format, 'Visibility', "$current->{'visibility_miles'} MI / $current->{'visibility_kilometers'} KM");
+
+	$wbox_image .= '|' . ' 'x($box_width-2) . "|\n";
+	foreach my $event ('Sunrise', 'Sunset', 'Moonrise', 'Moonset', 'MoonPhase') {
+		my $event_key = lc($event);
+		next unless(defined($current->{'$event_key'}));
+		$wbox_image .= sprintf($format, 'Sunrise', $current->{$event_key});
+	}
+
+	$wbox_image .= '|' . ' 'x($box_width-2) . "|\n";
+	$wbox_image .= sprintf($format, 'Place', $current->{'place'});
+	$wbox_image .= sprintf($format, 'Updated', $current->{'updated'});
+
+	$wbox_image .= "'" . '-'x($box_width-2) . "'";
+
+	$s->new_entity(
+		name		=> 'weatherbox',
+		shape		=> $wbox_image,
+		position	=> [ center_on_screen($s, $wbox_image), $depth{'gui'} ],
+	);
+}
+
+sub add_sign_data {
+	my $rotate_interval = $conf->{'frame_delay'} / 5;
+	my @pos = $s->entity('signpost')->position();
+	# align the data on the sign
+	$pos[0]++;
+	$pos[1]++;
+	$pos[2]--; # on top of the sign
+	$s->new_entity(
+		name		=> 'signdata',
+		shape		=> gen_sign_data(time), 
+		position	=> \@pos,
+		callback_args	=> [ 0, 0, 0, $rotate_interval ],
+	);
+}
+
+sub update_sign {
+	my ($anim) = @_;
+	$anim->entity('signdata')->shape( gen_sign_data(time) );
+}
+
+sub update_weather {
+	my ($last_data_retr) = @_;
+
+	my $new_weather;
+
+	if($conf->{'debug'}) {
+		$new_weather = debug_weather();
+	} else {
+		$new_weather = $weather->get_weather();
+	}
+
+	# values that should be numeric
+	my %numeric = map { $_ => 1 } qw/
+		visibility_miles
+		visibility_kilometers
+		celsius
+		temperature_celsius
+		fahrenheit
+		temperature_fahrenheit
+		humidity
+		dewpoint_celsius
+		dewpoint_fahrenheit
+		wind_milesperhour
+		wind_kilometersperhour
+	/;
+
+	if(defined($new_weather)) {
+
+		foreach my $field (keys %{$new_weather->[0]}) {
+
+			# if the weather report doesn't contain any data for
+			# a field, put in a default value
+			my $new_value = $new_weather->[0]{$field};
+			unless(defined($new_value)) {
+				if(exists($numeric{$field})) {
+					$new_value = 0;
+				} else {
+					$new_value = 'Unknown';
+				}
+			}
+			$current->{$field} = $new_value;
+		}
+
+		$last_data_retr = time();
+
+		# we just want the time, the date is implied
+		($current->{'update_time'}) = ($current->{'updated'} =~ /^(\d+:\d+ \w\w \w+)/);
+
+		set_precip_type();
+
+		set_cloud_stats();
+
+		set_moon_phase();
+
+		return ($last_data_retr, $last_data_retr + $conf->{'retr_interval'});
+	} else {
+		# if we don't have the previous weather, we just have
+		# to give up and exit. this should only occur the
+		# first time we try to grab weather data
+		unless(ref($current) eq 'HASH') {
+			my $exit_mesg = "Unable to retrieve weather data!\n" .
+					"Please check your network connection, and make sure your location is valid\n" .
+					"Location: $conf->{'location'}";
+			quit($exit_mesg);
+		}
+		# wait half as long to retry if we fail
+		return ($last_data_retr, time() + int($conf->{'retr_interval'} / 2));
+	}
+}
+
+sub set_moon_phase {
+	my %phases = (
+		'full moon'		=> 0,
+		'waning gibbous'	=> 1,
+		'waning crescent'	=> 2,
+		'new moon'		=> 3,
+		'waxing crescent'	=> 4,
+		'waxing gibbous'	=> 5,
+	);
+	$current->{'moon_frame'} = $phases{lc($current->{'moonphase'})};
+}
+
+# figure out what, if any, precipitation is happening
+sub set_precip_type {
+	# assume no thunder or precip
+	$current->{'precip'} = 'none';
+	$current->{'thunder'} = 0;
+	$current->{'fog'} = 0;
+	$current->{'heavy'} = 0;
+
+	my %cond = map { lc($_), 1 } split(/\s+/, $current->{'conditions'});
+
+	if($cond{'rain'} or $cond{'thunderstorm'} or $cond{'drizzle'})  {
+		if($cond{'light'} or $cond{'drizzle'}) {
+			$current->{'precip'} = 'light_rain';
+		} elsif($cond{'heavy'} or $cond{'thunderstorm'}) {
+			if($current->{'wind_milesperhour'} > 12) {
+				if($current->{'wind_direction'} =~ /E/) {
+					$current->{'precip'} = 'heavy_rain_east';
+				} else {
+					$current->{'precip'} = 'heavy_rain_west';
+				}
+			} else {
+				$current->{'precip'} = 'heavy_rain';
+			}
+		} else {
+			$current->{'precip'} = 'rain';
+		}
+	} else {
+		for ('snow', 'sleet', 'hail') {
+			if($cond{$_}) {
+				$current->{'precip'} = $_;
+			}
+		}
+	}
+
+	if($cond{'fog'} or $cond{'smoke'}) {
+		$current->{'fog'} = 1;
+	}
+
+	if($cond{'thunder'} or $cond{'thunderstorm'}) {
+		$current->{'thunder'} = 1;
+	}
+
+	if($cond{'heavy'}) {
+		$current->{'heavy'} = 1;
+	}
+
+}
+
+sub random_effects {
+	my ($s) = @_;
+	# not ready yet
+	#ignite_blaze($s);
+}
+
+sub update_weather_effects {
+	update_clouds($s);
+	update_precip($s);
+	update_weather_dependent_entities($s);
+}
+
+sub update_weather_dependent_entities {
+	my ($s) = @_;
+	# first, remove all entities that can be added
+	# by weather effects. this means they are moved
+	# around at every weather update, instead of just
+	# when the weather changes
+	foreach my $entity_type ( 'snow_effect' ) {
+		my $ents = $s->get_entities_of_type( $entity_type );
+		foreach my $ent (@{$ents}) {
+			$s->entity($ent)->death_cb(undef);
+			$s->entity($ent)->kill;
+		}
+	}
+
+	if($current->{'precip'} eq 'snow') {
+		add_snowman($s);
+		my $flake_count = int($s->size / 640);
+		$flake_count *= 2 if($current->{'heavy'});
+		add_snowflakes($s, $flake_count);
+	}
+}
+
+sub update_clouds {
+	my ($s) = @_;
+	if($current->{'cloud_level'} > $current->{'prev_cloud_level'}) {
+		for(($current->{'prev_cloud_level'} + 1)..$current->{'cloud_level'}) {
+			add_cloud($s, $_);
+		}
+	} elsif($current->{'cloud_level'} < $current->{'prev_cloud_level'}) {
+		for(($current->{'cloud_level'} + 1)..$current->{'prev_cloud_level'}) {
+			remove_cloud($s, $_);
+		}
+	}
+
+	# replace all the old clouds with new clouds moving the correct speed
+	if($current->{'cloud_level'} &&
+		$current->{'prev_cloud_speed'} != $current->{'cloud_speed'}) {
+		foreach my $cloud (1..$current->{'cloud_level'}) {
+			add_cloud($s, $cloud);
+		}
+	}
+}
+
+sub set_cloud_stats {
+	my $cloud_code;
+	my $sky_size = int( ( ($conf->{'horizon_row'} + 1) * $s->width() ) / 640);
+	my %cloud_cover = (
+		SKC	=> 2,	# sky clear
+		CLR	=> 2,	# clear
+		FEW	=> 3,	# few (partly cloudy)
+		SCT	=> 4,	# scattered
+		BKN	=> 5,	# broken
+		OVC	=> 6,	# overcast
+	);
+
+	# adjust how fast the clouds should move
+	$current->{'prev_cloud_speed'} = (defined($current->{'cloud_speed'})) ? $current->{'cloud_speed'} : 0;
+	$current->{'cloud_speed'} = ($current->{'wind_milesperhour'}) ? $current->{'wind_milesperhour'} / 20 : 0;
+	if($current->{'wind_direction'} =~ /E/) { $current->{'cloud_speed'} *= -1; }
+
+	# remember how many clouds there were before, so we can figure out
+	# how many we need to remove / add
+	$current->{'prev_cloud_level'} = (defined($current->{'cloud_level'})) ? $current->{'cloud_level'} : 0;
+
+	# there may be more than one, but we'll just use the last (highest) one
+	($cloud_code) = ($current->{'clouds'} =~ /\((\w\w\w)\)[^\(]*$/);
+
+	if(defined($cloud_code) && exists($cloud_cover{$cloud_code})) {
+		$current->{'cloud_level'} = $sky_size * $cloud_cover{$cloud_code};
+	} else {
+		$current->{'cloud_level'} = 2;
+	}
+
+	# figure out the color of the clouds
+	if($current->{'precip'} eq "none") {
+		$current->{'cloud_color'} = "WHITE";
+	} elsif($current->{'conditions'} =~ /heavy/i) {
+		$current->{'cloud_color'} = "BLACK";
+	} else {
+		$current->{'cloud_color'} = "white";
+	}
+
+}
+
+##################### CALLBACKS ######################
+
+# give the position of the sun or moon, based on
+# the time of day
+sub celestial_position {
+	my ($entity, $anim) = @_;
+
+	# only update the position every 60 seconds, since
+	# they will be moving slowly
+	my $last_update = $entity->data();
+	my $etime = time;
+	if($last_update < $etime - 60) {
+		$entity->data($etime);
+	} else {
+		return undef;
+	}
+
+	# the minutes in 12 hours
+	my $twelve_hours = 720;
+	my $twentyfour_hours = 2 * $twelve_hours;
+
+	my ($min, $hour) = (localtime())[1,2];
+	# the number of minutes since midnight
+	my $time = ($hour * 60) + $min;
+
+	my $rise = $current->{$entity->name() . 'rise'};
+	my $set = $current->{$entity->name() . 'set'};
+
+	# defaults in case the rise/set time is not defined for this location
+	my ($rise_hr, $rise_min, $rise_am_pm) = (6, 0, ($entity->name() eq 'sun') ? 'AM' : 'PM');
+	if(defined($rise) && $rise =~ /^(\d+):(\d+) (\w\w) (\w+)/) {
+		($rise_hr, $rise_min, $rise_am_pm) = ($1, $2, $3);
+	}
+	
+	my $rise_time = ($rise_hr * 60) + $rise_min;
+	if($rise_am_pm eq 'PM') {
+		$rise_time += $twelve_hours;
+	}
+	
+	# defaults in case the rise/set time is not defined for this location
+	my ($set_hr, $set_min, $set_am_pm) = (6, 0, ($entity->name() eq 'sun') ? 'PM' : 'AM');
+	if(defined($set) && $set =~ /^(\d+):(\d+) (\w\w) (\w+)/) {
+		($set_hr, $set_min, $set_am_pm) = ($1, $2, $3);
+	}
+	my $set_time = ($set_hr * 60) + $set_min;
+	if($set_am_pm eq 'PM') {
+		$set_time += $twelve_hours;
+	}
+
+	my $percent_progress;
+
+	# rise one day, set the next
+	if($rise_time > $set_time) {
+		if($time < $rise_time && $time > $set_time) { return -11, 0; } # off the screen
+		else {
+			my $prev_rise = $rise_time - $twentyfour_hours;
+			my $up_time = $set_time - $prev_rise;
+			if($time > $rise_time) {
+				$percent_progress = ($time - $rise_time) / $up_time;
+			} else {
+				$percent_progress = ($time - $prev_rise) / $up_time;
+			}
+		}
+	} else {
+		if($time < $rise_time || $time > $set_time) { return -11, 0; } # off the screen
+		else {
+			my $up_time = $set_time - $rise_time;
+			$percent_progress = ($time - $rise_time) / $up_time;
+		}
+	}
+
+	my $w = $anim->width() + 10;
+	my $half_width = int($w / 2);
+	my $x = int($w * (1-$percent_progress));
+
+	my $c = $x+5; # center of the sun/moon
+	my $y = abs($x * ($x - $w));
+	my $factor = ($half_width**2) / $conf->{'horizon_row'};
+	$y = $conf->{'horizon_row'} - ($y * (1/$factor));
+	$x -= 10;
+
+	if($entity->name() eq 'sun') {
+		return ($x, $y);
+	} else {
+		return ($x, $y, undef, $current->{'moon_frame'});
+	}
+}
+
+# callback routine for the tree entities
+sub animate_tree {
+	my ($entity, $anim) = @_;
+
+	# only update once a minute
+	my $last_update = $entity->data();
+	if(!defined($last_update)) {
+		# randomize the initial update time a bit, so that
+		# the trees don't update in sync
+		$entity->data( time() - int(rand(60)) );
+	} elsif(time() < $last_update + 60) {
+		return undef;
+	} else {
+		$entity->data(time);
+	}
+
+	my $state = $entity->callback_args();
+
+	my $age = time() - $state->{'birth'};
+
+	my $pct_life = int(($age / $conf->{'tree_lifespan'}) * 100);
+
+	my ($f, $flag);
+
+	if   ($pct_life <  5)  { $f = 0; }
+	elsif($pct_life < 10)  { $f = 1; }
+	elsif($pct_life < 15)  { $f = 2; }
+	elsif($pct_life < 20)  { $f = 3; }
+	elsif($pct_life < 30)  { $f = 4; }
+	elsif($pct_life < 50)  { $f = 5; }
+	elsif($pct_life < 65)  { $f = 6; }
+	elsif($pct_life < 80)  {
+		$f = 7;
+		unless($state->{'parent'}) {
+			$state->{'parent'} = 1;
+			$entity->callback_args($state);
+			add_tree($anim);
+		}
+	}
+	elsif($pct_life < 90)  { $f = 8; }
+	elsif($pct_life < 100) { $f = 9; }
+	else {
+		$entity->kill();
+	}
+	return (undef,undef,undef,$f);
+}
+
+
+################ COMPLEX OBJECTS ##################
+
+# creates the text for the sign based on the weather data
+sub gen_sign_data {
+	my ($last_data_retr) = @_;
+
+	my $sign_width = 28;
+	my $temp_std = sprintf("%s F", $current->{'fahrenheit'});
+	my $temp_metric = sprintf("%s C", $current->{'celsius'});
+
+	my $wind_std = sprintf("%s %s MPH", $current->{'wind_direction'}, $current->{'wind_milesperhour'});
+	my $wind_metric = sprintf("%s %s KPH", $current->{'wind_direction'}, $current->{'wind_kilometersperhour'});
+
+	my ($retr_hour, $retr_min) = (localtime($last_data_retr))[2,1];
+	my $retr_ampm = 'AM';
+	if($retr_hour > 12) { $retr_hour -= 12; $retr_ampm = 'PM'; }
+	my $retr_time = sprintf('%d:%02d %s', $retr_hour, $retr_min, $retr_ampm);
+	if($ENV{'TZ'}) { $retr_time .= " $ENV{'TZ'}"; }
+
+	my $a_text = ($conf->{'temp_display'} eq 'metric') ? $temp_metric : $temp_std;
+	my $b_text = ($conf->{'temp_display'} eq 'standard') ? $temp_std : $temp_metric;
+
+	$a_text .= ($conf->{'wind_display'} eq 'metric') ? " : $wind_metric" : " : $wind_std";
+	$b_text .= ($conf->{'wind_display'} eq 'standard') ? " : $wind_std" : " : $wind_metric";
+
+	my $line1a = center($sign_width, $a_text) . "\n";
+	my $line1b = center($sign_width, $b_text) . "\n";
+	my $line2 = center($sign_width, sprintf("%s", $current->{'conditions'})) . "\n";
+
+	my $line3a = center($sign_width, sprintf("%s %% Humidity", $current->{'humidity'})) . "\n";
+	my $line3b = center($sign_width, sprintf("%s", $current->{'pressure'})) . "\n";
+
+	my $line4a = center($sign_width, sprintf("%s", $current->{'place'})) . "\n";
+	my $line4b = center($sign_width, "Retrieved: $retr_time") . "\n";
+	my $line4c = center($sign_width, sprintf("Updated: %s", $current->{'update_time'})) . "\n";
+	my $line4d = center($sign_width, "h for help, w for weather");
+
+	my @mesg = (
+		$line1a . $line2 . $line3a . $line4a,
+		$line1b . $line2 . $line3a . $line4b,
+		$line1a . $line2 . $line3b . $line4c,
+		$line1b . $line2 . $line3b . $line4d,
+	);
+
+	return \@mesg;
+}
+
+# add permanent entities, like the sign, sun and moon
+sub add_environment {
+	my ($s) = @_;
+		my $sign = q{
+ ____________________________
+|                            |\
+|                            ||
+|                            ||
+|                            ||
+|____________________________||
+`------------.  ,-------------'
+             |  |
+             |  |
+};
+
+	$s->new_entity(
+		name		=> "signpost",
+		shape		=> $sign,
+		position	=> [ $s->width() - 31, $s->height() - 10, $depth{'signpost'} ],
+		default_color	=> 'yellow',
+		auto_trans	=> 1,
+	);
+
+
+	my $sun = q{
+  \??|??/
+   .---.
+-?|     |?-
+   '---'
+  /??|??\
+};
+
+
+	$s->new_entity(
+		name		=> "sun",
+		shape		=> $sun,
+		position	=> [60, 2, $depth{'sun'}],
+		callback	=> \&celestial_position,
+		default_color	=> 'YELLOW',
+		data		=> 0,
+		auto_trans	=> 1,
+	);
+
+	my @moon = (
+q{
+  .---.
+ /  O  \
+| o     |
+ \  o O/
+  '---'
+},
+q{
+  .-.
+ /  O\
+| o   )
+ \  o/
+  '-'
+},
+q{
+  .-.
+ / /
+|  |
+ \ \
+  '-`
+},
+q{
+
+
+
+
+
+},
+q{
+    .-.
+     \ \
+     |  |
+     / /
+    '-'
+},
+q{
+    .-.
+   /O  \
+  (     |
+   \o O/
+    '-'
+});
+
+	$s->new_entity(
+		name		=> "moon",
+		shape		=> \@moon,
+		position	=> [60, 2, $depth{'moon'}],
+		callback	=> \&celestial_position,
+		default_color	=> 'white',
+		data		=> 0,
+		auto_trans	=> 1,
+	);
+
+	# more screen = more trees
+	my $tree_count = int($s->size() / 400);
+	for(1..$tree_count) {
+		add_tree($s, int(rand($conf->{'tree_lifespan'} * .8)));
+	}
+
+	my $horizon_image = '-'x$s->width() . "\n";
+	for(1..6) { $horizon_image .= ' 'x$s->width() . "\n"; }
+
+	$s->new_entity(
+		name		=> "horizon",
+		shape		=> $horizon_image,
+		position	=> [ 0, $conf->{'horizon_row'}, $depth{'horizon'} ],
+		default_color	=> 'BLACK',
+	);
+
+	if($conf->{'color'}) {
+		my $sky = ':'x$s->width() . "\n";
+		$sky = ${sky}x$conf->{'horizon_row'};
+		$s->new_entity(
+			name		=> "sky",
+			shape		=> $sky,
+			position	=> [ 0, 0, $depth{'sky'} ],
+			default_color	=> 'blue',
+		);
+	}
+}
+
+# pick a random screen height for a entity that goes in the forest,
+# and set the correct Z (depth) value based on how high the
+# bottom of the entity is on the screen.
+# this method does not deal with X position
+sub forest_position {
+	my ($s, $entity_height) = @_;
+
+	# the bottom of the entity should be at least 5 rows from the horizon
+	my $min_height = $conf->{'horizon_row'} + 5 - $entity_height;
+
+	# the bottom of the entity should be at least 5 rows from the bottom of
+	# the screen
+	my $max_height = $s->height() - 5 - $entity_height;
+
+	# figure out how much room we've got
+	my $height_range = $max_height - $min_height;
+	
+	my $y = int(rand($height_range)) + $min_height;
+
+	my $z = $depth{'tree'} + $s->height - ($y + $entity_height);
+
+	return ($y, $z);
+}
+
+# add a single tree entity to the animation
+sub add_tree {
+	my ($s, $age) = @_;
+	# ATTRIB tree: kf
+	my @tree = (
+q#
+
+
+
+
+
+
+
+
+
+
+      ,
+     lr
+#,
+q#
+
+
+
+
+
+
+
+
+
+
+
+    .-'-.
+#,
+q#
+
+
+
+
+
+
+
+
+     <|
+      |>
+      |
+   .-' '-.
+#,
+q#
+
+
+
+
+
+    , ,-
+     \  } ,
+    {    /
+     \  .-
+      ||
+      ||
+   .-'  '-.
+#,
+q#
+
+
+       -
+    ,-' }
+   {     -,
+  {        }
+   -,       }
+    {\   ,-'
+      | /
+      ||
+      ||
+   .-'  '-.
+#,
+q#
+     ,-
+    (  }
+  ,^    '),
+ (         }
+{           )
+ '-.       /,
+  {         }
+   -.    ,-'
+     |  }
+     | |
+     | |
+  .-'   '-.
+#,
+q#
+     ,-
+    (  }
+  ,^    '),
+ ( lr      }
+{      lr   )
+ '-.       /,
+  {     lr  }
+   -.    ,-'
+     |  }
+     | |
+     | |
+  .-'   '-.
+#,
+q#
+     ,-
+    (  }
+  ,^    '),
+ (         }
+{           )
+ '-.       /,
+  {         }
+   -.    ,-'
+     |  }
+     | |
+     | |
+  .-'   '-.
+#,
+q#
+
+
+
+     ^   /
+   < ,-'> /
+ ^  \\\  ^  ^
+  -,   / /-,
+    \\\  //
+     | |/
+     | |
+     | |
+  .-'   '-.
+#,
+q#
+
+
+
+
+
+
+
+
+
+      _
+     | |
+  .-'   '-.
+#
+  );
+
+	my @tree_mask = (
+q#
+
+
+
+
+
+
+
+
+
+
+      G
+     ff
+#,
+q#
+
+
+
+
+
+
+
+
+
+
+
+    KKGKK
+#,
+q#
+
+
+
+
+
+
+
+
+     GK
+      KG
+      K
+   KKK KKK
+#,
+q#
+
+
+
+
+
+    G GG
+     g  G G
+    G    g
+     g  gG
+      KK
+      KK
+   KKK  KKK
+#,
+q#
+
+
+       G
+    GGG G
+   G     GG
+  G        G
+   GG       G
+    GG   GGG
+      K G
+      KK
+      KK
+   KKK  KKK
+#,
+q#
+     GG
+    G  G
+  GG    GGG
+ G         G
+G           G
+ GGG       GG
+  G         G
+   GG    GGG
+     K  G
+     K K
+     K K
+  KKK   KKK
+#,
+q#
+     GG
+    G  G
+  GG    GGG
+ G ff      G
+G      ff   G
+ GGG       GG
+  G     ff  G
+   GG    GGG
+     K  G
+     K K
+     K K
+  KKK   KKK
+#,
+q#
+     GG
+    G  G
+  GG    GGG
+ G         G
+G           G
+ GGG       GG
+  G         G
+   GG    GGG
+     K  G
+     K K
+     K K
+  KKK   KKK
+#,
+q#
+
+
+
+     y   y
+   y yyyK K
+ y  KK  y  y
+  yy   K Kyy
+    KK  KK
+     K KK
+     K K
+     K K
+  KKK   KKK
+#,
+q#
+
+
+
+
+
+
+
+
+
+      K
+     K K
+  KKK   KKK
+#
+	);
+
+	
+	my %fruit_list = (	#    left	right	color
+		'apple'		=> [ '(',	')',	'R' ],
+		'cherry'	=> [ 'o',	'o',	'R' ],
+		'orange'	=> [ '(',	')',	'y' ],
+		'lemon'		=> [ '{',	'}',	'Y' ],
+	);
+
+	my $fruit = $fruit_list{(keys %fruit_list)[int(rand(4))]};
+
+	foreach my $frame (0..$#tree) {
+		$tree[$frame] =~ s/l/$fruit->[0]/g;
+		$tree[$frame] =~ s/r/$fruit->[1]/g;
+		$tree_mask[$frame] =~ s/f/$fruit->[2]/g;
+	}
+
+	my $x = int(rand($s->width())) - 5;
+	
+	my $tree_height = 12;
+	#my $min_height = $conf->{'horizon_row'} + 5 - $tree_height;
+	#my $max_height = $s->height() - 5 - $tree_height;
+	#my $height_range = $max_height - $min_height;
+	#my $y = int(rand($height_range)) + $min_height;
+	
+	# the depth of the tree is based on its height on the screen
+	# higher = further away
+	#my $z = $depth{'tree'} + ($max_height - $y);
+	
+	my ($y, $z) = forest_position( $s, $tree_height );
+	my $birth = time();
+	if(defined($age)) { $birth -= $age; }
+	my $tree_ent = $s->new_entity(
+		shape         => \@tree, 
+		position      => [$x, $y, $z], 
+		callback      => \&animate_tree, 
+		callback_args => { 'birth' => $birth, 'parent' => 0 },
+		color         => \@tree_mask,
+		auto_trans    => 1,
+	);
+}
+
+sub update_precip {
+	my ($s) = @_;
+	my %types = (
+		light_rain	=> '.',
+		rain		=> '\'',
+		heavy_rain	=> '|',
+		heavy_rain_east	=> '/',
+		heavy_rain_west	=> '\\',
+		snow		=> '*',
+		sleet		=> 'o',
+		hail		=> 'o',
+	);
+
+	my %type_colors = (
+		light_rain	=> 'CYAN',
+		rain		=> 'CYAN',
+		heavy_rain	=> 'CYAN',
+		heavy_rain_east	=> 'CYAN',
+		heavy_rain_west	=> 'CYAN',
+		snow		=> 'WHITE',
+		sleet		=> 'WHITE',
+		hail		=> 'WHITE',
+	);
+
+	my $precip_cloud = 
+q#
+    .-.
+ .-(   ).
+(        )
+(__(__.___)
+#;
+
+	my $precip =
+q# |      |
+  |  |    |
+|  |    |
+      |
+ |
+    |    |
+  |   |
+#;
+
+	my $lightning =
+q#
+    \/      
+     \      
+     /\     
+    /\ |    
+   |   \    
+  /    /\   
+  \   /  \  
+#;
+
+	my @rows = split("\n", $precip);
+	my @precip;
+
+	# turn the single frame of precipitation into an animation
+	foreach my $i (0..$#rows) {
+		foreach my $j ($i..$#rows) {
+			$precip[$#rows-$i] .= "$rows[$j]\n";
+		}
+		foreach my $j (0..$i-1) {
+			$precip[$#rows-$i] .= "$rows[$j]\n";
+		}
+	}
+
+	my $speed = 0;
+	if($current->{'cloud_speed'}) {
+		my $variance = $current->{'cloud_speed'} / 5;
+		$speed = $current->{'cloud_speed'} + (rand($variance) - ($variance / 2));
+	}
+
+	my $pos = 3;
+	my $cloud_height = on_horizon(11);
+	my $precip_cloud_ent = $s->entity('precipitation_cloud');
+
+	if(defined($precip_cloud_ent)) {
+		($pos) = $precip_cloud_ent->position();
+	}
+
+	# add the cloud if we have precipitation or thunder
+	if($current->{'precip'} ne 'none' or $current->{'thunder'}) {
+		$s->new_entity (
+			name		=> 'precipitation_cloud',
+			shape		=> $precip_cloud,
+			position	=> [ $pos, $cloud_height, $depth{'cloud'} ],
+			callback_args	=> [ $speed, 0, 0, 0 ],
+			wrap		=> 1,
+			default_color	=> $current->{'cloud_color'},
+			auto_trans	=> 1,
+		);
+	}
+	else {
+		if(defined($s->entity('precipitation_cloud'))) { $s->del_entity('precipitation_cloud'); }
+	}
+
+	# add precipitation if there is any
+	if($current->{'precip'} eq 'none') {
+		if(defined($s->entity('precipitation'))) { $s->del_entity('precipitation'); }
+	} else {
+		for(0..$#precip) {
+			$precip[$_] =~ s/\|/$types{$current->{'precip'}}/g;
+		}
+
+		$s->new_entity(
+			name		=> 'precipitation',
+			shape		=> \@precip,
+			position	=> [ $pos, $cloud_height + 4, $depth{'cloud'} ],
+			transparent	=> ' ',
+			callback_args	=> [ $speed, 0, 0, .6 ],
+			wrap		=> 1,
+			default_color	=> $type_colors{$current->{'precip'}}
+		);
+	}
+
+	# add lightning if there is thunder
+	if($current->{'thunder'}) {
+		if($s->color()) {
+			$lightning =~ s/ /?/g;
+		}
+		my @lightning = ($lightning, "\n?\n", $lightning, $lightning);
+		for(0..10) { push @lightning, "\n?\n"; }
+		$s->new_entity(
+			name		=> 'lightning',
+			shape		=> \@lightning,
+			position	=> [ $pos, $cloud_height + 4, $depth{'cloud'} ],
+			callback_args	=> [ $speed, 0, 0, 1],
+			wrap		=> 1,
+			default_color	=> 'YELLOW'
+		);
+	} else {
+		if(defined($s->entity('lightning'))) { $s->del_entity('lightning'); }
+	}
+}
+
+# remove a cloud from the animation
+sub remove_cloud {
+	my ($s, $cloud_num) = @_;
+	my $cloud_name = "cloud_" . $cloud_num;
+	if(defined($s->entity($cloud_name))) { $s->del_entity($cloud_name); }
+	else {
+		quit("Tried to delete non-existant cloud $cloud_name!");
+	}
+}
+
+# add the clouds in the background
+sub add_cloud {
+	my ($s, $cloud_num) = @_;
+
+	# ATTRIB clouds: kf
+	my @cloud_shapes = (
+q#
+   .--.
+ .(    )
+(_   )__)
+  '-'
+#,
+q#
+   .-.
+ .(  _).
+(_. (___)
+#,
+q#
+    .-.
+ .-(   ).
+(        )
+(_(__.___)
+#
+	);
+
+
+	my $cloud_name = "cloud_" . $cloud_num;
+	my $cloud_shape = $cloud_num % scalar(@cloud_shapes);
+	my @position;
+
+	# check to see if we're replacing an existing cloud.
+	# if so, keep the previous position
+	my $cloud_ent = $s->entity($cloud_name);
+	if(defined($cloud_ent)) {
+		@position = $cloud_ent->position();
+	} else {
+		@position = (
+			int(rand($s->width())),
+			int(rand($conf->{'horizon_row'} - 4)),
+			$depth{'cloud'} + $cloud_num
+		);
+	}
+
+	my $speed = 0;
+	if($current->{'cloud_speed'}) {
+		my $variance = $current->{'cloud_speed'} / 5;
+		$speed = $current->{'cloud_speed'} + (rand($variance) - ($variance / 2));
+	}
+	$s->new_entity(
+		name		=> $cloud_name,
+		shape		=> $cloud_shapes[$cloud_shape],
+		position	=> [ @position ],
+		callback_args	=> [ $speed,0,0,0 ],
+		wrap		=> 1,
+		default_color	=> $current->{'cloud_color'},
+		auto_trans	=> 1,
+	);
+
+}
+
+############## SEASONAL OBJECTS ################
+
+sub add_pumpkin {
+
+	my @image = (
+q{
+       ___ [] ___
+     _/   \)(/   \_
+    /   /      \   \
+  ,'   :   |        `,
+  :             :    :
+  :    :   |         ;
+  \_            :   _/
+    \_  \  |   /  _/
+      \__________/
+},
+q{
+
+
+
+       ___ [] ___
+     _/   \)(/   \_
+    /   /      \   \
+  ,'   :   | \      `,
+ /_  \        |   /  _\
+/____    \  _   _______\
+}
+);
+
+
+	my @color = (
+q{
+           GG
+           GG
+},
+q{
+
+
+
+           GG
+           GG
+}
+);
+
+	my $x = int(rand($s->width-10)) + 5;                          # begin position
+	my $sh = -8;                        # height on the screen
+	my $eh = $s->height - 9;            # end position
+	my $z = $depth{'in_front_of_sign'} - 1;  # distance from the camera
+	my $speed = int($s->height() / 3);   # how fast to go across the screen (number of steps)
+
+	my $fall_path = $s->gen_path(
+		$x,$sh,$z,
+		$x,$eh,$z,
+		[0],
+		$speed
+	);
+
+	my $splat_path = $s->gen_path(
+		$x,$eh,$z,
+		$x,$eh,$z,
+		[1],
+		10
+	);
+
+	# when the pumpkin hits the ground, shift forward one in Z,
+	# so that it will no longer collide with the turkey
+	my $shift_forward = [0,0,-1,1];
+
+	$s->new_entity(
+		shape		=> \@image,
+		position	=> [ $x,$sh,$z ],
+		callback_args	=> [ 0, [@$fall_path, $shift_forward, @$splat_path] ],
+		die_frame       => scalar(@$fall_path) + scalar(@$splat_path),
+		auto_trans	=> 1,
+		default_color	=> 'yellow',
+		color           => \@color,
+		depth           => 2,
+		physical        => 1,
+		coll_handler    => \&pumpkin_collision,
+		type            => 'pumpkin',
+
+	);
+
+
+}
+
+sub pumpkin_collision {
+	my ($pumpkin, $anim) = @_;
+
+	my ($x,$y,$z) = $pumpkin->position;
+
+	my $collisions = $pumpkin->collisions();
+	foreach my $col_obj (@{$collisions}) {
+		if($col_obj->type eq 'turkey') {
+			my ($tx,$ty,$tz) = $col_obj->position;
+			if(abs( ($tx + 6) - $x) < 6) {
+				$pumpkin->physical(0);
+				$pumpkin->callback(undef);
+				$pumpkin->die_frame( undef );
+				$pumpkin->die_entity($col_obj);
+				$pumpkin->follow_entity($col_obj);
+				$pumpkin->follow_offset([6, -2, -1]);
+			}
+		}
+	}
+
+}
+
+sub turkey_collision {
+	my ($turkey, $anim) = @_;
+
+	my ($x,$y,$z) = $turkey->position;
+
+	my $jump_path1 = $s->gen_path( 0,0,0, 8,-8,0, [ 2 ], 4 );
+	my $short_run_path = $s->gen_path( 0,0,0, 4,0,0, [ 0, 1 ], 2 );
+	my $jump_path2 = $s->gen_path( 0,0,0, 8,8,0, [ 2 ], 4 );
+
+	my $collisions = $turkey->collisions();
+	foreach my $col_obj (@{$collisions}) {
+		if($col_obj->type eq 'pumpkin') {
+			my ($px,$py,$pz) = $col_obj->position;
+			
+			if(abs(($x + 6) - $px) < 6) {
+				# pumpkin stuck on our head, just keep walking
+			} elsif($px < $x) {
+				# bounce forward	
+				$turkey->position( $x + 5, $y, $z );
+			} else {
+				# bounce backward
+				$turkey->position( $x - 5, $y, $z );
+			}
+		}
+	}
+
+}
+
+sub add_turkey {
+
+	# ATTRIB turkey: jgs
+	my @image = (
+q(
+                 .--.
+ {\?????????????/ q {\
+ { `\???????????\ (-(~`
+{ '.{`\??????????\ \ )
+{'-{ ' \??.-""'-.?\ \
+{._{'.' \/       '.) \
+{_.{.   {`            |
+{._{ ' {   ;'-=-.     |
+ {-.{.' {  ';-=-.`    /
+  {._.{.;    '-=-   .'
+   {_.-'?`'.__ __,-'
+            ||| 
+           .===,
+),
+q(
+                 .--.
+ {\?????????????/ q {\
+ { `\???????????\ (-(~`
+{ '.{`\??????????\ \ )
+{'-{ ' \??.-""'-.?\ \
+{._{'.' \/       '.) \
+{_.{.   {` ;'-=-.     |
+{._{ ' {   ';-=-.`    |
+ {-.{.' {    '-=-     /
+  {._.{.;           .'
+   {_.-'?`'.__ __,-'
+            //\\\
+          .==,.==,
+),
+
+);
+
+	my @color = (
+q(
+                 cccc
+ wy             c g RY
+ wyyy           c RRRYY
+wyyyyyy          K R R
+wyyyyyyy  KKKKKKK K R
+wyyyyyyyyK       KKK K
+wyyyyyyyKK            K
+wyyyyyyK   wwwwww     K
+ wyyyyyyK  wwwwwww    K
+  wyyyyyK    wwww   KK
+   wyyyy KKKKKKKKKKK
+            YYYY
+          YYYYYYYY
+),
+);
+
+	my $h = $s->height - 13;
+
+
+	$s->new_entity(
+		shape         => \@image,
+		position      => [ -22, $h, $depth{'in_front_of_sign'} ],
+		callback      => \&turkey_callback,
+		callback_args => [ 1, 0, 0, 1 ],
+		auto_trans    => 1,
+		die_offscreen => 1,
+		physical      => 1,
+		coll_handler  => \&turkey_collision,
+		death_cb      => \&random_entity,
+		type          => 'turkey',
+		color         => \@color,
+	);
+
+}
+
+sub turkey_callback {
+	my ($turkey, $anim) = @_;
+
+	add_pumpkin() if(int(rand(100)) > 90);
+	return $turkey->move_entity($anim);
+}
+
+# gradually increase the number of appearances until the turkey is
+# 50% of the entities by the end of november. i'm too lazy to figure
+# out when thanksgiving is.
+sub turkey_schedule {
+	my ($entity_count) = @_;
+	my ($day, $month) = (localtime())[3,4];
+	if($month == 10) {
+		my $min = 100;
+		my $max = $entity_count * 100;
+		my $range = $max - $min;
+		my $scale = $range / (30**4);
+		return $min + ($scale * ($day**4)); 
+	} else {
+		# show the occasional turkey during the year
+		return 1;
+	}
+}
+
+# gradually increase the number of appearances until the ghost is
+# 50% of the entities on halloween
+sub ghost_schedule {
+	my ($entity_count) = @_;
+	my ($day, $month) = (localtime())[3,4];
+	if($month == 9) {
+		my $min = 100;
+		my $max = $entity_count * 100;
+		my $range = $max - $min;
+		my $scale = $range / (31**4);
+		return $min + ($scale * ($day**4)); 
+	} else {
+		# show the occasional ghost during the year
+		return 1;
+	}
+}
+
+sub add_ghost {
+	my ($s) = @_;
+	# ATTRIB ghost: jgs
+	my @ghost_right = (
+q{
+      .-.
+    _/ ..\
+   ( \  o/__
+    \    \__)
+    /     \
+ __/       \
+(_.-.._.-._/
+},
+q{
+      .-.
+     / ..\_
+   __\  O/ )
+  (___   \/
+    /     \
+  _/       \
+ (_.-._.-._/
+});
+
+	my @ghost_left = (
+q{
+    .-.
+   /.. \_
+ __\o  / )
+(__/    /
+  /     \
+ /       \__
+ \_.-._..-._)
+},
+q{
+    .-.
+  _/.. \
+ ( \O  /__
+  \/   ___)
+  /     \
+ /       \_
+ \_.-._.-._)
+});
+
+	my $color_right = 
+q{
+ 
+       gg 
+        R
+
+
+
+
+};
+	my $color_left =
+q{
+
+    gg
+    R
+
+
+
+
+};
+
+	my $speed = 1;
+	my $image = \@ghost_right;
+	my $color = $color_right;
+	my $x = -12;
+	my $ghost_height = 7;
+	my ($y, $z) = forest_position( $s, $ghost_height );
+
+	if(int(rand(2))) {
+		$image = \@ghost_left;
+		$color = $color_left;
+		$speed *= -1;
+		$x = $s->width()-1;
+	}
+
+	$s->new_entity(
+		shape		=> $image,
+		position	=> [ $x, $y, $z ],
+		callback_args	=> [ $speed, 0, 0, 1 ],
+		auto_trans	=> 1,
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		default_color	=> 'WHITE',
+		color		=> $color,
+	);
+
+}
+
+
+# gradually increase the number of appearances until santa is
+# 50% of the entities on chrismas day
+sub santa_schedule {
+	my ($entity_count) = @_;
+	my ($day, $month) = (localtime())[3,4];
+	if($month == 11 and $day < 26) {
+		my $min = 100;
+		my $max = $entity_count * 100;
+		my $range = $max - $min;
+		my $scale = $range / (25**4);
+		return $min + ($scale * ($day**4)); 
+	} else {
+		# show the occasional santa during the year
+		return 1;
+	}
+}
+
+sub add_santa {
+	my ($s) = @_;
+
+	my $sleigh_left = q{
+                                  ./   /=*
+
+\/?\/??\/??\/
+  \/?????\/
+   \ ^ ^/
+   (1)(2)--)--------\.
+   |    |  ||==============((~~~~~~~~~~~~~~~))
+    2__/             ,|??????\. * * * * * ./
+      ||^||\.____./||?|????????\_________/
+      ||?||?????||?||?A??????????||??||
+      <>?<>?????<>?<>????????(___||__||___)
+};
+
+	my $sleigh_color_left = q{
+                                  RR   RRW
+
+ww ww  ww  ww
+  ww     ww
+   w    w
+   wgwwgw  K          
+           KKKKKKKKKKKKKKKKrrrrrrrrrrrrrrrrrrr
+    1                        rr 2 3 4 5 6 rr
+                               rrrrrrrrrrr
+                                 KK  KK
+                             KKKKKKKKKKKKKK
+};
+
+	my $sleigh_right = q{
+    *=\   \.
+
+                                 \/??\/??\/?\/
+                                   \/?????\/
+                                     \^ ^ /
+                        ./--------(--(2)(1)
+((~~~~~~~~~~~~~~~))==============||  |    |
+  \. * * * * * ./??????|,             \__2
+    \_________/????????|?||\.____./||^||
+       ||??||??????????A?||?||?????||?||
+   (___||__||___)????????<>?<>?????<>?<>
+
+};
+
+	my $sleigh_color_right = q{
+    WRR   RR
+
+                                 ww  ww  ww ww
+                                   ww     ww
+                                     w    w
+                                  K  wgwwgw
+rrrrrrrrrrrrrrrrrrrKKKKKKKKKKKKKKKK
+  rr 6 5 4 3 2 rr                        1
+    rrrrrrrrrrr
+       KK  KK
+   KKKKKKKKKKKKKK
+};
+
+	my @santa_image = (
+q{
+     (_____)
+   __((^o^))__
+  /   (   )   \
+ / |   ( )   | \
+''(~~~~~~~~~~~)''
+},
+q{
+...??(_____)
+ \ \_((^o^))__
+  \   (   )   \
+   |   ( )   | \
+  (~~~~~~~~~~~)''
+},
+q{
+     (_____)??...
+   __((^o^))_/ /
+  /   (   )   /
+ / |   ( )   |
+''(~~~~~~~~~~~)
+},
+q{
+...  (_____)??...
+ \ \_((^o^))_/ /
+  \   (   )   /
+   |   ( )   |
+  (~~~~~~~~~~~)
+});
+
+	my @santa_colors = (
+q{
+     WWWWWWW
+   RRwwbrbwwRR
+  R   w   w   R
+ R R   w w   R R
+WWwWWWWWWWWWWWwWW
+},
+q{
+WWW  WWWWWWW
+ R RRwwbrbwwRR
+  R   w   w   R
+   R   w w   R R
+  wWWWWWWWWWWWwWW
+},
+q{
+     wWWWWWw  WWW
+   RRwwbrbwwRR R
+  R   w   w   R
+ R R   w w   R
+WWwWWWWWWWWWWWw
+},
+q{
+WWW  wWWWWWw  WWW
+ R RRwwbrbwwRR R
+  R   w   w   R
+   R   w w   R
+  wWWWWWWWWWWWw
+});
+
+	my $sleigh_image;
+	my @sleigh_image;
+	my $sleigh_color;
+	my @sleigh_color;
+
+	my $speed = 1;
+	my $x;
+	my $santa_x;
+	my @light_colors = ( 'c', 'C', 'r', 'R', 'B', 'b', 'g', 'G', 'm', 'M', 'Y' );
+
+	if(int(rand(2))) {
+		$sleigh_image = $sleigh_left;
+		$sleigh_color = $sleigh_color_left;
+		$speed *= -1;
+		$x = $s->width()-1;
+		$santa_x = $x + 28;
+	} else {
+		$sleigh_image = $sleigh_right;
+		$sleigh_color = $sleigh_color_right;
+		$x = -45;
+		$santa_x = $x + 1;
+	}
+
+	foreach my $i (0..3) {
+		push(@sleigh_image, $sleigh_image);
+		push(@sleigh_color, $sleigh_color);
+		if($i<2) {
+			$sleigh_image[$i] =~ s/1/o/gm;
+			$sleigh_image[$i] =~ s/2/O/gm;
+			$sleigh_color[$i] =~ s/1/R/gm;
+		} else {
+			$sleigh_image[$i] =~ s/1/O/gm;
+			$sleigh_image[$i] =~ s/2/o/gm;
+			$sleigh_color[$i] =~ s/1/r/gm;
+		}
+
+		foreach my $c (2..6) {
+			my $color = $light_colors[int(rand($#light_colors))];
+			$sleigh_color[$i] =~ s/$c/$color/gm;
+		}
+	}
+
+	my $sleigh = $s->new_entity(
+		shape		=> \@sleigh_image,
+		position	=> [ $x, 0, $depth{'behind_sign'} ],
+		callback_args	=> [ $speed, 0, 0, 1 ],
+		auto_trans	=> 1,
+		die_offscreen	=> 1,
+		default_color	=> 'yellow',
+		color		=> \@sleigh_color,
+		death_cb	=> \&random_entity,
+	);
+
+	my $santa = $s->new_entity(
+		shape		=> \@santa_image,
+		position	=> [ $santa_x, 1, $depth{'behind_sign'} ],
+		callback_args	=> [ $speed, 0, 0, .25 ],
+		auto_trans	=> 1,
+		color		=> \@santa_colors,
+	);
+
+	# FIXME workaround for bug in T::A 2.6
+	$santa->die_entity($sleigh->name());
+}
+
+
+############## WEATHER OBJECTS ################
+
+
+sub add_snowflakes {
+	my ($s, $quantity) = @_;
+	for(1..$quantity) {
+		add_snowflake(undef, $s);
+	}
+}
+
+sub add_snowflake {
+	my ($old_flake, $s) = @_;
+
+	#ATTRIB snowflakes: jgs
+	my @flakes = (
+q{
+      .
+      :
+'.___/*\___.'
+  \* \ / */
+   >--X--<
+  /*_/ \_*\
+.'???\*/???'.
+      :
+      '
+},
+q{
+   ..????..
+   '\????/'
+     \\\//
+_.__\\\\\///__._
+ '??///\\\\\??'
+     //\\\\
+   ./????\.
+   ''????''
+},
+q{
+     .:.
+..???\o/???..
+:o|???|???|o:
+ ~ '. ' .' ~
+     >O<
+ _ .' . '. _
+:o|???|???|o:
+''???/o\???''
+     ':'
+},
+q{
+     o
+o ???:??? o
+  '.\'/.'
+  :->@<-:
+  .'/.\'.
+o ???:??? o
+     o
+},
+q{
+   *??.??*
+ . _\/ \/_ .
+  \  \ /  /
+-==>: X :<==-
+  / _/ \_ \
+ '  /\ /\  '
+   *??'??*
+},
+q{
+   ._????_.
+   (_)??(_)
+    .\::/.
+_.=._\\\//_.=._
+ '=' //\\\ '='
+    '/::\'
+   (_)??(_)
+   '??????'
+},
+q{
+  '.|??|.'
+.?~~\  /~~?.
+_\_._\/_._/_
+ / ' /\ ' \
+'?__/  \__?'
+  .'|??|'.
+},
+q{
+   .??????.
+   _\/??\/_
+    _\/\/_
+_\_\_\/\/_/_/_
+ / /_/\/\_\ \
+    _/\/\_
+    /\??/\
+   '??????'
+},
+q{
+   <> \??/ <>
+   \_\/??\/_/
+      \\\//
+_<>_\_\<>/_/_<>_
+ <> / /<>\ \ <>
+    _ //\\\ _
+   / /\??/\ \
+   <> /??\ <>
+},
+q{
+   _????_
+  /_/??\_\ 
+    \\\//
+/\_\\\><//_/\
+\/ //><\\\ \/
+   _//\\\_
+  \_\??/_/
+},
+q{
+      \o/
+  _o/.:|:.\o_
+    .\:|:/.
+-=>>::>o<::<<=-
+  _ '/:|:\' _
+   o\':|:'/o 
+      /o\
+},
+	);
+
+	my $speed = rand(1) + .5;
+
+	$s->new_entity(
+		type		=> 'snow_effect',
+		shape		=> $flakes[int(rand(@flakes))],
+		position	=> [ int(rand($s->width())) - 4, -3, $depth{'closest'} ],
+		callback_args	=> [ 0, $speed, 0 ],
+		auto_trans	=> 1,
+		die_offscreen	=> 1,
+		death_cb	=> \&add_snowflake,
+		default_color	=> 'WHITE',
+	);
+
+}
+
+# set stuff on fire. the hotter it is, the more likely something
+# is to catch on fire
+sub ignite_blaze {
+	my ($s) = @_;
+
+	# decide whether to ignite something
+
+	# get a list of all entities
+	
+	# pick an entity at random to set on fire
+
+	# if it's already on fire, just give up. that should help throttle
+	# the fires if there are a lot of them
+	
+	# add flames
+	add_flames($s, undef);
+	
+}
+
+# make something appear to be on fire
+sub add_flames {
+	my ($s, $ent) = @_;
+
+	return if(@{$s->get_entities_of_type( 'fire_effect' )});
+
+	my @flames_img = (
+q|
+    /\
+ /\/  \
+{ \ ( )\
+|,
+q|
+  /\
+ /  \/\
+{ \ ( )\
+|
+	);
+	$s->new_entity(
+		type		=> 'fire_effect',
+		shape		=> \@flames_img,
+		position	=> [ 10, 10, 10 ],
+		callback_args	=> [ 0, 0, 0, 1 ],
+		auto_trans	=> 1,
+		trans_char	=> ' ',
+		#color		=>
+		death_time	=> time + 20,
+		die_offscreen	=> 1,
+		default_color	=> 'RED',
+	);
+}
+
+sub add_snowman {
+	my ($s) = @_;
+
+	#ATTRIB tiny snowman: hjw
+	#ATTRIB small snowman: jgs
+	#ATTRIB large snowman: jgs
+	
+	my $tiny_snowman = q{
+  _==_ _
+_,(",)|_|
+ \/. \-|
+ ( :  )|
+};
+
+	my $tiny_mask = q{
+  KKKK y
+BBWcyWyyy
+ BWK WBy
+ W K  Wy
+};
+
+	my $small_snowman = q{
+     _
+   _[_]_
+v???(")
+`--( : )--<
+  (  :  )
+  `-...-'
+};
+
+	my $small_mask = q{
+     K
+   KKKKK
+R   WcW
+RRRW K WRRR
+  W  K  W
+  WWWWWWW
+};
+
+	my $large_snowman = q{
+      ___
+    _|___|_
+   '=/a a\='
+     \~_ / 
+_\__/ '-' \__/_
+ /  \  o  /  \
+   / '---' \ 
+  |    o    | 
+   \   o   /
+    '-----'
+};
+	my $large_mask = q{
+      YYY
+    YYYYYYY
+   YYWc cWYY
+     Wyy W 
+BBBBW yyy WBBBB
+ B  W  K  W  B
+   W WWWWW W 
+  W    K    W 
+   W   K   W
+    WWWWWWW
+};
+
+	my $image;
+	my $depth;
+	my $height;
+	my $mask;
+
+	my $snowman_type = int(rand(3));
+	if($snowman_type == 0) {
+		$image = $tiny_snowman;
+		$height = on_horizon(4);
+		$depth = $depth{'on_horizon'};
+		$mask = $tiny_mask;
+	} elsif($snowman_type == 1) {
+		$image = $small_snowman;
+		$height = on_horizon(6);
+		$depth = $depth{'on_horizon'};
+		$mask = $small_mask;
+	} else {
+		$image = $large_snowman;
+		$height = $s->height() - 12;
+		$depth = $depth{'tree'};
+		$mask = $large_mask;
+	}
+
+	my $ent = $s->new_entity(
+		type		=> 'snow_effect',
+		shape		=> $image,
+		default_color	=> 'WHITE',
+		auto_trans	=> 1,
+		color		=> $mask,
+	);
+
+	my $width = $ent->width;
+	my $x = int( rand( $s->width() - $width ) );
+	$ent->position( $x, $height, $depth);
+
+}
+
+############## RANDOM OBJECTS ################
+
+sub add_satellite {
+	my $satellite = q{
+    __
+   /__/
+   _/
+o-(_)-o
+ _/_
+/__/
+};
+
+	my @sat = ($satellite, $satellite);
+
+	my @mask = (
+q{
+    KK
+   KKKK
+   Ww
+RwWWWwG
+ KwK
+KKKK
+},
+q{
+    KK
+   KKKK
+   Ww
+GwWWWwR
+ KwK
+KKKK
+},
+	);
+
+	my $speed = 2;
+	my $start = -6;
+	if(int(rand(2))) {
+		$speed = -$speed;
+		$start = $s->width() - 1;
+	}
+
+	$s->new_entity(
+		shape		=> \@sat,
+		position	=> [$start,0,$depth{'satellite'}],
+		callback_args	=> [$speed,0,0,.25],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> \@mask,
+		auto_trans	=> 1,
+	);
+}
+
+# add the plane random entity to the animation
+sub add_plane {
+	my ($s) = @_;
+	#ATTRIB plane: hjw
+	my $plane_right = q#
+.-.?_????.-.
+\  `.'___|__\______
+ >-, o o o o o o o L`.
+'-'`.___.---,_______.'
+       /  .'
+      /_.'
+#;
+
+	my $mask_right = q#
+RRRRR    RWW
+RRRRRRRRRRWWWWWWWWW
+ RRR c c c c c c cccWW
+RRRRRRRRRWWWWWWWWWWWWW
+       R  WW
+      RWWW
+#;
+
+	my $plane_left = q#
+          .-.????_?.-.
+   ______/__|___`.'  /
+.'_|o o o o o o o ,-<
+`._______,---.___.'`-`
+          `.  \
+            `._\
+#;
+
+	my $mask_left = q#
+          WWR    RRRRR
+   WWWWWWWWWRRRRRRRRRR
+WWccc c c c c c c RRR
+WWWWWWWWWWWWWRRRRRRRRR
+          WW  R
+            WWWR
+#;
+
+	my $image;
+	my $mask;
+	my $speed = 2;
+	my $b;
+
+	if(int(rand(2))) {
+		$image = $plane_right;
+		$mask = $mask_right;
+		$b = -22
+	} else {
+		$image = $plane_left;
+		$mask = $mask_left;
+		$speed = $speed * -1;
+		$b = $s->width() -1;
+	}
+
+	$s->new_entity(
+		shape		=> $image,
+		position	=> [ $b, 0, $depth{'plane'}],
+		callback_args	=> [$speed,0,0,0],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> $mask,
+		auto_trans	=> 1,
+	);
+}
+
+# add the pacman random entity to the animation
+sub add_pacman {
+	my ($s) = @_;
+
+	# ATTRIB pacman: kf
+	my @pacman = (
+q:
+  .--.??????????.--.
+.'    '.??????.'   .'
+| (O (O|??????|  <'
+|      |??????'.  ` .
+|/\/\/\|????????'--'
+:,
+q:
+  .--.??????????.--.
+.'    '.??????.'    '.
+| (O (O|??????|   ---|
+|      |??????'.    .'
+|/\/\/\|????????'--'
+:,
+q:
+  .--.??????????.--.
+.'    '.???????'.   '.
+|O) O) |?????????`>  |
+|      |???????. '  .'
+|/\/\/\|????????'--'
+:,
+q:
+  .--.??????????.--.
+.'    '.??????.'    '.
+|O) O) |??????|---   |
+|      |??????'.    .'
+|/\/\/\|??????? '--'
+:,
+
+	);
+
+	my @pacman_mask = (
+q:
+  RRRR          YYYY
+RR    RR      YY   YY
+R WW WWR      Y  YY
+R      R      YY  Y Y
+RRRRRRRR        YYYY
+:,
+q:
+  RRRR          YYYY
+RR    RR      YY    YY
+R WW WWR      Y   YYYY
+R      R      YY    YY
+RRRRRRRR        YYYY
+:,
+q:
+  bbbb          YYYY
+bb    bb       YY   YY
+bWW WW b         YY  Y
+b      b       Y Y  YY
+bbbbbbbb        YYYY
+:,
+q:
+  cccc          YYYY
+cc    cc      YY    YY
+cWW WW c      YYYY   Y
+c      c      YY    YY
+cccccccc        YYYY
+:,
+	);
+
+	#                   Blinky  Pinky  Inky   Clyde
+	my $ghost_color = ( 'r',   'R',    'C',   'y' )[int(rand(4))];
+	@pacman_mask = map { s/R/$ghost_color/g; $_; } @pacman_mask;
+
+	my $b = -20;			# begin position
+	my $m = $s->width() - 1;	# point where we turn around
+	my $e = -30;			# end position
+	my $h = $s->height() - 5;	# height on the screen
+	my $z = $depth{'in_front_of_sign'};	# distance from the camera
+	my $speed = int($s->width() / 4); # how fast to go across the screen (number of steps)
+
+	# go one way...
+	my $path1 = $s->gen_path( $b,$h,$z, $m,$h,$z, [0,1], $speed );
+
+	# ...then go the other way
+	my $path2 = $s->gen_path( $m,$h,$z, $e,$h,$z, [2,3], $speed );
+
+	$s->new_entity(
+		shape		=> \@pacman,
+		position	=> [$b,$h,$z], 
+		callback_args	=> [0, [@{$path1}, @{$path2}]],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> \@pacman_mask,
+		auto_trans	=> 1,
+	);
+}
+
+sub add_chicken {
+	my ($s) = @_;
+	# ATTRIB chicken: kf
+	my @right_chicken = (
+q{
+      \|/_
+  _???/o|>
+,` `-'  |
+-  <   /
+ `. ,.'
+ ,/?\,
+  '?'
+},
+q{
+      \|/_
+  _???/o|>
+,` `-'  |
+- ^    /
+ `. ,.'
+   |
+  '?`
+}
+	);
+
+	my @left_chicken = (
+q{
+_\|/
+<|o\???_
+ |  `-' ',
+  \   >  -
+   `., .'
+    ,/?\,
+     `?`
+},
+q{
+_\|/
+<|o\???_
+ |  `-' ',
+  \    ^ -
+   `., .'
+      |
+     '?`
+}
+	);
+
+	my @right_mask = (
+q{
+      RRRR
+       B Y
+  
+
+
+ YY YY
+  Y Y
+},
+q{
+      RRRR
+       B Y
+
+
+
+   Y
+  Y Y
+}
+	);
+
+	my @left_mask = (
+q{
+RRRR
+Y b
+
+
+
+    YY YY
+     Y Y
+},
+q{
+RRRR
+Y b
+
+
+
+      Y
+     Y Y
+}
+	);
+
+	my $h = $s->height() - 7;	# height on the screen
+	my $speed = 1;
+
+	my ($b, $shape, $mask);
+
+	# randomly make the chicken walk either left or right
+	if(int(rand(2))) {
+		$b = -10;
+		$shape = \@right_chicken;
+		$mask = \@right_mask;
+	} else {
+		$b = $s->width() - 1;
+		$shape = \@left_chicken;
+		$speed = -$speed;
+		$mask = \@left_mask;
+	}
+
+	my ($y, $z) = forest_position( $s, 7 );
+
+	$s->new_entity(
+		shape		=> $shape,
+		position	=> [ $b, $y, $z ],
+		callback_args	=> [ $speed, 0, 0, 1 ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> $mask,
+		auto_trans	=> 1,
+	);
+}
+
+sub add_dog {
+	my ($s) = @_;
+	my @dog_left = (
+q{
+   __
+o-''|\_____/)
+ \_/|_)     )
+    \  __  /
+    (_/??(_|
+},
+q{
+   __
+o-''|\_____/)
+ \_/|_)     )
+    \  __  /
+    (_/??(_\
+},
+q{
+   __
+o-''|\_____/)
+ \_/|_)     )
+    \  __  /
+    (_|??(_|
+},
+q{
+   __
+o-''|\_____/)
+ \_/|_)     )
+    \  __  /
+    (_\?(_/
+},
+  );
+
+	my @dog_right = (
+q{
+        __
+(\_____/|''-o
+(     (_|\_/
+ \  __  /
+ |_)??\_)
+},
+q{
+        __
+(\_____/|''-o
+(     (_|\_/
+ \  __  /
+ /_)??\_)
+},
+q{
+        __
+(\_____/|''-o
+(     (_|\_/
+ \  __  /
+ |_)??|_)
+},
+q{
+        __
+(\_____/|''-o
+(     (_|\_/
+ \  __  /
+  \_)?/_)
+},
+	);
+
+	my $right_mask = q{
+        
+         CC R
+
+
+
+};
+
+	my $left_mask = q{
+
+R CC
+
+
+
+};
+
+	my @left_mask;
+	my @right_mask;
+	for(1..4) {
+		push(@left_mask, $left_mask);
+		push(@right_mask, $right_mask);
+	}
+
+	my $speed = 1;
+	my $h_pos = -12;
+	my $height = $s->height()-6;
+	my $mask = \@right_mask;
+	my $shape = \@dog_right;
+
+	if(int(rand(2))) {
+		$speed *= -1;
+		$h_pos = $s->width()-1;
+		$mask = \@left_mask;
+		$shape = \@dog_left;
+	}
+
+	my ($y, $z) = forest_position( $s, 5 );
+	
+	$s->new_entity(
+		shape		=> $shape,
+		position	=> [$h_pos, $y, $z],
+		callback_args	=> [ $speed, 0, 0, 1 ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		default_color	=> 'yellow',
+		color		=> $mask,
+		auto_trans	=> 1,
+	);
+}
+
+sub add_mario {
+	my ($s) = @_;
+
+	# ATTRIB mario: kf
+	my @mario_image = (
+q{
+     ___
+    /___\__
+    xCx o--,
+   Xx   Mmm
+     ----
+    / /H_|
+    | |o  \
+    |\_P   ,
+    |__^__.
+    |__D|__D
+},
+q{
+
+     ___
+    /___\__
+    xCx o--,
+   Xx   Mmm
+     ----
+  J//\___9D
+F| `     |
+LJ--^ __/
+     |__D
+},
+q{
+     ___
+    /___\__
+    xCx o--,
+   Xx   Mmm
+   _ ----
+  /  | |__d]
+ LJ--|o  o|
+   /  __   n
+  L  /??`__U
+   \,D
+});
+
+	my @mario_mask = (
+q{
+     RRR
+    RRRRRRR
+    ByB Gyyy
+   BB   BBB
+     yyyy
+    B BRRB
+    B BY  R
+    Ryyy   R
+    RRRRRRR
+    BBBBBBBB
+},
+q{
+
+     RRR
+    RRRRRRR
+    ByB Gyyy
+   BB   BBB
+     yyyy
+  yBBBBBByy
+BR R     R
+BBRRR RRR
+     BBBB
+},
+q{
+     RRR
+    RRRRRRR
+    ByB Gyyy
+   BB   BBB
+   B yyyy
+  B  R RBByy
+ yyBBRY  YR
+   R  RR   B
+  B  R  RRRB
+   BBB
+});
+
+	my @barrel_image = (
+q{
+   ___
+, ':/:' ,
+|::/::::|
+|:/:::@:|
+ ',___,'
+},
+q{
+   ___
+, ':::' ,
+|:\:::@:|
+|::\::::|
+ ',_\_,'
+},
+q{
+   ___
+, ':::' ,
+|:@:::/:|
+|::::/::|
+ ',_/_,'
+},
+q{
+   ___
+, ':\:' ,
+|::::\::|
+|:@:::\:|
+ ',___,'
+});
+
+	my @barrel_mask = (
+q{
+   YYY
+Y YyByY Y
+YyyByyyyY
+YyByyyByY
+ YYYYYYY
+},
+q{
+   YYY
+Y YyyyY Y
+YyByyyByY
+YyyByyyyY
+ YYYBYYY
+},
+q{
+   YYY
+Y YyyyY Y
+YyByyyByY
+YyyyyByyY
+ YYYBYYY
+},
+q{
+   YYY
+Y YyByY Y
+YyyyyByyY
+YyByyyByY
+ YYYYYYY
+});
+
+
+	my $num_of_barrels = int($s->width / 40) + 1;
+	my $first_barrel_encounter = int( $s->width / 2 ) - 3;
+	my $long_run_path = $s->gen_path( 0,0,0, $first_barrel_encounter,0,0, [ 0, 1, 0, 2 ], int($first_barrel_encounter / 2) );
+	my $jump_path1 = $s->gen_path( 0,0,0, 8,-8,0, [ 2 ], 4 );
+	my $short_run_path = $s->gen_path( 0,0,0, 4,0,0, [ 0, 1 ], 2 );
+	my $jump_path2 = $s->gen_path( 0,0,0, 8,8,0, [ 2 ], 4 );
+
+	my @full_path;
+	push(@full_path, @{$long_run_path});
+	for(1..$num_of_barrels) {
+		push(@full_path, @{$jump_path1});
+		push(@full_path, @{$jump_path2});
+		push(@full_path, @{$short_run_path});
+	}
+	push(@full_path, @{$long_run_path});
+
+	my $mario_entity = $s->new_entity(
+		shape		=> \@mario_image,
+		position	=> [ -10, $s->height() - 10, $depth{'in_front_of_sign'} ],
+		callback_args	=> [ 0, \@full_path ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> \@mario_mask,
+		auto_trans	=> 1,
+	);
+
+	foreach my $i (1..$num_of_barrels) {
+		my $barrel = $s->new_entity(
+			shape		=> \@barrel_image,
+			position	=> [ $s->width + (($i-1) * 40), $s->height - 5, $depth{'in_front_of_sign'} ],
+			callback_args	=> [ -2, 0, 0, 1 ],
+			auto_trans	=> 1,
+			color		=> \@barrel_mask,
+		);
+		# FIXME workaround for bug in T::A 2.6
+		$barrel->die_entity($mario_entity);
+	}
+}
+
+sub add_segway {
+	my ($s) = @_;
+
+	my $segway_right = q~
+  ,._
+ (  }
+ ((),
+ |__\\\
+ (  )?<@]
+  ()??//
+  ||_//~;
+
+	my $mask_right = q{
+  RRR
+ K  y
+ BBBB
+ BBBBB
+ y  y www
+  yy  ww
+  yyKww};
+
+	my $segway_left = q~
+    _.,
+    {  )
+    ,())
+   //__|
+[@> (  )
+ \\\  ()
+  \\\_||~;
+
+	my $mask_left = q{
+    RRR
+    y  K
+    BBBB
+   BBBBB
+www y  y
+ ww  yy
+  wwKyy};
+
+	my @wheel = (
+q{
+  /\  \
+ |  o  |
+  \__\/
+},
+q{
+  /  /\
+ |  o  |
+  \/__/
+});
+
+	my @wheel_mask = (
+q{
+  Kw  K
+ K  w  K
+  KKKwK
+},
+q{
+  K  wK
+ K  w  K
+  KwKKK
+});
+
+	my $h = $s->height()-11;
+	my $b;
+	my $speed = 1;
+	my $segway_rider;
+	my @segway_image;
+	my $mask;
+	my @mask;
+
+	if(int(rand(2))) {
+		$segway_rider = $segway_right;
+		$mask = $mask_right;
+		$b = -8;
+	} else {
+		$segway_rider = $segway_left;
+		$mask = $mask_left;
+		$speed = -$speed;
+		$b = $s->width()-1;
+	}
+
+	foreach my $i (0..$#wheel) {
+		push(@segway_image, $segway_rider . $wheel[$i]);
+		push(@mask, $mask . $wheel_mask[$i]);
+	}
+
+	my ($y, $z) = forest_position( $s, 10 );
+
+	$s->new_entity(
+		shape		=> \@segway_image,
+		position	=> [ $b, $y, $z ],
+		callback_args	=> [ $speed, 0, 0, 1 ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> \@mask,
+		auto_trans	=> 1,
+	);
+
+}
+
+sub add_copter {
+	my ($s) = @_;
+	# ATTRIB helicopter: original by 'wh'
+
+	my @helicopter_left = (
+q{
+
+  -.,_
+      `'-.,_   _
+            `'-+-.,_
+          ___ /^^[__`'-.,_?????????_
+         /|^+----+   |#___`'-_____//
+       ( -+ |____|   _______-----+/
+        ==_________--'????????????\
+          ~_|___|__
+},
+q{
+
+
+               _
+---------------+---------------
+          ___ /^^[___??????????????_
+         /|^+----+   |#___________//
+       ( -+ |____|   _______-----+/
+        ==_________--'????????????\
+          ~_|___|__
+},
+q{
+
+                         _,.-
+               _   _,.-'`
+           _,.-+-'`
+     _,.-'`__ /^^[___??????????????_
+  -'`????/|^+----+   |#___________//
+       ( -+ |____|   _______-----+/
+        ==_________--'????????????\
+          ~_|___|__
+},
+q{
+                 //
+                //
+               //
+               +
+          ___//^^[___??????????????_
+         /|^//---+   |#___________//
+       ( -+//____|   _______-----+/
+        ==_________--'????????????\
+          ~_|___|__
+},
+q{
+           \\\
+            \\\  
+             \\\
+               + 
+          ___ /^\\\___??????????????_
+         /|^+----\\\  |#___________//
+       ( -+ |____|\\\ _______-----+/
+        ==_________--'????????????\
+          ~_|___|__
+});
+
+	my @mask_left = (
+q{
+
+  KKKK
+      KKKKKK   w
+            KKKwKKKK
+          GGG GGGGGGKKKKKK         G
+         ccGgggggg   GKGGGKKKGGGGGGG
+       G cc gggggg   GGGGGGGGGGGGwG
+        ccGGGGGGGGGGGG            G
+          wwwwwwwww
+},
+q{
+
+
+               w
+KKKKKKKKKKKKKKKwKKKKKKKKKKKKKKK
+          GGG GGGGGGG              G
+         ccGgggggg   GKGGGGGGGGGGGGG
+       G cc gggggg   GGGGGGGGGGGGwG
+        ccGGGGGGGGGGGG            G
+          wwwwwwwww
+},
+q{
+
+                         KKKK
+               w   KKKKKK
+           KKKKwKKK
+     KKKKKKGG GGGGGGG              G
+  KKK    ccGgggggg   GKGGGGGGGGGGGGG
+       G cc gggggg   GGGGGGGGGGGGwG
+        ccGGGGGGGGGGGG            G
+          wwwwwwwww
+},
+q{
+                 KK
+                KK
+               KK
+               w
+          GGGKKGGGGGG              G
+         ccGKKgggg   GKGGGGGGGGGGGGG
+       G ccKKggggg   GGGGGGGGGGGGwG
+        ccGGGGGGGGGGGG            G
+          wwwwwwwww
+},
+q{
+           KK
+            KK
+             KK
+               w
+          GGG GGKKGGG              G
+         ccGgggggKK  GKGGGGGGGGGGGGG
+       G cc ggggggKK GGGGGGGGGGGGwG
+        ccGGGGGGGGGGGG            G
+          wwwwwwwww
+});
+
+
+	my @helicopter_right = (
+q{
+
+                              _,.-
+                    _   _,.-'`
+                _,.-+-'`
+_?????????_,.-'`__]^^\ ___
+\\\_____-'`___#|   +----+^|\
+ \+-----_______   |____| +- )
+ /????????????`--_________==
+                 __|___|_~
+},
+q{
+
+
+                    _
+     ---------------+---------------
+_??????????????___]^^\ ___
+\\\___________#|   +----+^|\
+ \+-----_______   |____| +- )
+ /????????????`--_________==
+                 __|___|_~
+},
+q{
+
+       -.,_
+           `'-.,_   _
+                 `'-+-.,_
+_??????????????___]^^\ __`'-.,_
+\\\___________#|   +----+^|\   `'-
+ \+-----_______   |____| +- )
+ /????????????`--_________==
+                  __|___|_~
+},
+q{
+                 \\\
+                  \\\
+                   \\\
+                    +
+_??????????????___]^^\\\___
+\\\___________#|   +---\\\^|\
+ \+-----_______   |____\\\+- )
+ /????????????`--_________==
+                 __|___|_~
+},
+q{
+                       //
+                      //
+                     //
+                    +
+_??????????????___//^\ ___
+\\\___________#|  //----+^|\
+ \+-----_______ //|____| +- )
+ /????????????`--_________==
+                  __|___|_~
+});
+
+	my @mask_right = (
+q{
+
+                              KKKK
+                    w   KKKKKK
+                KKKKwKKK
+G         KKKKKKGGGGGG GGG
+GGGGGGGKKKGGGKG   ggggggGcc
+ GwGGGGGGGGGGGG   gggggg cc G
+ G            GGGGGGGGGGGGcc
+                 wwwwwwwww
+},
+q{
+
+
+                    w
+     KKKKKKKKKKKKKKKwKKKKKKKKKKKKKKK
+G              GGGGGGG GGG
+GGGGGGGGGGGGGKG   ggggggGcc
+ GwGGGGGGGGGGGG   gggggg cc G
+ G            GGGGGGGGGGGGcc
+                 wwwwwwwww
+},
+q{
+
+       KKKK
+           KKKKKK   w
+                 KKKwKKKK
+G              GGGGGGG GGKKKKKK
+GGGGGGGGGGGGGKG   ggggggGcc    KKK
+ GwGGGGGGGGGGGG   gggggg cc G
+ G            GGGGGGGGGGGGcc
+                 wwwwwwwww
+},
+q{
+                 KK
+                  KK
+                   KK
+                    w
+G              GGGGGGKKGGG
+GGGGGGGGGGGGGKG   ggggKKGcc
+ GwGGGGGGGGGGGG   gggggKKcc G
+ G            GGGGGGGGGGGGcc
+                 wwwwwwwww
+},
+q{
+                       KK
+                      KK
+                     KK
+                    w
+G              GGGKKGG GGG
+GGGGGGGGGGGGGKG  KKgggggGcc
+ GwGGGGGGGGGGGG KKgggggg cc G
+ G            GGGGGGGGGGGGcc
+                 wwwwwwwww
+});
+
+	my $b = 30;
+	my $speed = 2;
+	my $helicopter_image;
+	my $mask;
+
+	if(1 || int(rand(2))) {
+		$helicopter_image = \@helicopter_right;
+		$mask = \@mask_right;
+		$b = -28;
+	} else {
+		$helicopter_image = \@helicopter_left;
+		$mask = \@mask_left;
+		$speed = -$speed;
+		$b = $s->width()-1;
+	}
+
+	$s->new_entity(
+		shape		=> $helicopter_image,
+		position	=> [ $b, 0,  $depth{'behind_trees'}],
+		callback_args	=> [ $speed, 0, 0, 1 ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> $mask,
+		auto_trans	=> 1,
+	);
+}
+
+sub add_scooter {
+	my ($s) = @_;
+	# ATTRIB scooter: original by unknown
+	my @scooter_right = (
+q{
+       _
+      (_\
+      / \
+ `== / /\=,_
+  ;--==\\\??\\\o
+  /____//__/__\
+@=`(0)     (0)
+},
+q{
+       _
+      (_\
+      / \
+ `== / /\=,_
+  ;--==\\\??\\\o
+  /____//__/__\
+  `(0)     (0)
+});
+
+	my $mask_right = 
+q{
+       B
+      BBw
+      Y Y
+ RRR Y YYYRR
+  RRRKKbb  RRW
+  RRRRRbbRRRRRR
+wwRKwK     KwK
+};
+
+	my @scooter_left = (
+q{
+       _
+      /_)
+      / \
+   _,=/\ \ =='
+ o//??//==--;
+/__\__\\\____\
+ (0)     (0)'=@
+},
+q{
+       _
+      /_)
+      / \
+   _,=/\ \ =='
+ o//??//==--;
+/__\__\\\____\
+ (0)     (0)'
+});
+
+	my $mask_left = 
+q{
+       B
+      wBB
+      Y Y
+   RRYYY Y RRR
+ WRR  bbKKRRR
+RRRRRRbbRRRRR
+ KwK     KwKRww
+};
+
+	my $b;
+	my $speed = 1;
+	my @scooter_image;
+	my $mask;
+	my @mask;
+
+
+	if(int(rand(2))) {
+		@scooter_image = @scooter_right;
+		$mask = $mask_right;
+		$b = -15;
+	} else {
+		@scooter_image = @scooter_left;
+		$mask = $mask_left;
+		$speed = -$speed;
+		$b = $s->width()-1;
+	}
+
+	# cycle the exhaust smoke
+	my $path = $s->gen_path( 0,0,0, $speed * 7,0,0, [ 1, 1, 0, 1, 0, 1, 1 ], 7 );
+
+	my ($y, $z) = forest_position( $s, 7 );
+
+	$s->new_entity(
+		shape		=> \@scooter_image,
+		position	=> [ $b, $y, $z ],
+		callback_args	=> [ 0, $path ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> $mask,
+		auto_trans	=> 1,
+	);
+
+
+}
+
+sub add_knight {
+	my ($s) = @_;
+	# ATTRIB knight: original by unknown
+	my $knight_top_right = q{
+       ,;~;,
+           /\_
+          (  /
+          ((),?????;,;
+          |  \\\??,;;'(
+      __ _(  )'~;;'   \
+    /'  '\'()/~' \ /'\.)
+ ,;(      )||     |
+,;' \    /-(.;,   )};
+
+	my $mask_top_right = q{
+       RRRRR 
+           WWW
+          W  W
+          WWWW     yYy
+          W  WW  YYYYy
+      yy BW  WWBYYY   y
+    yy  yBBWWBBB y yyyyy
+ YYy      BWW     y
+YYY y    BBWWWW   y};
+
+	my $knight_top_left = q{
+           ,;~;,
+          _/\
+          \  )
+  ;,;?????,())
+  )`;;,??//  |
+ /   `;;~`(  )_ __
+(./`\ / `~\()`/`  `\
+     |     ||(      );,
+     (   ,;.)-\    / `;,};
+
+	my $mask_top_left = q{
+            RRRRR
+          WWW
+          W  W
+  yYy     WWWW
+  yYYYY  WW  W
+ y   YYYBWW  WB yy
+yyyyy y BBBWWBBy  yy
+     y     WWB      yYY
+     y   WWWWBB    y YYY};
+
+	my @knight_left = (
+q{
+      |\ (??????|\ (
+     /_)||?????/_)||
+       /_)???????/_)
+},
+q{
+     //\ (?????//?\ (
+    /_)?\\\????/_)??\\\
+        /_)????????/_)
+},
+q{
+      |\ (??????|\ (
+     /_)||?????/_)||
+       /_)???????/_)
+},
+q{
+       \ /\\\?????\ /\\\
+       //?/_)????//?/_)
+      /_)???????/_)
+}
+	);
+
+	my @knight_right = (
+q{
+     ) /|??????) /|
+     ||(_\?????||(_\
+     (_\???????(_\
+},
+q{
+    ) /?\\\?????) /\\\
+    //??(_\????//?(_\
+   (_\????????(_\
+},
+q{
+     ) /|??????) /|
+     ||(_\?????||(_\
+     (_\???????(_\
+},
+q{
+   //\ /?????//\ /
+  (_\?\\\????(_\?\\\
+      (_\???????(_\
+},
+	);
+
+	my @mask_right = (
+q{
+     y yy      y yy
+     yyKKK     yyKKK
+     www       www
+},
+q{
+    y y yy     y yyy
+    yy  KKK    yy KKK
+   www        www
+},
+q{
+     y yy      y yy
+     yyKKK     yyKKK
+     www       www
+},
+q{
+   yyy y     yyy y
+  KKK yy    KKK yy
+      www       www
+}
+	);
+
+	my @mask_left = (
+q{
+      yy y      yy y
+     KKKyy     KKKyy
+       www       www
+},
+q{
+     yyy y     yy y y
+    KKK yy    KKK  yy
+        www        www
+},
+q{
+      yy y      yy y
+     KKKyy     KKKyy
+       www       www
+},
+q{
+       y yyy     y yyy
+       yy KKK    yy KKK
+      www       www
+}
+	);
+
+	for(0..$#knight_right) { $knight_right[$_] = $knight_top_right . $knight_right[$_]; }
+	for(0..$#knight_left)  { $knight_left[$_]  = $knight_top_left  . $knight_left[$_]; }
+
+	for(0..$#mask_right) { $mask_right[$_] = $mask_top_right . $mask_right[$_]; }
+	for(0..$#mask_left)  { $mask_left[$_]  = $mask_top_left  . $mask_left[$_]; }
+
+	my $h = $s->height()-14;
+	my $speed = 1;
+
+	my ($knight, $mask);
+	if(int(rand(2))) {
+		$knight = \@knight_right;
+		$mask = \@mask_right;
+		$b = -20;
+	} else {
+		$knight = \@knight_left;
+		$mask = \@mask_left;
+		$speed = -$speed;
+		$b = $s->width()-1;
+	}
+
+	my ($y, $z) = forest_position( $s, 12 );
+	
+	$s->new_entity(
+		shape		=> $knight,
+		position	=> [$b, $y, $z],
+		callback_args	=> [ $speed, 0, 0, 1 ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> $mask,
+		auto_trans	=> 1,
+	);
+
+}
+
+sub add_elephant {
+	my ($s) = @_;
+	# ATTRIB elephant: original by hjw
+	my $elephant_top_right = q{
+          __     __
+         /  \~~~/  \
+   ,----(     ..    )
+  /      \__     __/
+ /|         (\  |(};
+
+	my $mask_top_right = q{
+
+
+              BB
+
+            W    W
+
+};
+
+	my $elephant_top_left = q{
+  __     __
+ /  \~~~/  \
+(    ..     )----,
+ \__     __/      \
+   )|  /)         |\\};
+
+	my $mask_top_left = q{
+
+
+     BB
+
+   W    W
+
+};
+
+	my @elephant_left = (
+q{
+    | /\  /___\   / ^
+     "-|__|   |__|
+},
+q{
+    | //  /___\   / ^
+     "/__/-' '-\__\
+},
+q{
+    | /\  /___\   / ^
+     "-|__|   |__|
+},
+q{
+    | /\  \___\   / ^
+     "-'\__\  /__/-'
+},
+	);
+
+	my @elephant_right = (
+q{
+^ \   /___\  /\ |
+   |__|   |__|-"
+},
+q{
+^ \   /___\  \\\ |
+  /__/-' '-\__\"
+},
+q{
+^ \   /___\  /\ |
+   |__|   |__|-"
+},
+q{
+^ \   /___/  /\ |
+ '-\__\  /__/'-"
+},
+	);
+
+
+	my @mask_right = (
+		"              K",
+		"      KK KK",
+		"              K",
+		" KK          KK",
+	);
+
+	my @mask_left = (
+		"      K",
+		"          KK KK",
+		"      K",
+		"      KK          KK",
+	);
+
+	for(0..$#elephant_right) { $elephant_right[$_] = $elephant_top_right . $elephant_right[$_]; }
+	for(0..$#elephant_left)  { $elephant_left[$_]  = $elephant_top_left  . $elephant_left[$_]; }
+
+	for(0..$#mask_right) { $mask_right[$_] = $mask_top_right . $mask_right[$_]; }
+	for(0..$#mask_left)  { $mask_left[$_]  = $mask_top_left  . $mask_left[$_]; }
+
+	# sometimes see pink elephants
+	my $color = (int(rand(10))) ? 'white' : 'RED';
+	my $speed = 1;
+
+	my ($elephant, $mask);
+	if(int(rand(2))) {
+		$elephant = \@elephant_right;
+		$mask = \@mask_right;
+		$b = -20;
+	} else {
+		$elephant = \@elephant_left;
+		$mask = \@mask_left;
+		$speed = -$speed;
+		$b = $s->width()-1;
+	}
+
+	$s->new_entity(
+		shape		=> $elephant,
+		position	=> [$b, on_horizon(7), $depth{'behind_trees'}],
+		callback_args	=> [ $speed, 0, 0, 1 ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		default_color	=> $color,
+		color		=> $mask,
+		auto_trans	=> 1,
+	);
+}
+
+sub add_snail {
+	# ATTRIB snail: original by hjw
+	my @snail = (
+q{
+    .----.???@???@
+   / .-"-.`.??\v/
+   | | '\ \ \_/ )
+ ,-\ `-.' /.'  /
+'---`----'----'
+},
+q{
+     .----.????@???@
+    / .-"-.`.???\v/
+    | | '\ \ \__/ )
+ ,--\ `-.' /.'   /
+'----`----'-----'
+},
+q{
+      .----.?????@???@
+     / .-"-.`.????\v/
+     | | '\ \ \___/ )
+ ,---\ `-.' /.'    /
+'-----`----'------'
+},
+q{
+      .----.
+     / .-"-.`.????@???@
+     | | '\ \ \____\v/
+ ,---\ `-.' /.'       )
+'-----`----'-------'`
+}
+  );
+
+	my @mask = (
+q{
+             w   w
+              www
+             yy y
+ yy            y
+yyyy      yyyyy
+},
+q{
+               w   w
+                www
+              yyy y
+ yyy             y
+yyyyy      yyyyyy
+},
+q{
+                 w   w
+                  www
+               yyyy y
+ yyyy              y
+yyyyyy      yyyyyyy
+},
+q{
+
+                  w   w
+               yyyywww
+ yyyy                 y
+yyyyyy      yyyyyyyyy
+}
+	);
+						# sssttttttttrreeeeeeeeeetttttcccccchhh!!!
+	my @crawl = ( [0,0,0,0], [0,0,0,1], [0,0,0,2], [0,0,0,3], [2,0,0,2], [2,0,0,1], [2,0,0,0] );
+
+	my ($y, $z) = forest_position( $s, 5 );
+
+	$s->new_entity(
+		shape		=> \@snail,
+		position	=> [-18, $y, $z],
+		callback_args	=> [0, [@crawl]],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		default_color	=> 'BLACK',
+		color		=> \@mask,
+		auto_trans	=> 1,
+	);
+}
+
+sub add_rocket {
+	# ATTRIB shuttle: original author unknown
+	my @rocket = (
+q{
+        ^
+      /   \
+     |     |
+   " |     | "
+  | ||     || |
+  | || ,^. || |
+  |_|| | | ||_|
+  | ||,|_|.|| |
+  |_|/ |_| \|_|
+  | /  |_|  \ |
+  |(___|||___)|
+  /_\??^^^??/_\
+
+
+},
+q{
+        ^
+      /   \
+     |     |
+   " |     | "
+  | ||     || |
+  | || ,^. || |
+  |_|| | | ||_|
+  | ||,|_|.|| |
+  |_|/ |_| \|_|
+  | /  |_|  \ |
+  |(___|||___)|
+  /_\??^^^??/_\
+  /|\???????/|\
+ /|||\?????/|||\
+},
+q{
+        ^
+      /   \
+     |     |
+   " |     | "
+  | ||     || |
+  | || ,^. || |
+  |_|| | | ||_|
+  | ||,|_|.|| |
+  |_|/ |_| \|_|
+  | /  |_|  \ |
+  |(___|||___)|
+  /_\??^^^??/_\
+ /|||\?????/|||\
+/|||||\???/|||||\
+}
+	);
+
+	my @mask = (
+q{
+        y
+      y   y
+     y     y
+   w y     y w
+  w wy     yw w
+  w wy KKK yw w
+  wwwy W W ywww
+  w wyWWWWWyw w
+  wwwW WWW Wwww
+  w W  WWW  W w
+  wWWWWWWWWWWWw
+  www  KKK  www
+
+
+},
+q{
+        y
+      y   y
+     y     y
+   w y     y w
+  w wy     yw w
+  w wy KKK yw w
+  wwwy W W ywww
+  w wyWWWWWyw w
+  wwwW WWW Wwww
+  w W  WWW  W w
+  wWWWWWWWWWWWw
+  www  KKK  www
+  RYR       RYR 
+ RRRRR     RRRRR
+},
+q{
+        y
+      y   y
+     y     y
+   w y     y w
+  w wy     yw w
+  w wy KKK yw w
+  wwwy W W ywww
+  w wyWWWWWyw w
+  wwwW WWW Wwww
+  w W  WWW  W w
+  wWWWWWWWWWWWw
+  www  KKK  www
+ RYYYR     RYYYR
+RRRYRRR   RRRYRRR
+}
+	);
+
+
+	my @launch;
+	push(@launch, [0,0,0,0]) for(1..10);
+	push(@launch, [0,0,0,1]) for(1..3);
+	push(@launch, [0,-.25,0,1]) for(1..10);
+	push(@launch, [0,-.5,0,2]) for(1..10);
+	push(@launch, [0,-1,0,2]) for(1..30);
+
+	$s->new_entity(
+		shape		=> \@rocket,
+		position	=> [20, on_horizon(12), $depth{'behind_trees'}],
+		callback_args	=> [0, [@launch]],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> \@mask,
+		auto_trans	=> 1,
+	);
+}
+
+sub add_car {
+	# ATTRIB cars and bus: originals by hjw
+	my @cars = (
+  [ q{
+  ______
+ /|_||_\`.__
+(   _    _ _\
+=`-(_)--(_)-'
+},
+q{
+     ______
+ __.'/_||_|\
+/_ _    _   )
+`-(_)--(_)-'=
+} ], [
+q{
+ _/\______\\\__
+/ ,-. -|-  ,-.`-.
+`( o )----( o )-'
+  `-'??????`-'
+},
+q{
+   __//______/\_
+.-'.-,  -|- .-, \
+`-( o )----( o )'
+   `-'??????`-'
+} ], [
+q{
+ __
+|  `-----------------------.
+|.---. .---. .---. .---. _ |\
+||___| |___| |___| |___||||L|
+|=======================|||=|
+[___/(O)|__________/(O)||L|_]
+},
+q{
+                          __
+ .-----------------------'  |
+/| _ .---. .---. .---. .---.|
+|j||||___| |___| |___| |___||
+|=|||=======================|
+[_|j||(O)\__________|(O)\___]
+} ]
+	);
+
+	my @mask = (
+  [ q{
+  rrrrrr
+ rwwwwwwrrrr
+r   K    K rr
+KrrKKKrrKKKrr
+},
+q{
+     rrrrrr
+ rrrrwwwwwwr
+rr K    K   r
+rrKKKrrKKKrrK
+} ], [
+q{
+ bbbbbbbbbwwbb
+b KKK bbb  KKKbbb
+bK w KbbbbK w Kbb
+  KKK      KKK
+},
+q{
+   bbwwbbbbbbbbb
+bbbKKK  bbb KKK b
+bbK w KbbbbK w Kb
+   KKK      KKK
+} ], [
+q{
+ cc 
+c  ccccccccccccccccccccccccc
+cwwwww wwwww wwwww wwwww w cc
+cwwwww wwwww wwwww wwwwwwwwcc
+crrrrrrrrrrrrrrrrrrrrrrrwwwrc
+wccccKwKccccccccccccKwKcwwwcw
+}, 
+q{
+                          cc
+ ccccccccccccccccccccccccc  c
+cc w wwwww wwwww wwwww wwwwwc
+ccwwwwwwww wwwww wwwww wwwwwc
+crwwwrrrrrrrrrrrrrrrrrrrrrrrc
+wcwwwcKwKccccccccccccKwKccccw
+} ]
+	);
+
+	#             height, width, speed
+	my @stats = ( [ 4, 13, 5], [4, 17, 4], [6, 29, 3] );
+	my $random_car = int(rand($#cars+1));
+	my $direction = int(rand(2));
+	my $car = $cars[$random_car][$direction];
+	my $speed = $stats[$random_car][2];
+
+	if($direction) {
+		$speed = -$speed;
+		$b = $s->width()-1;
+	} else {
+		$b = 1 - $stats[$random_car][1];
+	}
+
+	$s->new_entity(
+		shape		=> $car,
+		position	=> [$b, on_horizon($stats[$random_car][0]), $depth{'behind_trees'}],
+		callback_args	=> [$speed, 0, 0, 0],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> $mask[$random_car][$direction],
+		auto_trans	=> 1,
+	);
+}
+
+sub add_ducks {
+
+	# ATTRIB ducks: original by hjw
+	my $ducks =
+q{
+                             ,~~.
+                            (  9 )-_,
+                       (\___ )=='-'
+                        \ .   ) )
+    _???????_???????_????\ `-' /
+ __cccc??__bbbb??__aaaa???`~A-'
+\___)???\___)???\___)??????BBBBB
+};
+
+	my $mask =
+q{
+                             GGGG
+                            G  B Gyyy
+                       wwwww wWWGyy
+                        w w   K K
+    Y       Y       Y    w www K
+ YYYBYy  YYYBYy  YYYBYy   wwyKK
+YYYYY   YYYYY   YYYYY      yyyyy
+};
+
+	my @ducks;
+	my @mask;
+
+	# insert the appropriate duckling heads
+	foreach my $i ('a'..'d') {
+		for(1..4) {
+			push(@mask, $mask);
+			push(@ducks, $ducks);
+			# quack!
+			$ducks[-1] =~ s/$i{4}/(o)</gm;
+			$ducks[-1] =~ s/[abc]{4}/(.)>/gm;
+		}
+	}
+
+	# make the legs move on the big duck
+	foreach my $i (0..$#ducks) {
+		if($i % 2) {
+			$ducks[$i] =~ s/A/^/m;
+			$ducks[$i] =~ s#BBBBB#/=\\=:#m;
+		} else {
+			$ducks[$i] =~ s/A/j/m;
+			$ducks[$i] =~ s/BBBBB/ "=:/m;
+		}
+	}
+
+	my ($y, $z) = forest_position( $s, 7 );
+	
+	$s->new_entity(
+		shape		=> \@ducks,
+		position	=> [-36, $y, $z],
+		callback_args	=> [ 1, 0, 0, 1 ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> \@mask,
+		auto_trans	=> 1,
+	);
+}
+
+sub add_rabbit {
+	# ATTRIB rabbit: original front and back: hjw
+	my @rabbit = (
+q{
+    /|?|\
+   ( |-| )
+    ) " (
+   (>(Y)<)
+    )   (
+   /     \
+  ( (m|m) )
+,-.),___.(,-.
+`---'???`---'
+},
+q{
+    /\/|
+    \ \|
+     ) .\
+    (  >_o
+     ) (
+    / < \
+  *(   "/
+    . ,-.
+    `---'
+},
+q{
+    /|?|\
+   ( |-| )
+    )   (
+   (     )
+    )   (
+   /     \
+  (  (*)  )
+,-.) ___ (,-.
+`---'???`---'
+},
+q{
+    |\/\
+    |/ /
+   /. (
+  o_<  )
+    ) (
+   / > \
+   \"   )*
+   ,-. ,
+   `---'
+}
+	);
+
+	my @mask = (
+q{
+
+
+      c
+    wRRRw
+
+
+
+
+
+},
+q{
+
+
+       c
+       w R
+
+
+
+
+
+},
+q{
+
+
+
+
+
+
+
+
+
+},
+q{
+
+
+    c
+  R w
+
+
+
+
+
+}
+	);
+
+	my $h = $s->height() - 9;	# height on the screen
+	my $b = -10;			# start position
+	my $jump_height = $s->height() - 9;
+	my $jump_speed = int($jump_height/2);
+	my @path;
+
+	# points defining a small arc
+	my @hop = ( [0,0,0,1], [1,-1,0,1], [1,-1,0,1], [1,0,0,1], [1,1,0,1], [1,1,0,1] );
+
+	my $jump1 = $s->gen_path(0,0,0, 0,-$jump_height,0, [0,1,2,3], $jump_speed); # up...
+	my $jump2 = $s->gen_path(0,-$jump_height,0, 0,0,0, [0,1,2,3], $jump_speed); # ...and down
+
+	# how many hops to do between jumps
+	my $hop_dist = int(($s->width/5)/2) + 1;
+
+	for(0..$hop_dist) {
+		push(@path, @hop);
+	}
+
+	push(@path, @{$jump1});
+	push(@path, @{$jump2});
+
+	$s->new_entity(
+		shape		=> \@rabbit,
+		position	=> [$b,$h,$depth{'in_front_of_sign'}],
+		callback_args	=> [ 0, [@path] ],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		default_color	=> 'WHITE',
+		color		=> \@mask,
+		auto_trans	=> 1,
+	);
+}
+
+# add the turtle random entity to the animation
+sub add_turtle {
+	my ($s) = @_;
+
+	# ATTRIB turtle: kf
+	my @turtle = (
+q{
+
+
+
+
+
+
+      .----
+   .-'     '\
+  /          \???--.
+<'            |-' o '
+  '-.______.-' ----'
+  /_/???????\_\
+},
+q{
+
+
+
+
+
+
+      .----
+   .-'     '\
+  /          \???--.
+<'            |-' o '
+  '-.______.-' ----'
+    /_/???\_\
+},
+q{
+      _
+    0/ \0
+    /___\
+    \___/
+      H
+<^   /v\   ^>
+ \\\/  |  \//
+  | --|-- |
+  |   |   |
+  \ --|-- /
+   \__|__/
+    V   V
+},
+q{
+      _
+    0/ \0
+    /___\
+    \___/
+      H
+<^  /v\    ^>
+ \/  |  \ //
+ | --|-- |
+ |   |   |
+ \ --|-- /
+  \__|__/
+    V   V
+},
+q{
+      _
+    0/ \0
+    /___\
+    \_"_/
+      H
+<^    /v\  ^>
+ \\\ /  |  \/
+   | --|-- |
+   |   |   |
+   \ --|-- /
+    \__|__/
+    V   V
+}
+	);
+
+	my @turtle_mask = (
+q{
+
+
+
+
+
+
+      ggggg
+   ggg     gg
+  g          g   GGG
+gg            gGG W G
+  gggggggggggg GGGGG
+  GGG       GGG
+},
+q{
+
+
+
+
+
+
+      ggggg
+   ggg     gg
+  g          g   GGG
+gg            gGG W G
+  gggggggggggg GGGGG
+    GGG   GGG
+},
+q{
+      G
+    WG GW
+    GGGGG
+    GGGGG
+      G
+GG   ggg   GG
+ GGg  g  gGG
+  g ggggg g
+  g   g   g
+  g ggggg g
+   ggggggg
+    G   G
+},
+q{
+      G
+    WG GW
+    GGGGG
+    GGGGG
+      G
+GG  ggg    GG
+ Gg  g  g GG
+ g ggggg g
+ g   g   g
+ g ggggg g
+  ggggggg
+    G   G
+},
+q{
+      G
+    WG GW
+    GGGGG
+    GGRGG
+      G
+GG    ggg  GG
+ GG g  g  gG
+   g ggggg g
+   g   g   g
+   g ggggg g
+    ggggggg
+    G   G
+}
+	);
+
+
+	my $b = -20;			# where the turtle begins
+	my $e = $s->width() + 1;	# where the turtle ends
+	my $d = int($s->width()*.45);	# spot where the turtle gets funky
+	my ($y, $z) = forest_position( $s, 12 );
+
+	#                         begin     end       frames         duration
+	my $path1 = $s->gen_path( $b,$y,$z, $d,$y,$z, [1,0,0,1],     (2 * ($d - $b)) );
+	my $path2 = $s->gen_path( $d,$y,$z, $d,$y,$z, [2,2,3,3,2,2,4,4], 24 );
+	my $path3 = $s->gen_path( $d,$y,$z, $e,$y,$z, [1,0,0,1],     (2 * ($e - $d)) );	
+	
+	$s->new_entity(
+		shape		=> \@turtle, 
+		position	=> [ $b, $y, $z ],
+		callback_args	=> [0, [@{$path1}, @{$path2}, @{$path3}]],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> \@turtle_mask,
+		auto_trans	=> 1,
+	);
+}
+
+# add the bird random entity to the animation
+sub add_bird {
+	my ($s) = @_;
+	# ATTRIB bird: kf
+	my @bird = (
+q#
+---. .-. .---
+  --\'v'/--
+     \ /
+     " "
+#,
+q#
+ .-. .-. .-.
+/ '-\'v'/-' \
+     \ /
+     " "
+#,
+q#
+   . .-. .
+  /'\'v'/`\
+ / ''\ /`` \
+     " "
+#,
+q#
+     .-.
+    /'v'\
+   (/   \)
+     " "
+#);
+
+
+	my @bird_mask = (
+q#
+BBBB BBB BBBB
+  BBBWYWBBB
+     B B
+     Y Y
+#,
+q#
+ BBB BBB BBB
+B BBBWYWBBB B
+     B B
+     Y Y
+#,
+q#
+   B BBB B
+  BBBWYWBBB
+ B BBB BBB B
+     Y Y
+#,
+q#
+     BBB
+    BWYWB
+   BB   BB
+     Y Y
+#);
+
+
+	my $bird_type = int(rand(3));
+	if($bird_type == 0) {
+		@bird_mask = map { s/B/R/g; $_; } @bird_mask;
+	}
+	elsif($bird_type == 1) {
+		@bird_mask = map { s/Y/K/g; s/B/Y/g; $_; } @bird_mask;
+	}
+
+	my ($sign_x, $sign_y, $sign_z) = $s->entity('signpost')->position();
+
+	my $z1 = $depth{'behind_trees'};	# furthest distance from the camera
+	my $z2 = $sign_z - 1;		# closest distance from the camera
+	my $wb = -12;			# column to begin at
+	my $hb = 0;			# row to begin at
+	my $we = $s->width()+1;		# column to end at
+	my $he = 0;			# row to end at
+	my $wl = $sign_x + 2;		# column to land at
+	my $hl = $sign_y - 3;		# row to land at
+	my $wait = 20;			# how many frames to sit on the sign
+
+	#                         begin     end       frames         duration
+	my $path1 = $s->gen_path( $wb,$hb,$z1, $wl,$hl,$z2, [0,1,2,1], 'longest');
+	my $path2 = $s->gen_path( $wl,$hl,$z2, $wl,$hl,$z2, [3],       $wait);
+	my $path3 = $s->gen_path( $wl,$hl,$z2, $we,$he,$z1, [0,1,2,1], 'longest');
+
+	$s->new_entity(
+		shape		=> \@bird, 
+		position	=> [$wb, $hb, $z1],
+		callback_args	=> [0, [@{$path1}, @{$path2}, @{$path3}]],
+		die_offscreen	=> 1,
+		death_cb	=> \&random_entity,
+		color		=> \@bird_mask,
+		auto_trans	=> 1,
+	);
+}
+
+sub init_random_entities {
+	my $always = 10000000;
+	return ( {
+		snail		=> [ \&add_snail,	100 ],
+		rocket		=> [ \&add_rocket, 	100 ],
+		plane		=> [ \&add_plane, 	100 ],
+		bird		=> [ \&add_bird, 	100 ],
+		turtle		=> [ \&add_turtle, 	100 ],
+		pacman		=> [ \&add_pacman, 	100 ],
+		chicken		=> [ \&add_chicken, 	100 ],
+		rabbit		=> [ \&add_rabbit, 	100 ],
+		ducks		=> [ \&add_ducks, 	100 ],
+		elephant	=> [ \&add_elephant, 	100 ],
+		car		=> [ \&add_car, 	100 ],
+		satellite	=> [ \&add_satellite, 	100 ],
+		knight		=> [ \&add_knight, 	100 ],
+		dog		=> [ \&add_dog, 	100 ],
+		segway		=> [ \&add_segway, 	100 ],
+		scooter		=> [ \&add_scooter, 	100 ],
+		copter		=> [ \&add_copter, 	100 ],
+		mario		=> [ \&add_mario, 	100 ],
+		santa		=> [ \&add_santa, 	\&santa_schedule ],
+		ghost		=> [ \&add_ghost,	\&ghost_schedule ],
+		turkey          => [ \&add_turkey,      \&turkey_schedule ],
+	});
+}
+
+# add one of the random entities to the screen
+sub random_entity {
+	my ($dead_entity, $anim) = @_;
+
+	my %prob;
+
+	my $entity_count = 0;
+	foreach my $key ( keys %{$random_entities} ) { $entity_count++; }
+
+	foreach my $sub ( keys %{$random_entities} ) {
+		my $weight = $random_entities->{$sub}[1];
+		if(ref($weight)) {
+			$prob{$sub} = $weight->($entity_count);
+		} else {
+			$prob{$sub} = $weight;
+		}
+	}
+
+	my $entity_type = weight_rand( \%prob );
+	my $sub = $random_entities->{$entity_type}[0];
+	$sub->($anim);
+}
+
+sub weight_rand {
+	my ($weight) = @_;
+	my $total = 0;
+	foreach my $key (keys %$weight) {
+		if(defined($weight->{$key}) && $weight->{$key} >= 0) {
+			$total += $weight->{$key};
+		} else {
+			# ignore undefined weights
+			delete($weight->{$key});
+		}
+	}
+	return undef unless($total);
+
+	my $fate = rand($total);
+	foreach my $key (keys %$weight) {
+		if($fate < $weight->{$key}) {
+			return $key;
+		}
+		$fate -= $weight->{$key};
+	}
+	return undef;
+}
+
+sub sighandler {
+	my ($sig) = @_;
+	if($sig eq 'INT') { quit(); }
+	elsif($sig eq 'WINCH') {
+		$current->{'sigwinch_received'} = time;
+	}
+	else { quit("Exiting with SIG$sig"); }
+}
+
+sub quit {
+	my ($mesg) = @_;
+	$s->end() if(defined($s));
+	print STDERR $mesg, "\n" if(defined($mesg));
+	exit;
+}
+
+# our default config settings
+sub default_config {
+	my $conf = {};
+	$conf->{'location'}       = undef;
+	$conf->{'retr_interval'}  = 600;
+	$conf->{'tree_lifespan'}  = 3600;
+	$conf->{'frame_delay'}    = .2;
+	$conf->{'temp_display'}   = undef;
+	$conf->{'wind_display'}   = undef;
+	$conf->{'version'}        = $version;
+	$conf->{'color'}          = 1;
+	$conf->{'debug'}          = 0;
+	$conf->{'entities'}       = 2;
+	
+		return $conf;
+}
+
+sub read_config {
+	my ($config_file, $suppress_errors) = @_;
+
+	my $conf = default_config();
+
+	unless(-f "$config_file") {
+		if($suppress_errors) {
+			return $conf;
+		} else {
+			print "You don't seem to have a config file. Run weatherspect -c\n";
+			print "to create one, or supply one on the command line with\n";
+			print "the -f flag. Run weatherspect -h for help.\n";
+			exit;
+		}
+	}
+
+	open(F, "<", "$config_file");
+	while(<F>) {
+		s/\s*#.*$//;
+		next unless $_;
+		if(/^\s*(\w+)\s*:\s*(.*)$/) {
+			my $field = $1;
+			my $val = $2;
+			if($field eq 'location') {
+				$conf->{'location'} = $val;
+			} elsif($field eq 'retr_interval') {
+				if($val =~ /^\d+$/ and $val >= 60) {
+					$conf->{'retr_interval'} = $val;
+				} else { print STDERR "Invalid config entry: $field: $val\n"; }
+			} elsif($field eq 'tree_lifespan') {
+				if($val =~ /^\d+$/ and $val >= 100) {
+					$conf->{'tree_lifespan'} = $val;
+				} else { print STDERR "Invalid config entry: $field: $val\n"; }
+			} elsif($field eq 'timezone') {
+				# this field is pretty worthless, so i've removed it to cut down on 
+				# clutter in the config file
+			} elsif($field eq 'frame_delay') {
+				if($val =~ /^\d*\.?\d+$/) {
+					$conf->{'frame_delay'} = $val;
+				} else { print STDERR "Invalid config entry: $field: $val\n"; }
+			} elsif($field eq 'debug') {
+				if($val =~ /^\d$/) {
+					$conf->{'debug'} = $val;
+				} else { print STDERR "Invalid config entry: $field: $val\n"; }
+			} elsif($field eq 'color') {
+				if($val =~ /^\d$/) {
+					$conf->{'color'} = $val;
+				} else { print STDERR "Invalid config entry: $field: $val\n"; }
+			} elsif($field eq 'temp_display') {
+				if($val =~ /^(metric|standard|both)$/i) {
+					$conf->{'temp_display'} = lc($val);
+				} else { print STDERR "Invalid config entry: $field: $val\n"; }
+			} elsif($field eq 'wind_display') {
+				if($val =~ /^(metric|standard|both)$/i) {
+					$conf->{'wind_display'} = lc($val);
+				} else { print STDERR "Invalid config entry: $field: $val\n"; }
+			} elsif($field eq 'entities') {
+				if($val =~ /^\d+$/) {
+					$conf->{'entities'} = $val;
+				} else { print STDERR "Invalid config entry: $field: $val\n"; }
+			} elsif($field eq 'version') {
+				if(!$suppress_errors && $val < $version) {
+					print "Please run: weatherspect -c\n";
+					print "to update your config file to the most recent version\n";
+					exit;
+				}
+			} else { print STDERR "Invalid config entry: $_\n"; }
+		}
+	}
+	close(F);
+
+	return $conf;
+}
+
+sub write_config {
+	my ($config_file, $conf) = @_;
+	open(F, ">", $config_file) or print STDERR "Unable to write config to $config_file! $!" and return;
+	foreach my $field (sort keys %{$conf}) {
+		print F "# ", config_comments($field), "\n";
+		if(defined($conf->{$field})) {
+			print F "$field: $conf->{$field}\n\n";
+		} else {
+			print F "# $field: \n\n";
+		}
+	}
+	close(F);
+}
+
+sub prompt_for_config {
+	my ($config_file) = @_;
+
+	my $conf = read_config($config_file, 1);
+	my $choice;
+
+	unless(defined($conf->{'location'})) {
+		$conf->{'location'} = query("Accepted formats for location:\n\tZipcode\n\tCity\n\tCity, State\n\tState\n\tCity, Country\n\tCountry\nYour Location:");
+	}
+
+	unless(defined($conf->{'temp_display'})) {
+		my $temp = query("Temperature ( (C)elsius, (F)ahrenheit, (B)oth )", 'B', '^[cCfFbB]');
+		$temp = substr($temp, 0, 1);
+		$temp = lc($temp);
+		if($temp eq 'c') { $conf->{'temp_display'} = 'metric'; }
+		elsif($temp eq 'f') { $conf->{'temp_display'} = 'standard'; }
+		elsif($temp eq 'b') { $conf->{'temp_display'} = 'both'; }
+	}
+
+	unless(defined($conf->{'wind_display'})) {
+		my $wind = query("Wind Speed ( (K)PH, (M)PH, (B)oth )", 'B', '^[kKmMbB]');
+                $wind = substr($wind, 0, 1);
+		$wind = lc($wind);
+		if($wind eq 'k') { $conf->{'wind_display'} = 'metric'; }
+		elsif($wind eq 'm') { $conf->{'wind_display'} = 'standard'; }
+		elsif($wind eq 'b') { $conf->{'wind_display'} = 'both'; }
+	}
+
+	print "Creating config file in $config_file...\n";
+	write_config($config_file, $conf);
+}
+
+sub initialize {
+
+	# this may be paranoid, but i don't want to leave
+	# the user's terminal in a state that they might not
+	# know how to fix if we die badly
+	foreach my $sig (keys %SIG) {
+		$SIG{$sig} = 'sighandler' unless(defined($SIG{$sig}));
+	}
+
+	my $config_file = "$ENV{'HOME'}/.weatherspect";
+	my $prompt_for_config = 0;
+
+	while(my $arg = shift @ARGV) {
+		if($arg eq '-c') { $prompt_for_config = 1; }
+		elsif($arg eq '-f') { $config_file = shift @ARGV; }
+		elsif($arg eq '-h') { help(); exit; }
+		else { print "Unknown argument: $arg\n"; help(); exit; }
+	}
+
+	if($prompt_for_config) { prompt_for_config($config_file); exit; }
+
+	my $conf = read_config($config_file);
+
+	my $weather = Weather::Underground::Weatherspect->new(place => $conf->{'location'});
+
+	# if the location in the config file returns multiple results,
+	# make the user pick which one they want
+	unless($conf->{'debug'}) {
+		my $new_weather = $weather->get_weather();
+		if($#{$new_weather} > 0) {
+			print "The location in your config file ($conf->{'location'}) returned multiple\n";
+			print "results. To avoid this screen in the future, please change the\n";
+			print "location in your config file to one of the more specific entries\n";
+			print "listed below.\n\n";
+			$conf->{'location'} = choose_location($new_weather);
+			$weather = Weather::Underground::Weatherspect->new(place => $conf->{'location'});
+		}
+	}
+
+	return($conf, $weather);
+}
+
+sub config_comments {
+	my ($field) = @_;
+	my %comments;
+
+	$comments{'version'}        = "the version of weatherspect this config was generated with";  
+	$comments{'retr_interval'}  = "how often (in seconds) to attempt to retrieve weather data";
+	$comments{'tree_lifespan'}  = "how long (in seconds) trees should live";
+	$comments{'temp_display'}   = "how to display temperatures ( metric, standard or both )";
+	$comments{'wind_display'}   = "how to display wind speeds ( metric, standard or both )";
+	$comments{'location'}       = "City / City, State / City, Country / Country";
+	$comments{'frame_delay'}    = "how long (in seconds) to sleep between frames";
+	$comments{'debug'}          = "run in debug mode (0 = no, 1 = yes)";
+	$comments{'color'}          = "use ansi color (0 = no, 1 = yes)";
+	$comments{'entities'}       = "how many random things to animate at once";
+
+	if(exists($comments{$field})) { return $comments{$field}; }
+	else { return ''; }
+}
+
+# ask the user a question, with a default value and
+# some simple input checking
+sub query {
+	my ($query, $default, @patterns) = @_;
+
+	while(1) {
+		if($default) {
+			print "$query [$default] ";
+		} else {
+			print "$query ";
+		}
+
+		chomp(my $tmp = <STDIN>);
+		if($tmp) {
+			if(@patterns) {
+				foreach my $pattern (@patterns) {
+					if($tmp =~ /$pattern/) { return $tmp; }
+				}
+			}
+			else { return $tmp; }
+		}
+		elsif($default) { return $default; }
+	}
+}
+
+sub help {
+	print <<END;
+Usage: weatherspect [-f <config_file>]
+       weatherspect -c [-f <config file>]
+       weatherspect -h
+
+       -h          Print this help message
+       -f <file>   Supply a config file to use instead of the default
+       -c          Generate a config file
+END
+}
+
+# if we get multiple locations returned the first time we grab the weather,
+# ask which one we should view
+sub choose_location {
+	my ($new_weather) = @_;
+	print "Please select your location:\n";
+	for(0..$#{$new_weather}) {
+		print "\t", $_+1, ": $new_weather->[$_]{'place'}\n";
+	}
+	return $new_weather->[query("Location:", 1, '\d+') - 1]{'place'};
+}
+
+# center (and possibly truncate) a piece of text
+sub center {
+	my ($width, $mesg) = @_;
+	my $l = length($mesg);
+	if($l < $width) {
+		return ' 'x(int(($width - length($mesg))/2)) . $mesg;
+	} elsif($l > $width) {
+		return(substr($mesg, 0, ($width - ($l + 3))) . "...");
+	} else {
+		return $mesg;
+	}
+}
+
+sub on_horizon {
+	my ($entity_height) = @_;
+	my $h = $conf->{'horizon_row'} + 3 - $entity_height;
+	return ($h > 0) ? $h : 0;
+}
+
+# figure out where the horizon line should go on the screen
+sub set_horizon {
+	my ($s) = @_;
+	my $min_horizon = 8;
+	my $horizon = int(.25 * $s->height());
+	$conf->{'horizon_row'} = ($horizon > $min_horizon) ? $horizon : $min_horizon;
+}
+
+
+# return weather data used for debugging, instead of grabbing
+# real weather data
+sub debug_weather {
+	my @clouds = ('SKC', 'CLR', 'FEW', 'SCT', 'OVC');
+	my @conditions = ( 'Snow', 'Rain', 'Thunder' );
+	my @w = ({
+                'visibility_miles'	=> '10.0',
+                'wind_direction'	=> 'SSW',
+                'celsius'		=> '2',
+                'pressure'		=> '29.66 in 1004 hPa',
+                'dewpoint_celsius'	=> '-4',
+                'temperature_celsius'	=> '2',
+                'wind_milesperhour'	=> int(rand(20)) + 5,
+                'place'			=> 'Nome, Alaska',
+                #'moonrise'		=> '7:02 PM AKDT',
+                #'moonset'		=> '8:42 AM AKDT',
+                #'sunrise'		=> '9:08 AM AKDT',
+                #'sunset'		=> '8:31 PM AKDT',
+                'updated'		=> '11:53 AM AKDT on September 30, 2005',
+                'dewpoint_fahrenheit'	=> '25',
+                'temperature_fahrenheit'=> '36',
+                'humidity'		=> '65',
+                'visibility_kilometers'	=> '16.1',
+                'wind_kilometersperhour'=> '18',
+                'moonphase'		=> 'Waning Crescent',
+                'fahrenheit'		=> '36',
+                'clouds'		=> 'Clear (' . $clouds[int(rand($#clouds))] . ') : -',
+                'conditions'		=> $conditions[int(rand($#conditions))],
+	});
+
+	if(int(rand(2))) {
+		$w[0]{'wind_direction'} =~ s/W/E/;
+	}
+
+	if(int(rand(2))) {
+		$w[0]{'conditions'} = "heavy " . $w[0]{'conditions'};
+	}
+	return \@w;
+}
+
+# write to the debug log
+sub dlog {
+	my ($mesg) = @_;
+	
+	open(D, ">>", "debug");
+	print D "$mesg\n";
+	close(D);
+
+	push(@{$current->{'debug_log'}}, $mesg);
+	if(@{$current->{'debug_log'}} > 10) {
+		shift @{$current->{'debug_log'}};
+	}
+}
+
+################################################################################
+################################################################################
+# below is a copy of Weather::Underground with a few small modifications.
+# the format that Weather::Underground uses for reporting temperatures changed,
+# and I've been unable to contact the author of Weather::Underground. All of my
+# changes are prefixed with # kbaucom
+BEGIN {
+package Weather::Underground::Weatherspect;
+
+#
+# $Header: /cvsroot/weather::underground/Weather/Underground/Underground.pm,v 1.38 2005/09/25 19:22:02 mina Exp $
+#
+
+use strict;
+use vars qw($VERSION $CGI $CGIVAR $MYNAME $DEBUG %MODULES);
+use LWP::Simple qw($ua get);
+use HTML::TokeParser;
+use Fcntl qw(:flock);
+
+$VERSION = '3.02';
+
+#
+# GLOBAL Variables Assignments
+#
+
+$CGI    = 'http://mobile.wunderground.com/cgi-bin/findweather/getForecast';
+$CGIVAR = 'query';
+$MYNAME = "Weather::Underground";
+$DEBUG  = 0;
+
+%MODULES = (
+	"Data::Dumper" => 0,
+	"Storable"     => 0,
+	"FreezeThaw"   => 0,
+);
+
+foreach (keys %MODULES) {
+	eval { eval("require $_;") || die "$_ not found"; };
+	$MODULES{$_} = $@ ? 0 : 1;
+}
+
+=head1 NAME
+
+Weather::Underground - Perl extension for retrieving weather information from wunderground.com
+
+=head1 SYNOPSIS
+
+	use Weather::Underground;
+
+	$weather = Weather::Underground->new(
+		place => "Montreal, Canada",
+		debug => 0,
+		)
+		|| die "Error, could not create new weather object: $@\n";
+
+	$arrayref = $weather->get_weather()
+		|| die "Error, calling get_weather() failed: $@\n";
+
+	foreach (@$arrayref) {
+		print "MATCH:\n";
+		while (($key, $value) = each %{$_}) {
+			print "\t$key = $value\n";
+		}
+	}
+
+=head1 DESCRIPTION
+
+Weather::Underground is a perl module which provides a simple OO interface to retrieving weather data for a geographic location.  It does so by querying wunderground.com and parsing the returned results.
+
+=head1 CONSTRUCTOR
+
+=over 4
+
+=item new(hash or hashref);
+
+Creates and returns a new Weather::Underground object.
+
+Takes either a hash (as the SYNOPSIS shows) or a hashref
+
+Required keys in the hash:
+
+=over 4
+
+=item place
+
+This key should be assigned the value of the geographical place you would like to retrieve the weather information for.  The format of specifying the place really depends on wunderground.com more than it depends on this perl module, however at the time of this writing they accept 'City', 'City, State', 'State', 'State, Country' and 'Country'.
+
+=back
+
+Optional keys in the hash:
+
+=over 4
+
+=item cache_file
+
+This key should be assigned a file name to use as a cache.  The module will store and use data from that file instead of querying wunderground.com if cache_max_age has not been exceeded.
+
+This key is ignored if the cache_max_age key is not supplied.
+
+=item cache_max_age
+
+This key should be assigned a numeric value which is the number of seconds after which any data in the cache_file will be considered too old and a new request will be made to wunderground.com
+
+This key is ignored if the cache_file key is not supplied.
+
+=item debug
+
+This key should be set to a true or false false. A false value means no debugging information will be printed, a true value means debug information will be printed.
+
+=item timeout
+
+If the default timeout for the LWP::UserAgent request (180 seconds at the time of this writing) is not enough for you, you can change the timeout by providing this key.  It should contain the timeout for the HTTP request seconds in seconds.
+
+=back
+
+=back
+
+=head1 METHODS
+
+=over 4
+
+=item get_weather()
+
+This method is used to initiate the connection to wunderground.com, query their system, and parse the results or retrieve the results from the cache_file constructor key if appropriate.
+
+If no results are found, returns undef.
+
+If results are found, returns an array reference.  Each element in the array is a hash reference. Each hash contains information about a place that matched the query;
+
+Each hash contains the following keys:
+
+=over 4
+
+=item place
+
+(the exact place that was matched)
+
+=item temperature_celsius
+
+(the temperature in celsius)
+
+=item temperature_fahrenheit
+
+(the temperature in fahrenheit)
+
+=item humidity
+
+(humidity percentage)
+
+=item conditions
+
+(current sky, example: 'Partly cloudy')
+
+=item wind_direction
+
+(wind direction, example: "North")
+
+=item wind_milesperhour
+
+(wind speed in miles per hour)
+
+=item wind_kilometersperhour
+
+(wind speed in kilometers per hour)
+
+=item pressure
+
+(the barometric pressure)
+
+=item updated
+
+(when the content was last updated on the server)
+
+=item clouds
+
+(description of clouds)
+
+=item dewpoint_celsius
+
+(the dew point in celsius)
+
+=item dewpoint_fahrenheit
+
+(the dew point in fahrenheit)
+
+=item moonphase
+
+(phase of the moon, example: "Full Moon")
+
+=item moonrise
+
+(time of moon rise, including timezone)
+
+=item moonset
+
+(time of moon setting, including timezone)
+
+=item sunrise
+
+(time of sun rising, including timezone)
+
+=item sunset
+
+(time of sun setting, including timezone)
+
+=item visibility_miles
+
+(visibility in miles)
+
+=item visibility_kilometers
+
+(visibility in kilometers)
+
+=back
+
+=back
+
+=head1 NOTICE
+
+=over 4
+
+=item 1
+
+Your query may result in more than 1 match. Each match is a hash reference added as a new value in the array which get_weather() returns the reference to.
+
+=item 2
+
+Due to the differences between single and multiple-location matches, some of the keys listed above may not be available in multi-location matches.
+
+=back
+
+=head1 EXAMPLES
+
+=over 4
+
+=item Example 1: Print all matching information
+
+	See SYNOPSIS
+
+=item Example 2: Print the Celsius temperature of the first matching place
+
+	use Weather::Underground;
+
+	$weather = Weather::Underground->new(
+		place   =>      "Montreal",
+		debug           =>      0
+		)
+		|| die "Error, could not create new weather object: $@\n";
+
+	$arrayref = $weather->get_weather()
+		|| die "Error, calling get_weather() failed: $@\n";
+
+	print "The celsius temperature at $arrayref->[0]->{place} is $arrayref->[0]->{temperature_celsius}\n";
+
+=back
+
+=head1 ERRORS
+
+All methods return something that evaluates to true when successful, or undef when not successful.
+
+If the constructor or a method returns undef, the variable $@ will contain a text string containing the error that occurred.
+
+=head1 AUTHOR
+
+Mina Naguib
+http://mina.naguib.ca
+mnaguib@cpan.org
+
+=head1 COPYRIGHT
+
+Copyright (C) 2002-2005 Mina Naguib.  All rights reserved.  Use is subject to the Perl license.
+
+=cut
+
+#
+# Public methods:
+#
+
+sub new {
+	my $class = shift;
+	my $self;
+	my %parameters;
+	my $module;
+	my $raw;
+	my $cache;
+	local (*FH);
+
+	if (ref($_[0]) eq "HASH") {
+		%parameters = %{ $_[0] };
+	}
+	else {
+		%parameters = @_;
+	}
+
+	$DEBUG = $parameters{debug};
+	_debug("Creating a new $MYNAME object");
+	if (!$parameters{place}) {
+		_debug("ERROR: Location not specified");
+		return undef;
+	}
+	$self = {
+		"place"   => $parameters{place},
+		"timeout" => $parameters{timeout},
+		"_url"    => $CGI . '?' . $CGIVAR . '=' . $parameters{place}
+	};
+	if ($parameters{cache_max_age} && $parameters{cache_file}) {
+
+		#
+		# We've been requested to use caching - let's do sanity, then populate $module and $cache
+		#
+		if (!grep { $_ } values %MODULES) {
+			_debug("Error: Can not use cache_file when none of the needed serialization modules (" . join(" or ", keys %MODULES) . ") are installed");
+			return undef;
+		}
+		if ($parameters{cache_max_age} !~ /^[0-9.]+$/) {
+			_debug("Error: Supplied cache_max_age key must be a number");
+			return undef;
+		}
+		if (-f $parameters{cache_file}) {
+
+			#
+			# The cache file already exists
+			#
+			if (!open(FH, $parameters{cache_file})) {
+				_debug("Error: Failed to open $parameters{cache_file} for reading: $!");
+				return undef;
+			}
+			if (!flock(FH, LOCK_EX)) {
+				close(FH);
+				_debug("Error: Failed to obtain an exclusive lock on $parameters{cache_file}: $!");
+				return undef;
+			}
+			if (!seek(FH, 0, 0)) {
+				flock(FH, LOCK_UN);
+				close(FH);
+				_debug("Error: Failed to seek to the beginning of $parameters{cache_file}: $!");
+				return undef;
+			}
+			$module = <FH>;
+			chomp $module;
+			if (!exists $MODULES{$module}) {
+				flock(FH, LOCK_UN);
+				close(FH);
+				_debug("cache_file $parameters{cache_file} does not appear to be a valid Weather::Underground cache file");
+				return undef;
+			}
+			elsif (!$MODULES{$module}) {
+				flock(FH, LOCK_UN);
+				close(FH);
+				_debug("cache_file $parameters{cache_file} with serialization module $module which is not installed on this machine.  Please install it or delete the cache file to start with a fresh one");
+				return undef;
+			}
+
+			$cache = "";
+			$raw   = "";
+			while (<FH>) {
+				$raw .= $_;
+			}
+			flock(FH, LOCK_UN);
+			close(FH);
+
+			#
+			# Now deserialize $cache
+			#
+			if ($module eq "Data::Dumper") {
+				my $VAR1;
+				$cache = eval($raw);
+			}
+			elsif ($module eq "Storable") {
+				$cache = Storable::thaw($raw);
+			}
+			elsif ($module eq "FreezeThaw") {
+				$cache = FreezeThaw::thaw($raw);
+			}
+
+			if (ref($cache) ne "HASH") {
+				_debug("Failed to deserialize cache with module $module - [$!] [$@] got non-hashref [$cache] from raw [$raw]");
+				return undef;
+			}
+		}
+		else {
+
+			#
+			# The cache file does not exist - create new one
+			#
+			if (!open(FH, ">$parameters{cache_file}")) {
+				_debug("Error: Failed to open $parameters{cache_file} for writing: $!");
+				return undef;
+			}
+			close(FH);
+			$module = (sort grep { $MODULES{$_} } keys %MODULES)[0];
+			$cache = {};
+		}
+
+		#
+		# If we've reached here, cache_file and cache_max_age are good
+		#
+		$self->{cache_file}    = $parameters{cache_file};
+		$self->{cache_max_age} = $parameters{cache_max_age};
+		$self->{_cache_module} = $module;
+		$self->{_cache_cache}  = $cache;
+	}
+	elsif ($parameters{cache_max_age} || $parameters{cache_file}) {
+		_debug("cache_max_age or cache_file was supplied without the other - ignoring it");
+	}
+
+	bless($self, $class);
+	return $self;
+}
+
+sub get_weather {
+	my ($self) = @_;
+	my $document;
+	my $parser;
+	my $token;
+	my %state;
+	my $text;
+	my $arrayref = [];
+	my $oldagent;
+	local (*FH);
+
+	_debug("Getting weather info for " . $self->{place});
+
+	if ($self->{_cache_cache}) {
+
+		#
+		# We have a cache
+		#
+		_debug("Checking cache");
+		if (exists $self->{_cache_cache}->{ $self->{place} }) {
+			if ((time - $self->{_cache_cache}->{ $self->{place} }->{"time"}) <= $self->{cache_max_age}) {
+				_debug("Found in cache within cache_max_age");
+				return $self->{_cache_cache}->{ $self->{place} }->{"arrayref"};
+			}
+			else {
+				_debug("Found in cache but too old");
+			}
+		}
+	}
+
+	_debug("Retrieving url " . $self->{_url});
+
+	if ($self->{timeout}) {
+		_debug("Setting timeout for LWP::Simple's LWP::UserAgent object to $self->{timeout}");
+		$ua->timeout($self->{timeout});
+	}
+	$oldagent = $ua->agent();
+	$ua->agent("Weather::Underground version $VERSION");
+	$document = get($self->{_url});
+	$ua->agent($oldagent);
+
+	if (!$document) {
+		_debug("Could not retrieve HTML document " . $self->{_url});
+		return undef;
+	}
+	else {
+		_debug("I retrieved the following data:\n\n\n\n\n$document\n\n\n\n\n");
+	}
+
+	#
+	# Some minor cleanup to preserve our sanity and regexes:
+	#
+	$document =~ s/<\/?[bi]>//gi;
+	$document =~ s/<br>/\n/gi;
+	_debug("After cleanup, document data:\n\n\n\n\n$document\n\n\n\n\n");
+
+	_debug("Beginning parsing");
+	unless ($parser = HTML::TokeParser->new(\$document)) {
+		_debug("Failed to create parser object");
+		return undef;
+	}
+
+	if ($document =~ /observed at/i) {
+
+		#
+		# Single-location match
+		#
+
+		_debug("Single-location result detected");
+
+		while ($token = $parser->get_token) {
+			if ($token->[0] eq "T" && !$token->[2]) {
+
+				#
+				# The beginning of a text token - retrieve the whole thing and clean it up
+				#
+				$text = $token->[1] . $parser->get_text();
+				$text =~ s/&#([0-9]{1,3});/chr($1)/ge;
+				$text =~ s/&nbsp;/ /gi;
+				$text =~ s/\s+/ /g;
+				$text =~ s/^\s+//;
+				$text =~ s/\s+$//;
+				next if $text !~ /[a-z0-9]/i;
+				next if $text eq "IMG";
+
+				if ($state{"inheader"}) {
+
+					#
+					# Text in the header
+					#
+					_debug("Matched text in header [$text]");
+
+					if ($text =~ /updated\s*:?\s*(.+?)\s*$/i) {
+						_debug("Matched key UPDATED [$1]");
+						$state{"content_UPDATED"} = $1;
+					}
+					if ($text =~ /observed\s+at\s+:?\s*(.+)/i) {
+						_debug("Matched key PLACE [$1]");
+						$state{"content_PLACE"} = $1;
+					}
+
+				}
+				elsif ($state{"incontent"}) {
+
+					#
+					# This is either a header or a content, depending on the column number
+					#
+					if ($state{"contentnumber"} == 1) {
+
+						#
+						# It's a header - remember to associate the upcoming content under it
+						#
+						_debug("Read header text [$text]");
+						my $h = $text;
+						$h =~ s/\s/_/g;
+						$state{"lastcontentheader"} = uc($h);
+					}
+					else {
+
+						#
+						# It's a content - associate it with the previous header
+						#
+						_debug("Read content text [$text]");
+						if (exists $state{"content_$state{lastcontentheader}"}) {
+							$state{"content_$state{lastcontentheader}"} .= " ";
+						}
+						$state{"content_$state{lastcontentheader}"} .= $text;
+					}
+				}
+			}
+			elsif ($state{"interesting"} && $token->[0] eq "S" && uc($token->[1]) eq "TR") {
+
+				#
+				# Some interesting row starting
+				#
+				_debug("Interesting row started");
+
+				if (!$state{"inheader"} && !$state{"incontent"}) {
+
+					#
+					# First interesting row is header
+					#
+					$state{"inheader"} = 1;
+					_debug("Entered header");
+				}
+				elsif ($state{"inheader"}) {
+
+					#
+					# New row means we are no longer in header
+					#
+					$state{"inheader"}  = 0;
+					$state{"incontent"} = 1;
+					_debug("Entered first row of content");
+				}
+				else {
+
+					#
+					# A new header+content coming up
+					#
+					_debug("New content row starting");
+					$state{"contentnumber"} = 0;
+				}
+			}
+			elsif ($token->[0] eq "S" && uc($token->[1]) eq "TD" && $state{"incontent"}) {
+
+				#
+				# A new header or content cell is starting
+				#
+				_debug("New header or content cell starting");
+				$state{"contentnumber"}++;
+			}
+			# kbaucom - added checks for defined $token->[2]->{border}
+			elsif (!$state{"interesting"} && $token->[0] eq "S" && uc($token->[1]) eq "TABLE" && defined($token->[2]) && defined($token->[2]->{border}) && $token->[2]->{border} == 1) {
+
+				_debug("Entered the interesting table");
+				$state{"interesting"} = 1;
+				$state{"inheader"}    = 0;
+				$state{"incontent"}   = 0;
+			}
+			elsif ($token->[0] eq "E" && uc($token->[1]) eq "TABLE" && $state{"interesting"}) {
+
+				#
+				# Main table closed - Done parsing - save the data
+				#
+				_debug("Main table closed - end of interesting data");
+				_state2result(\%state, $arrayref);
+
+				#
+				# No need to keep going - it's only 1 location
+				#
+				last;
+			}
+		}
+	}
+	else {
+
+		#
+		# Multi-location match
+		#
+		_debug("Multi-location result detected");
+
+		while ($token = $parser->get_token) {
+
+			if ($token->[0] eq "T" && !$token->[2] && $state{"interesting"}) {
+
+				#
+				# The beginning of a text token - retrieve the whole thing and clean it up
+				#
+				$text = $token->[1] . $parser->get_text();
+				$text =~ s/&#([0-9]{1,3});/chr($1)/ge;
+				$text =~ s/&nbsp;/ /gi;
+				next if $text !~ /[a-z0-9]/i;
+				$text =~ s/^\s+//g;
+				$text =~ s/\s+$//g;
+				$text =~ s/\s+/ /g;
+
+				if ($state{"incontent"}) {
+
+					#
+					# This is content we're interested in - store it under the header title of the same column number
+					#
+					_debug("Content text read [$text]");
+					if (exists $state{"content"}) {
+						$state{"content"} .= ":";
+					}
+					$state{"content"} .= $text;
+				}
+
+			}
+			elsif (!$state{"interesting"} && $token->[0] eq "S" && uc($token->[1]) eq "TABLE") {
+				$state{"tablenumber"}++;
+				if ($state{"tablenumber"} == 2) {
+
+					#
+					# Second table is where the data is
+					#
+					_debug("Entered interesting table");
+					$state{"interesting"} = 1;
+				}
+			}
+			elsif ($state{"interesting"} && $token->[0] eq "S" && uc($token->[1]) eq "TR") {
+
+				_debug("Interesting row started");
+
+				if (!$state{"inheader"} && !$state{"incontent"}) {
+					_debug("Entered header");
+					$state{"inheader"} = 1;
+				}
+				elsif ($state{"inheader"}) {
+					_debug("Entered content");
+					$state{"inheader"}  = 0;
+					$state{"incontent"} = 1;
+				}
+			}
+			elsif ($state{"incontent"} && $token->[0] eq "E" && uc($token->[1]) eq "TR") {
+
+				#
+				# End of a content row
+				#
+				_debug("End of a content row.  Parsing [$state{content}].");
+				($state{"content_PLACE"})       = $state{"content"} =~ /^(.+?)\s*:/;
+				($state{"content_TEMPERATURE"}) = $state{"content"} =~ /\s*:\s*(.+)$/;
+				delete $state{"content"};
+				_state2result(\%state, $arrayref);
+			}
+			elsif ($state{"interesting"} && $token->[0] eq "E" && uc($token->[1]) eq "TABLE") {
+
+				#
+				# The table that has the data is finished - no need to keep parsing
+				#
+				_debug("End of table while we're in table - we're done");
+				last;
+			}
+		}
+
+	}
+
+	if (!@$arrayref) {
+		_debug("No matching places found");
+		return undef;
+	}
+	else {
+		if ($self->{cache_file}) {
+
+			#
+			# Let's save the result into the cache_file before we return it
+			#
+			_debug("Saving results into cache_file $self->{cache_file}");
+
+			$self->{_cache_cache}->{ $self->{place} } = {
+				"time"     => time,
+				"arrayref" => $arrayref,
+			};
+			if (open(FH, ">$self->{cache_file}")) {
+				if (flock(FH, LOCK_EX)) {
+					if (seek(FH, 0, 0)) {
+						print FH $self->{_cache_module};
+						print FH "\n";
+						if ($self->{_cache_module} eq "Data::Dumper") {
+							print FH Data::Dumper::Dumper($self->{_cache_cache});
+						}
+						elsif ($self->{_cache_module} eq "Storable") {
+							print FH Storable::freeze($self->{_cache_cache});
+						}
+						elsif ($self->{_cache_module} eq "FreezeThaw") {
+							print FH FreezeThaw::freeze($self->{_cache_cache});
+						}
+						flock(FH, LOCK_UN);
+						close(FH);
+					}
+					else {
+						_debug("Error: Failed to seek to beginning of cache_file $self->{cache_file}: $!");
+					}
+				}
+				else {
+					_debug("Error: Failed to lock cache_file $self->{cache_file} exclusively: $!");
+				}
+			}
+			else {
+				_debug("Error: Failed to open cache_file $self->{cache_file} for writing: $!");
+			}
+
+		}
+		return $arrayref;
+	}
+
+}
+
+##################################################################################################################################
+#
+# Internal subroutines
+#
+sub _debug {
+	my $notice = shift;
+	$@ = $notice;
+	if ($DEBUG) {
+		print "$MYNAME DEBUG NOTE: $notice\n";
+		return 1;
+	}
+	return 0;
+}
+
+sub _state2result {
+	my $stateref = shift;
+	my $arrayref = shift;
+	my ($temperature_fahrenheit, $temperature_celsius);
+	my ($dewpoint_fahrenheit,    $dewpoint_celsius);
+	my ($visibility_miles,       $visibility_kilometers);
+	my ($wind_direction,         $wind_milesperhour, $wind_kilometersperhour);
+
+	#
+	# Avoid some silly warnings of unitialized values
+	#
+	foreach (qw(content_PLACE content_UPDATED content_TEMPERATURE content_HUMIDITY content_DEW_POINT content_WIND content_PRESSURE content_CONDITIONS content_VISIBILITY content_CLOUDS content_SUNRISE content_SUNSET content_MOON_RISE content_MOON_SET content_MOON_PHASE)) {
+		exists($stateref->{$_}) or ($stateref->{$_} = "");
+	}
+
+	$stateref->{"content_TEMPERATURE"} =~ s/\s//g;
+	# kbaucom - updated temperature regex
+	($temperature_celsius)    = ($stateref->{"content_TEMPERATURE"} =~ /(-?(?:\d|\.)+)(?:&deg;)?[^a-z0-9]*?c/i);
+	($temperature_fahrenheit) = ($stateref->{"content_TEMPERATURE"} =~ /(-?(?:\d|\.)+)(?:&deg;)?[^a-z0-9]*?f/i);
+	if (!length($temperature_celsius) && length($temperature_fahrenheit)) {
+		$temperature_celsius = ($temperature_fahrenheit - 32) / 1.8;
+	}
+	elsif (!length($temperature_fahrenheit) && length($temperature_celsius)) {
+		$temperature_fahrenheit = ($temperature_celsius * 1.8) + 32;
+	}
+
+	$stateref->{"content_DEW_POINT"} =~ s/\s//g;
+	# kbaucom - updated dewpoint regex
+	($dewpoint_celsius)    = ($stateref->{"content_DEW_POINT"} =~ /(-?(?:\d|\.)+)(?:&deg;)?[^a-z0-9]*?c/i);
+	($dewpoint_fahrenheit) = ($stateref->{"content_DEW_POINT"} =~ /(-?(?:\d|\.)+)(?:&deg;)?[^a-z0-9]*?f/i);
+	if (!length($dewpoint_celsius) && length($dewpoint_fahrenheit)) {
+		$dewpoint_celsius = ($dewpoint_fahrenheit - 32) / 1.8;
+	}
+	elsif (!length($dewpoint_fahrenheit) && length($dewpoint_celsius)) {
+		$dewpoint_fahrenheit = ($dewpoint_celsius * 1.8) + 32;
+	}
+
+	$stateref->{"content_VISIBILITY"} =~ s/\s//g;
+	($visibility_miles)      = ($stateref->{"content_VISIBILITY"} =~ /([0-9.]+)[^a-z0-9]*?m/i);
+	($visibility_kilometers) = ($stateref->{"content_VISIBILITY"} =~ /([0-9.]+)[^a-z0-9]*?k/i);
+	if(!defined($visibility_miles) && !defined($visibility_kilometers)) {
+		$visibility_miles = $visibility_kilometers = '';
+	}
+	else {
+		if (!length($visibility_miles) && length($visibility_kilometers)) {
+			$visibility_miles = $visibility_kilometers * 0.621371192;
+		}
+		elsif (!length($visibility_kilometers) && length($visibility_miles)) {
+			$visibility_kilometers = $visibility_miles * 1.609344;
+		}
+	}
+
+	$stateref->{"content_HUMIDITY"} =~ s/[^0-9]//g;
+
+	($wind_direction) = $stateref->{"content_WIND"} =~ /^([a-z -]+?)\s+(at|[0-9])/i;
+	$stateref->{"content_WIND"} =~ s/\s//g;
+	($wind_milesperhour)      = ($stateref->{"content_WIND"} =~ /([0-9.]+)[^a-z0-9]*?mp/i);
+	($wind_kilometersperhour) = ($stateref->{"content_WIND"} =~ /([0-9.]+)[^a-z0-9]*?km/i);
+	if (!length($wind_milesperhour) && length($wind_kilometersperhour)) {
+		$wind_milesperhour = $wind_kilometersperhour * 0.621371192;
+	}
+	elsif (!length($wind_kilometersperhour) && length($wind_milesperhour)) {
+		$wind_kilometersperhour = $wind_milesperhour * 1.609344;
+	}
+
+	push(
+		@$arrayref,
+		{
+			place                  => $stateref->{"content_PLACE"},
+			updated                => $stateref->{"content_UPDATED"},
+			temperature_celsius    => $temperature_celsius,
+			temperature_fahrenheit => $temperature_fahrenheit,
+			celsius                => $temperature_celsius,                # Legacy
+			fahrenheit             => $temperature_fahrenheit,             # Legacy
+			humidity               => $stateref->{"content_HUMIDITY"},
+			dewpoint_celsius       => $dewpoint_celsius,
+			dewpoint_fahrenheit    => $dewpoint_fahrenheit,
+			wind_direction         => $wind_direction,
+			wind_milesperhour      => $wind_milesperhour,
+			wind_kilometersperhour => $wind_kilometersperhour,
+			pressure               => $stateref->{"content_PRESSURE"},
+			conditions             => $stateref->{"content_CONDITIONS"},
+			visibility_miles       => $visibility_miles,
+			visibility_kilometers  => $visibility_kilometers,
+			clouds                 => $stateref->{"content_CLOUDS"},
+			sunrise                => $stateref->{"content_SUNRISE"},
+			sunset                 => $stateref->{"content_SUNSET"},
+			moonrise               => $stateref->{"content_MOON_RISE"},
+			moonset                => $stateref->{"content_MOON_SET"},
+			moonphase              => $stateref->{"content_MOON_PHASE"},
+		}
+	);
+
+}
+
+#
+# Leave me alone:
+#
+1;
+}

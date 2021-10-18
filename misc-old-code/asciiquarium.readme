@@ -1,0 +1,14 @@
+Perl ASCII animation generator from
+https://robobunny.com/projects/asciiquarium/html/
+Asciiquarium v1.1 by Kirk Baucom <kbaucom@schizoid.com>
+GPL licensed
+
+This mostly uses Joan Stark ASCII art to make a random
+screen-saver-like aquarium scene. There's surface life like
+swans, ducks, whales, and dolphins. There's both a fishing
+hook and shark that remove fish before they can swim off
+the side of the screen. There's seaweed that sways gently
+and an undersea castle.
+
+This has been captured to videos/other/asciiquarium.vt
+in case you can't run the perl, but that catpure has glitches.
