@@ -1,0 +1,81 @@
+<body text="#FFFF80" bgcolor="#000000" link="#00FFFF" vlink="#FF00FF" alink="#FF0000" onload="tick()">
+<center> 
+<h1>Veronica goes for a stroll in 3-d! (script cribbed from jgs)</h1>
+
+<script language="JavaScript">
+    var max=0;    
+function tlist(){ max=tlist.arguments.length;
+        for(i=0;i<max;i++) this[i]=tlist.arguments[i];    }    
+tl = new tlist(
+
+
+" \r\n"+
+"[]       |||||            |||||              []\r\n"+
+"[]      ||. .||          ||. .||             []\r\n"+
+"[]     |||\\=/|||        |||\\=/|||            []\r\n"+
+"[]     |.-- --.|        |.-- --.|            []\r\n"+
+"[]     /(.)(.) \\        / (.)(.)\\            []\r\n"+
+"[]     \\ ) . ( /        \\ ) . ( /            []\r\n"+
+"[]     '(  v  )`        '(  v  )`            []\r\n"+
+"[]       \\ | /            \\ | /              []\r\n"+
+"[]       ( | )            ( | )              []\r\n"+
+"[]       '- -`            '- -`   after      []\r",
+
+" \r\n"+
+"[]       \\\\\\\\\\            \\\\\\\\\\              []\r\n"+
+"[]      (\\. .\\\\          (\\. .\\\\             []\r\n"+
+"[]     (\\\\\\=/|\\\\        (\\\\\\=/|\\\\            []\r\n"+
+"[]      .-- --.\\\\        .-- --.\\\\           []\r\n"+
+"[]     (.)(.)\\ \\ \\      /(.)(.) \\ \\          []\r\n"+
+"[]     \\ ) . ( /        \\ ) . ( /            []\r\n"+
+"[]      '(  v  )`        '(  v  )`           []\r\n"+
+"[]        \\ | /            \\ | /             []\r\n"+
+"[]        ( | )            ( | )             []\r\n"+
+"[]        '- -`            '- -` veronica    []\r",
+
+" \r\n"+
+"[]       |||||            |||||              []\r\n"+
+"[]      ||. .||          ||. .||             []\r\n"+
+"[]     |||\\=/|||        |||\\=/|||            []\r\n"+
+"[]     |.-- --.|        |.-- --.|            []\r\n"+
+"[]     /(.)(.) \\        / (.)(.)\\            []\r\n"+
+"[]     \\ ) . ( /        \\ ) . ( /            []\r\n"+
+"[]     '(  v  )`        '(  v  )`            []\r\n"+
+"[]       \\ | /            \\ | /              []\r\n"+
+"[]       ( | )            ( | )              []\r\n"+
+"[]       '- -`            '- -`  karlsson    []\r",
+
+" \r\n"+
+"[]       /////            /////              []\r\n"+
+"[]      //. ./)          //. ./)             []\r\n"+
+"[]     //|\\=/||)        //|\\=///)            []\r\n"+
+"[]    //.-- --.        //.-- --.             []\r\n"+
+"[]   / / (.)(.)\\      / / /(.)(.)            []\r\n"+
+"[]     \\ ) . ( /        \\ ) . ( /            []\r\n"+
+"[]    '(  v  )`        '(  v  )`             []\r\n"+
+"[]      \\ | /            \\ | /               []\r\n"+
+"[]      ( | )            ( | )               []\r\n"+
+"[]      '- -`            '- -`               []\r"
+
+    );    var x=0;    function tick() {        
+document.f.t.value=tl[x];        
+x++; if(x==max) x=0;        //if(confirm('continue?'))            
+setTimeout("tick()",200);    }    //--></script>
+<form name="f"><textarea name="t" rows="12" cols="47">
+</textarea></form>
+<br>
+
+Idea and animation by sgt pinback.
+
+<pre>
+
+
+
+
+
+</pre>
+<small>(to see the 3D-effect you need to view this animation cross-eyed,
+so that the two pictures blend into one)</small>
+
+</body>
+</html>
