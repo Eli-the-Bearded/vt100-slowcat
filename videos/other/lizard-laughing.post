@@ -1,0 +1,422 @@
+From - Tue Jun  3 17:26:54 1997
+Path: news.luth.se!newsfeed.sunet.se!news99.sunet.se!news01.sunet.se!sunic!psinntp!howland.erols.net!ais.net!newsfeed.direct.ca!n1van.istar!n1tor.istar!n2tor.istar!n4tor.istar!news.istar.net!n3tor.istar!news3.idirect.com!lagoon.idirect.com!awenet13.idirect.com
+Newsgroups: alt.ascii-art.animation
+From: cq547@freent.toronto.on.ca (llizard)
+Subject: Re: Im/pertinent Question
+Content-Type: text/plain; charset=us-ascii
+MIME-Version: 1.0
+X-Newsmaster: Laszlo Herczeg (las@idirect.com)
+Content-Transfer-Encoding: 7bit
+Lines: 401
+Organization: via Internetdirect, Canada; zone 5 (or is it 6A?)
+X-Client-Port: 1750
+Message-ID: <33938333.17E3@freent.toronto.on.ca>
+References: <33780922.4D7B@zip.com.au>
+X-Mailer: Mozilla 3.01 (Win95; I)
+X-Nntp-Posting-Host: lagoon.idirect.com
+Date: 3 Jun 97 02:35:59 UTC
+Xref: news.luth.se alt.ascii-art.animation:4187
+
+
+In article <33780922.4D7B@zip.com.au>, John Hollands
+<powercut@zip.com.au> wrote:
+> 
+> Any danger of ON-TOPIC in this group?????
+
+
+"              ha
+"            ha
+"             ha  
+"         /     ha
+"         \,^%--- ha
+"         <   \ ha
+"         <\_
+"         <   
+"         <
+"         < __
+"       ^^ \ /
+"ejm97     /
+
+
+
+"
+"            ha
+"  
+"        \       ha
+"         \,^%---
+"         <   \ ha
+"         <\_
+"         <   
+"         <
+"         </\
+"       ^^|
+"ejm97    /
+
+
+
+"              ha
+"
+"             ha  
+"         /      
+"         \,^%--- ha
+"         <   \
+"         <\_
+"         <   
+"         <
+"         < __
+"       ^^ \ /
+"ejm97     /
+
+
+
+"
+"            ha
+"             / ha
+"            /___ 
+"         .^%
+"        _<
+"       / <\_
+"         <   
+"         <
+"         </\
+"       ^^|
+"ejm97    /
+
+
+
+"      ha
+"          ha
+"         | /
+"         |/ 
+"         %
+"         <__
+"         <\_
+"         <   
+"         <
+"         <_
+"       ^^| \
+"ejm97    /
+
+
+
+"  ha
+"    ha
+"      \ |
+"       \| 
+"        %.
+"        _ )
+"       / <\_
+"         <   
+"         <
+"         <_
+"       ^^| \
+"ejm97    /
+
+
+
+"        ha  ha
+"  ha 
+"    
+"ha   \    | 
+"      \   | /
+"   ----%^')/
+"         <
+"         <   
+"         <
+"         < __
+"       ^^ \ /
+"ejm97     /
+
+
+
+"  ha
+"    ha
+"      \ |
+"       \| 
+"        %.
+"        _ )
+"       / <\_
+"         <   
+"         <
+"         <_
+"       ^^| \
+"ejm97    /
+
+
+
+"      ha
+"          ha
+"         | /
+"         |/ 
+"         %
+"         <__
+"         <\_
+"         <   
+"         <
+"         <_
+"       ^^| \
+"ejm97    /
+
+
+
+"
+"            ha
+"             / ha
+"            /___ 
+"         .^%
+"        _<
+"       / <\_
+"         <   
+"         <
+"         </\
+"       ^^|
+"ejm97    /
+
+
+
+"              ha
+"            ha
+"             ha  
+"         /     ha
+"         \,^%--- ha
+"         <   \ ha
+"         <\_
+"         <   
+"         <
+"         < __
+"       ^^ \ /
+"ejm97     /
+
+"                   ha
+"               ha
+"                 ha  
+"         /     ha
+"         \,^%---   ha
+"         <   \ ha
+"         <\_
+"         <   
+"         <
+"         < __
+"       ^^ \ /
+"ejm97     /
+
+Here is the java scripted version.
+
+<HEAD><TITLE>Oh Boy, I love jokes!</TITLE><HEAD>
+<BODY><center> 
+<H1>good one!  ejm97</H1>
+
+<script language="JavaScript">
+    var max=0;    
+function tlist(){ max=tlist.arguments.length;
+        for(i=0;i<max;i++) this[i]=tlist.arguments[i];    }    
+tl = new tlist(
+
+
+"              ha   \n"+
+"            ha \n"+
+"             ha  \n"+
+"         /     ha\n"+
+"         \\,^%--- ha\n"+
+"         <   \\ ha\n"+
+"         <\\_\n"+
+"         <   \n"+
+"         <\n"+
+"         < __\n"+
+"       ^^ \\ /\n"+
+"ejm97     / ",
+
+
+
+" \n"+
+"            ha\n"+
+"  \n"+
+"        \\       ha\n"+
+"         \\,^%---\n"+
+"         <   \\ ha\n"+
+"         <\\_\n"+
+"         <   \n"+
+"         <\n"+
+"         </\\\n"+
+"       ^^|\n"+
+"ejm97    / ",
+
+
+
+"              ha\n"+
+" \n"+
+"             ha  \n"+
+"         /      \n"+
+"         \\,^%--- ha\n"+
+"         <   \\\n"+
+"         <\\_\n"+
+"         <   \n"+
+"         <\n"+
+"         < __\n"+
+"       ^^ \\ /\n"+
+"ejm97     / ",
+
+
+
+" \n"+
+"            ha\n"+
+"             / ha\n"+
+"            /___ \n"+
+"         .^%\n"+
+"        _<\n"+
+"       / <\\_\n"+
+"         <  \n"+ 
+"         <\n"+
+"         </\\\n"+
+"       ^^|\n"+
+"ejm97    / ",
+
+
+
+"      ha\n"+
+"          ha\n"+
+"         | /\n"+
+"         |/ \n"+
+"         %\n"+
+"         <__\n"+
+"         <\\_\n"+
+"         < \n"+  
+"         <\n"+
+"         <_\n"+
+"       ^^| \\\n"+
+"ejm97    / ",
+
+
+
+"  ha\n"+
+"    ha\n"+
+"      \\ |\n"+
+"       \\| \n"+
+"        %.\n"+
+"        _ )\n"+
+"       / <\\_\n"+
+"         <   \n"+
+"         <\n"+
+"         <_\n"+
+"       ^^| \\\n"+
+"ejm97    / ",
+
+
+
+"        ha  ha\n"+
+"  ha \n"+
+"    \n"+
+"ha   \\    | \n"+
+"      \\   | /\n"+
+"   ----%^')/\n"+
+"         <\n"+
+"         <  \n"+ 
+"         <\n"+
+"         < __\n"+
+"       ^^ \\ /\n"+
+"ejm97     / ",
+
+
+
+"  ha\n"+
+"    ha\n"+
+"      \\ |\n"+
+"       \\| \n"+
+"        %.\n"+
+"        _ )\n"+
+"       / <\\_\n"+
+"         <   \n"+
+"         <\n"+
+"         <_\n"+
+"       ^^| \\\n"+
+"ejm97    / ",
+
+
+
+"      ha\n"+
+"          ha\n"+
+"         | /\n"+
+"         |/ \n"+
+"         %\n"+
+"         <__\n"+
+"         <\\_\n"+
+"         <   \n"+
+"         <\n"+
+"         <_\n"+
+"       ^^| \\\n"+
+"ejm97    / ",
+
+
+
+" \n"+
+"            ha\n"+
+"             / ha\n"+
+"            /___ \n"+
+"         .^%\n"+
+"        _<\n"+
+"       / <\\_\n"+
+"         <  \n"+ 
+"         <\n"+
+"         </\\\n"+
+"       ^^|\n"+
+"ejm97    / ",
+
+"         ha\n"+
+"       ha\n"+
+"          ha  \n"+
+"         /   ha\n"+
+"         \\,^%---\n"+
+"         <   \ ha\n"+
+"         <\\_\n"+
+"         <   \n"+
+"         <\n"+
+"         < __\n"+
+"       ^^ \\ /\n"+
+"ejm97     /",
+
+"              ha\n"+
+"             ha\n"+
+"              ha  \n"+
+"         /      ha\n"+
+"         \\,^%---  ha\n"+
+"         <   \   ha\n"+
+"         <\\_\n"+
+"         <   \n"+
+"         <\n"+
+"         < __\n"+
+"       ^^ \\ /\n"+
+"ejm97     /",
+
+
+"              ha\n"+
+"            ha\n"+
+"             ha  \n"+
+"         /     ha\n"+
+"         \\,^%--- ha\n"+
+"         <   \ ha\n"+
+"         <\\_\n"+
+"         <   \n"+
+"         <\n"+
+"         < __\n"+
+"       ^^ \\ /\n"+
+"ejm97     /"
+
+
+    );    var x=0;    function tick() {        
+document.f.t.value=tl[x];        
+x++; if(x==max) x=0;        //if(confirm('continue?'))            
+setTimeout("tick()",150);    }    //--></script>
+<BODY onload="tick()"><FORM NAME=f><TEXTAREA NAME=t ROWS=12 COLS=20>
+</TEXTAREA></FORM></center></BODY>
+
+
+
+NOTE: If you hit the reply button, add an "e" to the "freent";
+its absense is to stop the torment of automatic mailers.
+--
+                                                 ,^
+             ha                    ^^^^^^^^^^^^^^
+               ha    ---%^           "    "
+                 ha ha /  (oops. I laughed my head off.)  
+             llizard aka ejm     cq547@freenet.toronto.on.ca
+
