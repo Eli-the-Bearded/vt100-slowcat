@@ -1,0 +1,31 @@
+Undated seven frame (with one repeat) animation of a small flying bird
+by Przemyslaw Skoczkowski (PS)
+
+From: Colin Randall <colin.randall2@gmail.com>
+Newsgroups: alt.ascii-art.animation
+Subject: bird-in-flight.vt
+Date: Wed Feb 15 11:03:16 EST 2023
+Message-ID: <tsivo4$2u254$1@dont-email.me>
+
+going thru' some old stuff i found this:
+
+bird-in-flight.vt
+
+as expected the mail agent has stripped the escape sequence chars
+that means each cursor move string 'esc'[1;1H are missing a leading
+escape byte
+
+---8<---- cut here ----8<----
+
+[...]
+
+---8<---- cut here ----8<----
+
+-- 
+     .
+   ._!__  __ __
+     / _\/_ |_ \!_
+    / /    7 / /|
+    \ \_ _/ /  \ .
+     \_//__/|_\_\!_.
+                 |
